@@ -1,0 +1,366 @@
+/* Добавьте эти стили в конец вашего файла style.css */
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(139, 69, 19, 0.1) 100%);
+    border-left: 4px solid #d4af37;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.highlight-box h4 {
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Culture Features */
+.culture-features {
+    margin-top: 4rem;
+}
+
+.culture-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.culture-feature-image {
+    height: 350px;
+}
+
+.culture-feature-text {
+    padding: 2rem;
+}
+
+.culture-feature-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #f5f5f5;
+}
+
+.culture-feature-text p {
+    margin-bottom: 1rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Additional Places */
+.places-additional {
+    margin-top: 4rem;
+}
+
+.places-additional h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f5f5f5;
+    font-size: 1.8rem;
+}
+
+.additional-places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.additional-place {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.additional-place:hover {
+    transform: translateY(-3px);
+    border-color: #d4af37;
+}
+
+.additional-place h4 {
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.additional-place p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Travel Tips */
+.travel-tips {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(139, 69, 19, 0.1) 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-left: 4px solid #d4af37;
+}
+
+.travel-tips h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.travel-tips ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.travel-tips li {
+    padding: 0.5rem 0;
+    color: #b0b0b0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.travel-tips li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* Map Section */
+.map-section {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2a 100%);
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+#serbia-map {
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.map-legend {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: fit-content;
+}
+
+.map-legend h4 {
+    color: #f5f5f5;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.map-legend ul {
+    list-style: none;
+    padding: 0;
+}
+
+.map-legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid white;
+}
+
+.legend-color.capital { background: #ff0000; }
+.legend-color.major { background: #3388ff; }
+.legend-color.cultural { background: #ffaa00; }
+.legend-color.nature { background: #00aa00; }
+
+.map-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.map-info-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-info-card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.map-info-card h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.map-info-card p {
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Food Additional */
+.food-additional {
+    margin-top: 3rem;
+}
+
+.food-additional h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f5f5f5;
+    font-size: 1.8rem;
+}
+
+.additional-food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.additional-food {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.additional-food:hover {
+    transform: translateY(-3px);
+    border-color: #d4af37;
+}
+
+.additional-food h4 {
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.additional-food p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Travel Info */
+.travel-info {
+    margin-top: 4rem;
+}
+
+.travel-info h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f5f5f5;
+    font-size: 1.8rem;
+}
+
+.travel-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.travel-info-item {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.travel-info-item:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.travel-info-item h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.travel-info-item p {
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Map Popup */
+.map-popup h3 {
+    margin: 0 0 5px 0;
+    color: #0a0a0a;
+    font-size: 1.1rem;
+}
+
+.map-popup p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Анимации для карты */
+.custom-marker {
+    animation: markerPulse 2s infinite;
+}
+
+@keyframes markerPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .culture-feature {
+        grid-template-columns: 1fr;
+    }
+    
+    .culture-feature-image {
+        height: 250px;
+    }
+    
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+    
+    #serbia-map {
+        height: 400px;
+    }
+    
+    .additional-places-grid,
+    .additional-food-grid,
+    .travel-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
