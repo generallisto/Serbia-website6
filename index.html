@@ -1,185 +1,116 @@
-<!-- ===================== EXTRA BLOCK: Serbia Extended Info ===================== -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сербия - Жемчужина Балкан</title>
 
-<!-- History Section -->
-<section id="history" class="history section-transition">
-    <div class="container">
-        <h2 class="section-title fade-in">Краткая история Сербии</h2>
-        <p class="section-subtitle fade-in">Главные события, сформировавшие страну</p>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-        <div class="timeline">
-            <div class="timeline-item fade-in">
-                <h3>VII век</h3>
-                <p>Славянские племена основывают первые сербские княжества.</p>
-            </div>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-            <div class="timeline-item fade-in">
-                <h3>XII–XIV века</h3>
-                <p>Династия Неманичей. Сербия становится сильным православным королевством Европы.</p>
-            </div>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-            <div class="timeline-item fade-in">
-                <h3>1389 — Битва на Косовом поле</h3>
-                <p>Знаковое событие в сербской культуре — символ сопротивления и идентичности.</p>
-            </div>
+    <!-- Side Navigation -->
+    <div class="side-nav">
+        <div class="nav-dot active" data-section="about"></div>
+        <div class="nav-dot" data-section="culture"></div>
+        <div class="nav-dot" data-section="places"></div>
+        <div class="nav-dot" data-section="bajina-basta"></div>
+        <div class="nav-dot" data-section="food"></div>
+        <div class="nav-dot" data-section="facts"></div>
+    </div>
 
-            <div class="timeline-item fade-in">
-                <h3>1804–1835</h3>
-                <p>Сербские восстания, окончательный выход из Османской империи, создание государства.</p>
-            </div>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo gold-glow">🇷🇸 Сербия</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="hover-underline">О стране</a></li>
+                <li><a href="#culture" class="hover-underline">Культура</a></li>
+                <li><a href="#places" class="hover-underline">Достопримечательности</a></li>
+                <li><a href="#bajina-basta" class="hover-underline">Байина Башта</a></li>
+                <li><a href="#food" class="hover-underline">Кухня</a></li>
+                <li><a href="#facts" class="hover-underline">Факты</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="timeline-item fade-in">
-                <h3>1918–2006</h3>
-                <p>Эпоха Югославии, затем становление самостоятельной Республики Сербии.</p>
+    <!-- Hero Section -->
+    <section class="hero active">
+        <div class="container">
+            <div class="hero-content fade-up visible">
+                <h1 class="gold-glow">Сербия</h1>
+                <p>Жемчужина Балканского полуострова с богатой историей и гостеприимными людьми</p>
+                <a href="#about" class="cta-button btn-premium">
+                    <i class="fas fa-compass"></i>
+                    Исследовать Сербию
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-<!-- Nature Section -->
-<section id="nature" class="nature section-transition">
-    <div class="container">
-        <h2 class="section-title fade-in">Природа и национальные парки</h2>
-        <p class="section-subtitle fade-in">Сербия — страна с удивительным биоразнообразием</p>
-
-        <div class="nature-grid">
-            <div class="nature-card fade-in">
-                <img src="images/kopaonik.jpg" class="responsive-image" alt="Копаоник">
-                <h3>Копаоник</h3>
-                <p>Главный горнолыжный центр. Здесь 200 солнечных дней в году и огромное количество маршрутов.</p>
-            </div>
-            <div class="nature-card fade-in">
-                <img src="images/djerdap.jpg" class="responsive-image" alt="Джердап">
-                <h3>Джердап</h3>
-                <p>Ущелье Железные Ворота — крупнейшее на Дунае. Здесь находится древнейшая цивилизация Лепенски Вир.</p>
-            </div>
-            <div class="nature-card fade-in">
-                <img src="images/fruska-gora.jpg" class="responsive-image" alt="Фрушка Гора">
-                <h3>Фрушка Гора</h3>
-                <p>Национальный парк, известный своими 16 православными монастырями и мягким климатом.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Transport Section -->
-<section id="transport" class="transport section-transition">
-    <div class="container">
-        <h2 class="section-title fade-in">Транспорт и путешествия</h2>
-        <p class="section-subtitle fade-in">Как удобно перемещаться по Сербии</p>
-
-        <div class="transport-grid">
-            <div class="transport-card fade-in">
-                <i class="fas fa-bus"></i>
-                <h3>Автобусы</h3>
-                <p>Самый доступный способ передвижения. Ходят часто между всеми городами.</p>
-                <div class="price">600–1500 RSD</div>
-            </div>
-
-            <div class="transport-card fade-in">
-                <i class="fas fa-train"></i>
-                <h3>Поезда</h3>
-                <p>Сербия активно обновляет железные дороги. Маршрут Белград–Нови-Сад — скоростной 200 км/ч.</p>
-                <div class="price">400–900 RSD</div>
-            </div>
-
-            <div class="transport-card fade-in">
-                <i class="fas fa-car"></i>
-                <h3>Аренда авто</h3>
-                <p>Идеально для горных регионов и национальных парков. Дороги хорошие и спокойные.</p>
-                <div class="price">От 25–30€</div>
-            </div>
-
-            <div class="transport-card fade-in">
-                <i class="fas fa-plane-departure"></i>
-                <h3>Аэропорты</h3>
-                <p>Главный: <strong>Белград — Никола Тесла</strong>. Второй: <strong>Ниш — Константин Великий</strong>.</p>
+    <!-- About Section -->
+    <section id="about" class="about section-transition">
+        <div class="container">
+            <h2 class="section-title fade-up">О Сербии</h2>
+            <p class="section-subtitle fade-up">Узнайте о стране, где встречаются Восток и Запад</p>
+            <div class="about-content">
+                <div class="about-text fade-up">
+                    <p>Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
+                    <p><strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная.</p>
+                    <p><strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Копаоник, Тара, Златибор.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card card-3d fade-up">
+                            <div class="stat-number">8.7M</div>
+                            <div class="stat-label">Население</div>
+                        </div>
+                        <div class="stat-card card-3d fade-up">
+                            <div class="stat-number">88K км²</div>
+                            <div class="stat-label">Территория</div>
+                        </div>
+                        <div class="stat-card card-3d fade-up">
+                            <div class="stat-number">1150+</div>
+                            <div class="stat-label">Лет истории</div>
+                        </div>
+                        <div class="stat-card card-3d fade-up">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Объектов ЮНЕСКО</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-up">
+                    <img src="images/serbia.jpg" alt="Сербия - Белград" class="responsive-image card-3d">
+                    <div class="image-caption">Белград - столица Сербии</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Остальные секции (culture, places, food, facts, bajina-basta) оставляем аналогично -->
+    <!-- Можно просто скопировать твой текущий HTML и добавить классы fade-up, card-3d и gold-glow к заголовкам и карточкам -->
 
-<!-- Tips Section -->
-<section id="tips" class="tips section-transition">
-    <div class="container">
-        <h2 class="section-title fade-in">Советы путешественнику</h2>
-        <p class="section-subtitle fade-in">Полезная информация для комфортной поездки</p>
-
-        <div class="tips-grid">
-            <div class="tip-card fade-in">
-                <i class="fas fa-language"></i>
-                <h3>Язык</h3>
-                <p>Сербский язык использует латиницу и кириллицу. 80% молодёжи говорит по-английски.</p>
-            </div>
-
-            <div class="tip-card fade-in">
-                <i class="fas fa-heart"></i>
-                <h3>Менталитет</h3>
-                <p>Сербы невероятно гостеприимны, любят помогать туристам, уважительно относятся к иностранцам.</p>
-            </div>
-
-            <div class="tip-card fade-in">
-                <i class="fas fa-wallet"></i>
-                <h3>Деньги</h3>
-                <p>Карты принимают почти везде. Наличные нужны только в маленьких поселках и рынках.</p>
-            </div>
-
-            <div class="tip-card fade-in">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Безопасность</h3>
-                <p>Одна из самых безопасных стран Европы. Низкий уровень преступности и дружелюбная атмосфера.</p>
-            </div>
-
-            <div class="tip-card fade-in">
-                <i class="fas fa-cloud-sun"></i>
-                <h3>Климат</h3>
-                <p>Тёплое лето, мягкая зима. Лучшее время для путешествий — апрель–октябрь.</p>
-            </div>
-
-            <div class="tip-card fade-in">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>Интернет</h3>
-                <p>4G есть везде, Wi-Fi в кафе и отелях бесплатный и быстрый.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-title gold-glow">Сербия</div>
+                <div class="footer-subtitle">Страна с богатой историей и большим сердцем <span class="pulse">🇷🇸</span></div>
+                <p style="color:#d4af37;">Слава Сербии! Živela Srbija!</p>
+                <div class="credits">
+                    <p><strong>Личный проект Generallisto</strong> - создано с любовью к Сербии и её культуре</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-
-<!-- Serbian People Section -->
-<section id="people" class="people section-transition">
-    <div class="container">
-        <h2 class="section-title fade-in">Сербский народ</h2>
-        <p class="section-subtitle fade-in">Что делает сербов уникальными</p>
-
-        <div class="people-grid">
-            <div class="people-card fade-in">
-                <i class="fas fa-hands-helping"></i>
-                <h3>Гостеприимство</h3>
-                <p>У сербов есть выражение: «Гость — это Бог в доме». Вас всегда накормят и помогут.</p>
-            </div>
-
-            <div class="people-card fade-in">
-                <i class="fas fa-music"></i>
-                <h3>Любовь к музыке</h3>
-                <p>От народных коло до трубачей — музыка всегда часть праздника.</p>
-            </div>
-
-            <div class="people-card fade-in">
-                <i class="fas fa-fire"></i>
-                <h3>Семейные традиции</h3>
-                <p>Каждая семья отмечает «Славу» — уникальный сербский религиозно-семейный праздник.</p>
-            </div>
-
-            <div class="people-card fade-in">
-                <i class="fas fa-drum"></i>
-                <h3>Фестивальная культура</h3>
-                <p>EXIT — один из лучших фестивалей мира. Гуча — легендарный фестиваль трубачей.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===================== END EXTRA BLOCK ===================== -->
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
