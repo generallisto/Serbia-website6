@@ -44,7 +44,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Анимация для эмодзи */
         .emoji-gold {
             display: inline-block;
             background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 50%, var(--dark-gold) 100%);
@@ -67,7 +66,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
@@ -124,7 +122,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -209,7 +206,6 @@
             100% { transform: scale(1); }
         }
 
-        /* Закругленные окна для контента */
         .rounded-window {
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(42, 42, 42, 0.9) 100%);
             border-radius: 24px;
@@ -282,7 +278,6 @@
             font-weight: 300;
         }
 
-        /* Сетки для контента */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -353,7 +348,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Информация о ценах */
         .price-info {
             background: rgba(10, 10, 10, 0.6);
             padding: 1.2rem;
@@ -388,7 +382,6 @@
             font-size: 0.9rem;
         }
 
-        /* Статистика */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -424,7 +417,6 @@
             color: var(--text-gray);
         }
 
-        /* Анимации появления */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -441,7 +433,6 @@
             50% { transform: translateY(-10px) rotate(180deg); }
         }
 
-        /* Footer */
         footer {
             background: var(--dark-bg);
             padding: 4rem 0 2rem;
@@ -478,7 +469,44 @@
             font-size: 0.9rem;
         }
 
-        /* Адаптивность */
+        .tips-container {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(42, 30, 30, 0.9) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .tips-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .tips-list {
+            list-style: none;
+            color: var(--text-gray);
+        }
+
+        .tips-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -540,12 +568,30 @@
             <h2 class="section-title gold-gradient">О Сербии <span class="emoji-gold">🏰</span></h2>
             <p class="section-subtitle">Узнайте о стране, где встречаются Восток и Запад</p>
             
-            <div class="about-text">
-                <p>Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://example.com/belgrad.jpg" alt="Белград" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Белград <span class="emoji-gold">🏛️</span></h3>
+                        <p class="card-text">Столица Сербии, один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
+                    </div>
+                </div>
                 
-                <p><strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Это город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
+                <div class="content-card">
+                    <img src="https://example.com/1678727835_1zoom-club-p-krasota-vostochnoi-serbii-92.jpg" alt="Природа Сербии" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Природа Сербии <span class="emoji-gold">🌲</span></h3>
+                        <p class="card-text">Почти 70% территории Сербии — холмы и горы. Самые известные хребты: Копаоник (зимний спортивный центр), Тара (национальный парк) и Златибор (популярный курорт).</p>
+                    </div>
+                </div>
                 
-                <p><strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Самые известные хребты: <strong>Копаоник</strong> (зимний спортивный центр), <strong>Тара</strong> (национальный парк с девственными лесами) и <strong>Златибор</strong> (популярный курорт с целебным воздухом).</p>
+                <div class="content-card">
+                    <img src="https://example.com/serbiya.jpg" alt="Сербские люди" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Сербский народ <span class="emoji-gold">👥</span></h3>
+                        <p class="card-text">Сербы составляют 83% населения. Высокий уровень гостеприимства и радушия. Традиционные костюмы сохраняются в народных праздниках и фестивалях.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="stats-grid">
@@ -577,7 +623,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сербские танцы" class="card-image">
+                    <img src="https://example.com/1200px-Ansambl_KOLO.jpg" alt="Коло" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Коло <span class="emoji-gold">💃</span></h3>
                         <p class="card-text">Традиционный круговой танец, символ единства и веселья на всех праздниках. Каждый регион имеет свои уникальные стили и костюмы.</p>
@@ -585,18 +631,34 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сербская музыка" class="card-image">
+                    <img src="https://example.com/1111.jpg" alt="Гусляр" class="card-image">
                     <div class="card-content">
-                        <h3 class="card-title">Музыка <span class="emoji-gold">🎵</span></h3>
-                        <p class="card-text">Турбо-фолк и традиционные народные песни создают уникальный музыкальный ландшафт Сербии. От эпических гуслярских баллад до современной поп-музыки.</p>
+                        <h3 class="card-title">Гусляр <span class="emoji-gold">🎵</span></h3>
+                        <p class="card-text">Традиционные народные песни и эпические баллады под аккомпанемент гуслей создают уникальный музыкальный ландшафт Сербии.</p>
                     </div>
                 </div>
                 
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сербские фестивали" class="card-image">
+                    <img src="https://example.com/112.jpg" alt="Фестиваль" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Фестивали <span class="emoji-gold">🎪</span></h3>
                         <p class="card-text">EXIT Festival в Нови-Саде — один из лучших европейских музыкальных фестивалей. Также популярны Гусие (трубаческий фестиваль) и BELGRADE BEER FEST.</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/SYLLEITOYRGO2_1.jpg" alt="Церковь" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Православие <span class="emoji-gold">⛪</span></h3>
+                        <p class="card-text">Сербская Православная Церковь играет ключевую роль в жизни общества. Монастыри с уникальными фресками — культурное наследие ЮНЕСКО.</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/40437d6s-1920.jpg" alt="Музей Победы" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Музей Победы <span class="emoji-gold">🏛️</span></h3>
+                        <p class="card-text">Мемориальный комплекс, посвященный истории Сербии и борьбе за свободу. Важный культурный и образовательный центр.</p>
                     </div>
                 </div>
             </div>
@@ -611,7 +673,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1590077428596-f7fce0d95dc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Белградская крепость" class="card-image">
+                    <img src="https://example.com/baner3.jpg" alt="Белградская крепость" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Белградская крепость <span class="emoji-gold">🏰</span></h3>
                         <p class="card-text">Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев.</p>
@@ -625,7 +687,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1590418606746-018840f9cd0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Национальный парк Тара" class="card-image">
+                    <img src="https://example.com/Biseri_Tare_02.jpg" alt="Национальный парк Тара" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Национальный парк Тара <span class="emoji-gold">🌲</span></h3>
                         <p class="card-text">Заповедник с уникальной флорой и фауной, включая серн и медведей. Идеальное место для треккинга и наслаждения природой.</p>
@@ -639,7 +701,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1593696141496-67e0540f93cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Дьявольский город" class="card-image">
+                    <img src="https://example.com/djavolja-varos-2012-07-15-01-1-scaled.jpg" alt="Дьявольский город" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Дьявольский город <span class="emoji-gold">👹</span></h3>
                         <p class="card-text">Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование.</p>
@@ -647,6 +709,76 @@
                             <div class="price-item">
                                 <span class="price-label">Вход:</span>
                                 <span class="price-currency">~300 RSD / 2.5€ / 250₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/St-Sava.jpg" alt="Храм Святого Саввы" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Храм Святого Саввы <span class="emoji-gold">⛪</span></h3>
+                        <p class="card-text">Крупнейший православный храм на Балканах и один из крупнейших в мире. Построен на месте сожжения мощей Святого Саввы.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Вход:</span>
+                                <span class="price-currency">Бесплатный</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/scale_1200.jpg" alt="Монастырь Студеница" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Монастырь Студеница <span class="emoji-gold">🕌</span></h3>
+                        <p class="card-text">Духовный центр сербского православия, основанный в XII веке. Объект Всемирного наследия ЮНЕСКО с уникальными фресками.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Вход:</span>
+                                <span class="price-currency">Пожертвование</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/dsd.jpg" alt="Петроварадинская крепость" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Петроварадинская крепость <span class="emoji-gold">🏯</span></h3>
+                        <p class="card-text">"Гибралтар на Дунае" - одна из крупнейших крепостей в Европе. Известна своими подземными ходами общей длиной 16 км.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Вход:</span>
+                                <span class="price-currency">~200 RSD / 1.7€ / 170₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/Kopaonik_ski_staza_-_panoramio.jpg" alt="Копаоник" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Копаоник <span class="emoji-gold">⛷️</span></h3>
+                        <p class="card-text">Крупнейший горнолыжный курорт Сербии с современной инфраструктурой. Летом популярен для пеших походов и велотуризма.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Ски-пасс (день):</span>
+                                <span class="price-currency">~2500 RSD / 21€ / 2100₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/dji-0159-pano.jpg" alt="Златибор" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Златибор <span class="emoji-gold">🏞️</span></h3>
+                        <p class="card-text">Популярный курорт с целебным воздухом. Известен своими сосновыми лесами и традиционной деревянной архитектурой.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Проживание (ночь):</span>
+                                <span class="price-currency">от 3000 RSD / 25€ / 2500₽</span>
                             </div>
                         </div>
                     </div>
@@ -663,7 +795,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Плескавица" class="card-image">
+                    <img src="https://example.com/4aab9496c756abd9837c8258ffc61d42.jpg" alt="Плескавица" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Pljeskavica <span class="emoji-gold">🍔</span></h3>
                         <p class="card-text">Гигантская котлета-бургер с разнообразными начинками и соусами. "Лепенья" (лепешка) вместо булки обязательна! Подается с луком, каймаком и уткой.</p>
@@ -681,7 +813,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Чевапы" class="card-image">
+                    <img src="https://example.com/35c57dc06133e89f526aa3231a158c5b.jpg" alt="Чевапы" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Ćevapi <span class="emoji-gold">🌭</span></h3>
                         <p class="card-text">Мясные колбаски с луком и лепешкой "сомун" - национальное блюдо номер один. Подается с каймаком и уткой. Обычно 5-10 штук в порции.</p>
@@ -699,7 +831,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Айвар" class="card-image">
+                    <img src="https://example.com/aivar.jpg" alt="Айвар" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Ajvar <span class="emoji-gold">🫑</span></h3>
                         <p class="card-text">Икра из запеченных перцев — любимая национальная закуска к любому блюду. Бывает острая и сладкая. Домашний айвар ценится выше магазинного.</p>
@@ -715,6 +847,185 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/Sarma.jpg" alt="Сарма" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Сарма <span class="emoji-gold">🥬</span></h3>
+                        <p class="card-text">Голубцы из кислой капусты или виноградных листьев с мясной начинкой. Традиционное блюдо для праздников и семейных обедов.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Ресторан:</span>
+                                <span class="price-currency">450-650 RSD / 4-5.5€ / 380-550₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/Gibanica-Serbian-Pie-Queen.jpg" alt="Гибаница" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Гибаница <span class="emoji-gold">🥧</span></h3>
+                        <p class="card-text">Слоеный пирог с сыром и яйцами - популярный завтрак и перекус. Идеально сочетается с йогуртом или кефиром.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Пекарня (кусок):</span>
+                                <span class="price-currency">150-250 RSD / 1.3-2€ / 125-200₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/139.jpg" alt="Ракия" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Ракия <span class="emoji-gold">🥃</span></h3>
+                        <p class="card-text">Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая (вишња) и сливовая (шљивовица) — самые популярные.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Бар (50ml):</span>
+                                <span class="price-currency">150-300 RSD / 1.3-2.5€ / 130-250₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Магазин (0.5L):</span>
+                                <span class="price-currency">500-1200 RSD / 4-10€ / 420-1000₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/Z2F0q9pFBPCVXzrALahw.jpg" alt="Каймак" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Каймак <span class="emoji-gold">🧀</span></h3>
+                        <p class="card-text">Традиционный молочный продукт, нечто среднее между сливками и сливочным маслом. Подается к мясу, лепешкам и как самостоятельная закуска.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Магазин (200г):</span>
+                                <span class="price-currency">300-500 RSD / 2.5-4€ / 250-420₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <img src="https://example.com/Pro-a-1-optimized.jpg" alt="Проя" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Проя <span class="emoji-gold">🌽</span></h3>
+                        <p class="card-text">Кукурузный хлеб - популярный гарнир к мясным блюдам. Часто готовится с добавлением сыра, лука или перца.</p>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Ресторан:</span>
+                                <span class="price-currency">200-350 RSD / 1.7-3€ / 170-300₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section id="prices" class="container">
+        <div class="rounded-window fade-in">
+            <h2 class="section-title gold-gradient">Цены в Сербии <span class="emoji-gold">💰</span></h2>
+            <p class="section-subtitle">Что нужно знать о ценах для комфортного путешествия</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-content">
+                        <h3 class="card-title">Продукты в супермаркете <span class="emoji-gold">🛒</span></h3>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Хлеб (буханка):</span>
+                                <span class="price-currency">80-120 RSD / 0.7-1€ / 70-100₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Молоко (1л):</span>
+                                <span class="price-currency">120-180 RSD / 1-1.5€ / 100-150₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Яйца (10 шт):</span>
+                                <span class="price-currency">180-250 RSD / 1.5-2€ / 150-200₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Сыр (1кг):</span>
+                                <span class="price-currency">800-1200 RSD / 7-10€ / 700-1000₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Вода (1.5л):</span>
+                                <span class="price-currency">50-80 RSD / 0.4-0.7€ / 40-70₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-content">
+                        <h3 class="card-title">Транспорт и проживание <span class="emoji-gold">🚗🏨</span></h3>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Общественный транспорт:</span>
+                                <span class="price-currency">90 RSD / 0.8€ / 75₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Такси (посадка):</span>
+                                <span class="price-currency">150 RSD / 1.3€ / 125₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Бензин (1л):</span>
+                                <span class="price-currency">180 RSD / 1.5€ / 150₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Хостел (ночь):</span>
+                                <span class="price-currency">1500-2500 RSD / 13-21€ / 1250-2100₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Отель 3* (ночь):</span>
+                                <span class="price-currency">4000-7000 RSD / 34-60€ / 3400-5900₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-content">
+                        <h3 class="card-title">Развлечения и прочее <span class="emoji-gold">🎭</span></h3>
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Кинотеатр:</span>
+                                <span class="price-currency">500-800 RSD / 4-7€ / 400-600₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Музей:</span>
+                                <span class="price-currency">300-600 RSD / 2.5-5€ / 250-500₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Кофе в кафе:</span>
+                                <span class="price-currency">150-250 RSD / 1.3-2€ / 125-200₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Пиво в баре (0.5л):</span>
+                                <span class="price-currency">200-350 RSD / 1.7-3€ / 170-300₽</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Обед в ресторане:</span>
+                                <span class="price-currency">1000-1500 RSD / 8-13€ / 850-1250₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tips-container">
+                <h3 class="tips-title">💡 Советы по экономии:</h3>
+                <ul class="tips-list">
+                    <li>Покупайте продукты на местных рынках - цены ниже супермаркетов на 20-30%</li>
+                    <li>Используйте общественный транспорт - он дешевый и эффективный в городах</li>
+                    <li>Ешьте в "кафанах" (местных тавернах) - аутентичная еда по низким ценам</li>
+                    <li>Покупайте сувениры не в туристических местах, а в обычных магазинах</li>
+                    <li>Путешествуйте в межсезонье (апрель-май, сентябрь-октябрь) - цены ниже</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -722,7 +1033,7 @@
     <!-- Facts Section -->
     <section id="facts" class="container">
         <div class="rounded-window fade-in">
-            <h2 class="section-title gold-gradient">Факты и экономика <span class="emoji-gold">📊</span></h2>
+            <h2 class="section-title gold-gradient">Факты о Сербии <span class="emoji-gold">📊</span></h2>
             <p class="section-subtitle">Ключевая информация о стране для путешественников</p>
             
             <div class="content-grid">
@@ -790,7 +1101,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Анимация появления элементов при скролле
             const fadeElements = document.querySelectorAll('.fade-in');
             
             const observer = new IntersectionObserver((entries) => {
@@ -805,7 +1115,6 @@
                 observer.observe(element);
             });
             
-            // Плавная прокрутка для навигационных ссылок
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
