@@ -15,80 +15,97 @@
         }
 
         :root {
-            --gold-1: #B8860B;
-            --gold-2: #D4AF37;
-            --gold-3: #FFD700;
-            --dark-bg: #0a0a0a;
-            --dark-card: #1a1a1a;
-            --dark-border: #333333;
-            --text: #ffffff;
-            --text-light: #cccccc;
-            --border-radius: 12px;
-            --shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
-            --shadow-hover: 0 8px 30px rgba(212, 175, 55, 0.2);
-            --transition: all 0.3s ease;
+            --bg-gradient: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 50%, #666666 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(255, 215, 0, 0.3);
+            --text: #2c2c2c;
+            --text-light: #666666;
+            --accent: #FFD700;
+            --accent-dark: #B8860B;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 12px 40px rgba(255, 215, 0, 0.2);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text);
-            background: var(--dark-bg);
-            overflow-x: hidden;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
             min-height: 100vh;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* Header */
         header {
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow);
-            border-bottom: 1px solid var(--gold-2);
+            border-bottom: 2px solid var(--accent);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gold-2);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text);
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-            font-size: 0.9rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
         }
 
         .nav-links a:hover {
-            background: var(--gold-2);
-            color: var(--dark-bg);
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
 
         /* Hero Section */
@@ -96,171 +113,308 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(10,10,10,0.9), rgba(26,26,26,0.9));
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(44, 44, 44, 0.7)), url('images/belgrad.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: left;
-            max-width: 600px;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold-2);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-            line-height: 1.6;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--gold-2);
-            color: var(--dark-bg);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            gap: 1rem;
+            background: var(--accent);
+            color: var(--text);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
-            border: none;
-            font-size: 0.9rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            background: var(--gold-3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
         }
 
         /* Sections */
         section {
-            padding: 60px 0;
+            padding: 100px 0;
         }
 
         .section-card {
-            background: var(--dark-card);
+            background: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: 2rem;
+            padding: 4rem;
             box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            border: 1px solid var(--dark-border);
+            margin-bottom: 3rem;
+            border: 2px solid var(--card-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--gold-2);
-            text-align: left;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            border-radius: 2px;
         }
 
         .section-subtitle {
+            text-align: center;
             color: var(--text-light);
-            margin-bottom: 2rem;
-            font-size: 1rem;
-            text-align: left;
-            line-height: 1.5;
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
         /* Grid Systems */
         .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Image Styles */
+        .responsive-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .responsive-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .image-caption {
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 1rem;
+            font-style: italic;
+            font-size: 0.9rem;
         }
 
         /* Info Cards */
         .info-card {
-            background: var(--dark-card);
-            padding: 1.5rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
-            border: 1px solid var(--dark-border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--card-border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
             transition: var(--transition);
         }
 
+        .info-card:hover::before {
+            left: 100%;
+        }
+
         .info-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-2);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
         .info-card i {
-            font-size: 2rem;
-            color: var(--gold-2);
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .info-card:hover i {
+            transform: scale(1.2);
+            animation: bounce 1s ease infinite;
         }
 
         .info-card h3 {
-            color: var(--gold-2);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            color: var(--accent-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
         }
 
         .info-card p {
             color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
         }
 
         .stat-card {
-            background: var(--dark-card);
-            padding: 1.5rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
             text-align: center;
-            border: 1px solid var(--dark-border);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
         .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold-2);
-            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            animation: countUp 2s ease-out;
         }
 
         .stat-label {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 1.2rem;
         }
 
         /* Price Cards */
         .price-card {
-            background: var(--dark-card);
-            padding: 1.5rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
-            border: 1px solid var(--dark-border);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+            position: relative;
         }
 
-        .price-items {
-            margin-top: 1rem;
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--dark-border);
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255,215,0,0.2);
+            transition: var(--transition);
+        }
+
+        .price-item:hover {
+            background: rgba(255,215,0,0.05);
+            border-radius: 8px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .price-item:last-child {
@@ -272,176 +426,98 @@
         }
 
         .price-main {
-            font-weight: 600;
-            color: var(--gold-2);
-            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            font-size: 1.2rem;
         }
 
         .price-conversion {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-light);
         }
 
-        /* Currency Converter */
-        .currency-converter {
-            background: var(--gold-2);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-
-        .currency-converter h3 {
-            color: var(--dark-bg);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .converter-inputs {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .converter-inputs > div {
-            background: var(--dark-bg);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-weight: 600;
-            color: var(--gold-2);
-            font-size: 0.9rem;
-        }
-
-        /* Map */
-        #map {
-            height: 400px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            border: 1px solid var(--gold-2);
-        }
-
-        /* Gallery */
+        /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .gallery-item {
-            background: var(--dark-card);
+            background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
-            border: 1px solid var(--dark-border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--card-border);
         }
 
-        .gallery-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(45deg, var(--gold-2), var(--gold-3));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark-bg);
-            font-weight: 600;
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
         .gallery-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .gallery-content h3 {
-            color: var(--gold-2);
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
         .gallery-content p {
             color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            color: var(--text);
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid var(--gold-2);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--gold-2);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
             }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .section-card {
-                padding: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            #map {
-                height: 300px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
             }
-
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-card {
-                padding: 1rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .converter-inputs {
-                flex-direction: column;
-                align-items: center;
+            50% {
+                transform: translateY(-10px);
             }
         }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        /* Continue with the rest of the CSS... */
     </style>
 </head>
 <body>
@@ -451,11 +527,11 @@
             <div class="logo">🇷🇸 Сербия</div>
             <ul class="nav-links">
                 <li><a href="#about">О стране</a></li>
+                <li><a href="#culture">Культура</a></li>
+                <li><a href="#food">Кухня</a></li>
+                <li><a href="#places">Достопримечательности</a></li>
                 <li><a href="#prices">Цены</a></li>
-                <li><a href="#living">Жизнь</a></li>
-                <li><a href="#map-section">Карта</a></li>
-                <li><a href="#gallery">Достопримечательности</a></li>
-                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#map">Карта</a></li>
             </ul>
         </nav>
     </header>
@@ -468,7 +544,7 @@
                 <p>Жемчужина Балканского полуострова с богатой историей и гостеприимными людьми</p>
                 <a href="#about" class="cta-button">
                     <i class="fas fa-compass"></i>
-                    Узнать больше
+                    Исследовать Сербию
                 </a>
             </div>
         </div>
@@ -476,22 +552,29 @@
 
     <!-- About Section -->
     <section id="about" class="container">
-        <div class="section-card">
+        <div class="section-card fade-in">
             <h2 class="section-title">О Сербии</h2>
-            <p class="section-subtitle">Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
+            <p class="section-subtitle">Узнайте о стране, где встречаются Восток и Запад, создавая уникальную атмосферу гостеприимства и радушия</p>
             
-            <p class="section-subtitle"><strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Это город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
-            
-            <p class="section-subtitle"><strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Самые известные хребты: Копаоник (зимний спортивный центр), Тара (национальный парк с девственными лесами) и Златибор (популярный курорт с целебным воздухом).</p>
-            
+            <div class="grid-2">
+                <div>
+                    <img src="images/belgrad.jpg" alt="Белград" class="responsive-image">
+                    <div class="image-caption">Белград - столица Сербии на слиянии Дуная и Савы</div>
+                </div>
+                <div>
+                    <img src="images/1678727835_1zoom-club-p-krasota-vostochnoi-serbii-92.jpg" alt="Природа Сербии" class="responsive-image">
+                    <div class="image-caption">Живописная природа восточной Сербии</div>
+                </div>
+            </div>
+
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">8.7M</div>
                     <div class="stat-label">Население</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">88K км²</div>
-                    <div class="stat-label">Территория</div>
+                    <div class="stat-number">88K</div>
+                    <div class="stat-label">км² Территория</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">1150+</div>
@@ -502,22 +585,228 @@
                     <div class="stat-label">Объектов ЮНЕСКО</div>
                 </div>
             </div>
-            
+
             <div class="grid-3">
                 <div class="info-card">
                     <i class="fas fa-landmark"></i>
                     <h3>Столица</h3>
-                    <p>Белград - один из древнейших городов Европы на слиянии Дуная и Савы</p>
+                    <p>Белград - один из древнейших городов Европы, стоящий на слиянии рек Савы и Дуная</p>
                 </div>
                 <div class="info-card">
                     <i class="fas fa-users"></i>
                     <h3>Население</h3>
-                    <p>6.7 млн человек (без Косово). Сербы составляют 83% населения</p>
+                    <p>6.7 млн человек (без Косово). Сербы составляют 83% населения. Очень гостеприимные люди</p>
                 </div>
                 <div class="info-card">
                     <i class="fas fa-language"></i>
                     <h3>Язык</h3>
-                    <p>Сербский (кириллица и латиница). Многие понимают русский и английский</p>
+                    <p>Сербский (кириллица и латиница). Многие понимают русский и английский благодаря славянским корням</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="container">
+        <div class="section-card fade-in">
+            <h2 class="section-title">Культура Сербии</h2>
+            <p class="section-subtitle">Богатое наследие и уникальные традиции сербского народа</p>
+            
+            <div class="grid-3">
+                <div class="gallery-item">
+                    <img src="images/serbiya.jpg" alt="Сербские народные костюмы" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Народные костюмы</h3>
+                        <p>Традиционные сербские костюмы с богатой вышивкой и символикой, отражающие региональные особенности</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/1200px-Ansambl_KOLO.jpg" alt="Народный танец Коло" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Танец Коло</h3>
+                        <p>Традиционный круговой танец, символ единства и веселья на всех праздниках и торжествах</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/112.jpg" alt="EXIT фестиваль" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>EXIT фестиваль</h3>
+                        <p>Один из лучших европейских музыкальных фестивалей, ежегодно проводимый в Петроварадинской крепости</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/SYLLEITOYRGO2_1.jpg" alt="Православная церковь" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Православие</h3>
+                        <p>Сербская Православная Церковь играет ключевую роль в жизни общества и сохранении культурного наследия</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/1111.jpg" alt="Гусляр" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Гуслярская традиция</h3>
+                        <p>Исполнение эпических народных песен под аккомпанемент гуслей - древняя музыкальная традиция</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/40437d6s-1920.jpg" alt="Музей Победы" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Музей Победы</h3>
+                        <p>Мемориальный комплекс, посвященный истории Югославии и борьбе за свободу и независимость</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Section -->
+    <section id="food" class="container">
+        <div class="section-card fade-in">
+            <h2 class="section-title">Сербская кухня</h2>
+            <p class="section-subtitle">Вкусные и сытные блюда, которые стоит попробовать каждому гостю Сербии</p>
+            
+            <div class="grid-3">
+                <div class="gallery-item">
+                    <img src="images/35c57dc06133e89f526aa3231a158c5b.jpg" alt="Чевапи" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Чевапи (Ćevapi)</h3>
+                        <p>Мясные колбаски из говядины и свинины, подаются с луком, лепешкой "сомун" и каймаком</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/4aab9496c756abd9837c8258ffc61d42.jpg" alt="Плескавица" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Плескавица (Pljeskavica)</h3>
+                        <p>Гигантская котлета-бургер с разнообразными начинками, подается в лепешке с овощами и соусами</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/aivar.jpg" alt="Айвар" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Айвар (Ajvar)</h3>
+                        <p>Икра из запеченных перцев - любимая национальная закуска к любому блюду. Бывает острая и сладкая</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Sarma.jpg" alt="Сарма" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Сарма (Sarma)</h3>
+                        <p>Фаршированные виноградные или капустные листья с мясом и рисом. Традиционное блюдо для праздников</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Gibanica-Serbian-Pie-Queen.jpg" alt="Гибаница" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Гибаница (Gibanica)</h3>
+                        <p>Слоеный пирог с сыром и яйцами, популярный завтрак и закуска. Идеально сочетается с йогуртом</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/139.jpg" alt="Ракия" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Ракия (Rakija)</h3>
+                        <p>Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая и сливовая - самые популярные</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Z2F0q9pFBPCVXzrALahw.jpg" alt="Каймак" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Каймак (Kajmak)</h3>
+                        <p>Традиционный молочный продукт, нечто среднее между сливочным маслом и сыром. Подается к мясу и лепешкам</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Pro-a-1-optimized.jpg" alt="Проя" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Проя (Proja)</h3>
+                        <p>Традиционная сербская кукурузная лепешка, часто с добавлением сыра или шпината</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Places Section -->
+    <section id="places" class="container">
+        <div class="section-card fade-in">
+            <h2 class="section-title">Достопримечательности</h2>
+            <p class="section-subtitle">Самые красивые и знаменитые места Сербии, которые стоит посетить</p>
+            
+            <div class="grid-2">
+                <div class="gallery-item">
+                    <img src="images/baner3.jpg" alt="Белградская крепость" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Белградская крепость</h3>
+                        <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/St-Sava.jpg" alt="Храм Святого Саввы" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Храм Святого Саввы</h3>
+                        <p>Крупнейший православный храм на Балканах, один из самых больших в мире. Построен на месте сожжения мощей святого Саввы. Величественное сооружение в сербско-византийском стиле с роскошным интерьером.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Biseri_Tare_02.jpg" alt="Национальный парк Тара" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Национальный парк Тара</h3>
+                        <p>Заповедник с уникальной флорой и фауной, включая серн и медведей. Знаменит каньоном реки Дрина и панорамными видами. Идеальное место для треккинга и экотуризма с живописными маршрутами.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/djavolja-varos-2012-07-15-01-1-scaled.jpg" alt="Дьявольский город" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Дьявольский город</h3>
+                        <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование в Куршумлии, охраняемое государством.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/scale_1200.jpg" alt="Монастырь Студеница" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Монастырь Студеница</h3>
+                        <p>Средневековый монастырь XII века, объект Всемирного наследия ЮНЕСКО. Духовный центр сербского православия с уникальными фресками и богатой историей.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/dsd.jpg" alt="Петроварадинская крепость" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Петроварадинская крепость</h3>
+                        <p>Одна из крупнейших крепостей Европы, расположенная в Нови-Саде. Известна как "Гибралтар на Дунае". Здесь ежегодно проходит знаменитый фестиваль EXIT.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/Kopaonik_ski_staza_-_panoramio.jpg" alt="Копаоник" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Копаоник</h3>
+                        <p>Крупнейший горнолыжный курорт Сербии с современной инфраструктурой. Зимой - катание на лыжах, летом - пешие походы по живописным горным тропам.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/dji-0159-pano.jpg" alt="Златибор" class="responsive-image">
+                    <div class="gallery-content">
+                        <h3>Златибор</h3>
+                        <p>Популярный горный курорт с целебным воздухом. Известен своими сосновыми лесами, традиционной архитектурой и развитой туристической инфраструктурой.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -525,58 +814,65 @@
 
     <!-- Prices Section -->
     <section id="prices" class="container">
-        <div class="section-card">
+        <div class="section-card fade-in">
             <h2 class="section-title">Цены в Сербии</h2>
-            <p class="section-subtitle">Актуальные цены в трех валютах (RSD - сербский динар, RUB - российский рубль, EUR - евро)</p>
+            <p class="section-subtitle">Актуальные цены на продукты, услуги и проживание в трех валютах</p>
             
-            <div class="currency-converter">
-                <h3>Курсы валют</h3>
-                <div class="converter-inputs">
-                    <div>1€ = 117 RSD = 100₽</div>
-                    <div>1$ = 107 RSD = 92₽</div>
+            <div style="background: linear-gradient(135deg, var(--accent), var(--accent-dark)); padding: 2rem; border-radius: var(--border-radius); margin: 2rem 0; text-align: center;">
+                <h3 style="color: white; margin-bottom: 1rem;">Курсы валют</h3>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <div style="background: white; padding: 1rem 2rem; border-radius: 25px; font-weight: 600; color: var(--accent-dark);">1€ = 117 RSD = 100₽</div>
+                    <div style="background: white; padding: 1rem 2rem; border-radius: 25px; font-weight: 600; color: var(--accent-dark);">1$ = 107 RSD = 92₽</div>
                 </div>
             </div>
             
             <div class="grid-2">
                 <div class="price-card">
-                    <h3 style="color: var(--gold-2); margin-bottom: 1rem;">
-                        <i class="fas fa-shopping-cart"></i> Продукты
+                    <h3 style="color: var(--accent-dark); margin-bottom: 1.5rem;">
+                        <i class="fas fa-shopping-cart"></i> Продукты питания
                     </h3>
                     <div class="price-items">
                         <div class="price-item">
-                            <span>Молоко (1л)</span>
+                            <span>Молоко (1 литр)</span>
                             <div class="price-amounts">
                                 <div class="price-main">120 RSD</div>
                                 <div class="price-conversion">100₽ / 1€</div>
                             </div>
                         </div>
                         <div class="price-item">
-                            <span>Хлеб</span>
+                            <span>Хлеб (багет)</span>
                             <div class="price-amounts">
                                 <div class="price-main">90 RSD</div>
                                 <div class="price-conversion">75₽ / 0.8€</div>
                             </div>
                         </div>
                         <div class="price-item">
-                            <span>Яйца (12 шт)</span>
+                            <span>Яйца (12 штук)</span>
                             <div class="price-amounts">
                                 <div class="price-main">240 RSD</div>
                                 <div class="price-conversion">200₽ / 2€</div>
                             </div>
                         </div>
                         <div class="price-item">
-                            <span>Сыр (1кг)</span>
+                            <span>Сыр (1 кг)</span>
                             <div class="price-amounts">
                                 <div class="price-main">1100 RSD</div>
                                 <div class="price-conversion">920₽ / 9.4€</div>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <span>Куриное филе (1 кг)</span>
+                            <div class="price-amounts">
+                                <div class="price-main">750 RSD</div>
+                                <div class="price-conversion">625₽ / 6.4€</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="price-card">
-                    <h3 style="color: var(--gold-2); margin-bottom: 1rem;">
-                        <i class="fas fa-bus"></i> Транспорт
+                    <h3 style="color: var(--accent-dark); margin-bottom: 1.5rem;">
+                        <i class="fas fa-bus"></i> Транспорт и услуги
                     </h3>
                     <div class="price-items">
                         <div class="price-item">
@@ -594,14 +890,14 @@
                             </div>
                         </div>
                         <div class="price-item">
-                            <span>Бензин (1л)</span>
+                            <span>Бензин (1 литр)</span>
                             <div class="price-amounts">
                                 <div class="price-main">190 RSD</div>
                                 <div class="price-conversion">158₽ / 1.6€</div>
                             </div>
                         </div>
                         <div class="price-item">
-                            <span>Аренда авто (день)</span>
+                            <span>Аренда авто (сутки)</span>
                             <div class="price-amounts">
                                 <div class="price-main">3000 RSD</div>
                                 <div class="price-conversion">2500₽ / 26€</div>
@@ -611,36 +907,36 @@
                 </div>
 
                 <div class="price-card">
-                    <h3 style="color: var(--gold-2); margin-bottom: 1rem;">
-                        <i class="fas fa-home"></i> Жилье
+                    <h3 style="color: var(--accent-dark); margin-bottom: 1.5rem;">
+                        <i class="fas fa-home"></i> Жилье и аренда
                     </h3>
                     <div class="price-items">
                         <div class="price-item">
                             <span>Аренда 1к кв (центр)</span>
                             <div class="price-amounts">
                                 <div class="price-main">400€</div>
-                                <div class="price-conversion">47,000 RSD</div>
+                                <div class="price-conversion">47,000 RSD / 40,000₽</div>
                             </div>
                         </div>
                         <div class="price-item">
                             <span>Аренда 1к кв (окраина)</span>
                             <div class="price-amounts">
                                 <div class="price-main">250€</div>
-                                <div class="price-conversion">29,000 RSD</div>
+                                <div class="price-conversion">29,000 RSD / 25,000₽</div>
                             </div>
                         </div>
                         <div class="price-item">
                             <span>Коммунальные услуги</span>
                             <div class="price-amounts">
                                 <div class="price-main">100-200€</div>
-                                <div class="price-conversion">12-23k RSD</div>
+                                <div class="price-conversion">12-23k RSD / 10-20k₽</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="price-card">
-                    <h3 style="color: var(--gold-2); margin-bottom: 1rem;">
+                    <h3 style="color: var(--accent-dark); margin-bottom: 1.5rem;">
                         <i class="fas fa-utensils"></i> Кафе и развлечения
                     </h3>
                     <div class="price-items">
@@ -659,7 +955,7 @@
                             </div>
                         </div>
                         <div class="price-item">
-                            <span>Пиво (0.5л)</span>
+                            <span>Пиво (0.5л в баре)</span>
                             <div class="price-amounts">
                                 <div class="price-main">250 RSD</div>
                                 <div class="price-conversion">208₽ / 2.1€</div>
@@ -678,146 +974,32 @@
         </div>
     </section>
 
-    <!-- Living Section -->
-    <section id="living" class="container">
-        <div class="section-card">
-            <h2 class="section-title">Жизнь в Сербии</h2>
-            <p class="section-subtitle">Полезная информация для тех, кто планирует переезд или длительное пребывание в Сербии</p>
-            
-            <div class="grid-3">
-                <div class="info-card">
-                    <i class="fas fa-file-alt"></i>
-                    <h3>Документы</h3>
-                    <p>Борвак карта (ВНЖ) выдается на 1 год. Нужен договор аренды и медстраховка</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>Медицина</h3>
-                    <p>Госмедицина для резидентов, частная страховка ≈50€/мес. Качество хорошее</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Образование</h3>
-                    <p>Бесплатное на сербском. Русские школы в Белграде. Университеты качественные</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-wifi"></i>
-                    <h3>Интернет</h3>
-                    <p>Быстрый и дешевый. 1 Гбит/с ≈ 3000 RSD/мес. Мобильная связь от 500 RSD</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-shopping-bag"></i>
-                    <h3>Шопинг</h3>
-                    <p>Много торговых центров. Цены ниже европейских. Распродажи в январе/июле</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-car"></i>
-                    <h3>Транспорт</h3>
-                    <p>Общественный развит хорошо. Водительские права можно обменять на сербские</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Map Section -->
-    <section id="map-section" class="container">
-        <div class="section-card">
+    <section id="map" class="container">
+        <div class="section-card fade-in">
             <h2 class="section-title">Карта Сербии</h2>
-            <p class="section-subtitle">Географическое положение и основные города страны</p>
-            <div id="map"></div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="container">
-        <div class="section-card">
-            <h2 class="section-title">Достопримечательности</h2>
-            <p class="section-subtitle">Самые красивые и знаменитые места Сербии</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-camera"></i>
-                        Белградская крепость
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Белградская крепость</h3>
-                        <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-church"></i>
-                        Храм Святого Саввы
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Храм Святого Саввы</h3>
-                        <p>Крупнейший православный храм на Балканах, один из самых больших в мире. Построен на месте сожжения мощей святого Саввы. Величественное сооружение в сербско-византийском стиле.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-tree"></i>
-                        Национальный парк Тара
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Национальный парк Тара</h3>
-                        <p>Заповедник с уникальной флорой и фауной, включая серн и медведей. Знаменит каньоном реки Дрина и панорамными видами. Идеальное место для треккинга и экотуризма.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <i class="fas fa-mountain"></i>
-                        Дьявольский город
-                    </div>
-                    <div class="gallery-content">
-                        <h3>Дьявольский город</h3>
-                        <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование в Куршумлии.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacts Section -->
-    <section id="contacts" class="container">
-        <div class="section-card">
-            <h2 class="section-title">Полезные контакты</h2>
-            <p class="section-subtitle">Важная информация для связи в экстренных ситуациях</p>
-            
-            <div class="grid-2">
-                <div class="info-card">
-                    <i class="fas fa-ambulance"></i>
-                    <h3>Экстренные службы</h3>
-                    <p>Полиция: 192<br>Скорая: 194<br>Пожарные: 193</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Посольство РФ</h3>
-                    <p>Белград, ул. Делиградска, 32<br>+381 11 361 1090<br>круглосуточный телефон</p>
-                </div>
-            </div>
+            <p class="section-subtitle">Географическое положение, основные города и туристические маршруты</p>
+            <div id="map" style="height: 500px; border-radius: var(--border-radius); overflow: hidden; border: 2px solid var(--accent);"></div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer style="background: var(--dark-card); color: var(--text); text-align: center; padding: 4rem 0; border-top: 2px solid var(--accent);">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-title">Сербия</div>
-                <p style="margin-bottom: 1rem; color: var(--text-light);">Страна с богатой историей и большим сердцем <span style="color: var(--gold-2);">🇷🇸</span></p>
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--gold-2);">
-                    "Слава Сербии! Živela Srbija! <span style="font-size: 1.2rem;">🇷🇸</span>"
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div class="logo" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Сербия</div>
+                <p style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-light);">
+                    Страна с богатой историей и большим сердцем <span style="color: var(--accent);">🇷🇸</span>
+                </p>
+                <p style="font-size: 1.4rem; margin-bottom: 2rem; color: var(--accent); font-weight: 600;">
+                    "Слава Сербии! Živela Srbija! <span style="font-size: 1.6rem;">🇷🇸</span>"
                 </p>
                 
-                <div style="margin: 1.5rem 0; padding: 1.5rem; background: rgba(212, 175, 55, 0.1); border-radius: var(--border-radius);">
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--gold-2);">
+                <div style="margin: 2rem 0; padding: 2rem; background: rgba(255,215,0,0.1); border-radius: var(--border-radius); border: 1px solid rgba(255,215,0,0.2);">
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--accent);">
                         <strong>Личный проект Generallisto</strong> - создано с любовью к Сербии и её культуре
                     </p>
-                    <p style="font-size: 0.8rem; color: var(--text-light);">
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
                         Образовательный проект © 2025 | Все права защищены
                     </p>
                 </div>
@@ -836,17 +1018,17 @@
 
         // Добавление маркеров основных городов
         const cities = [
-            {name: "Белград", coords: [44.8125, 20.4612]},
-            {name: "Нови-Сад", coords: [45.2671, 19.8335]},
-            {name: "Ниш", coords: [43.3209, 21.8958]},
-            {name: "Крагуевац", coords: [44.0128, 20.9114]},
-            {name: "Суботица", coords: [46.1000, 19.6667]}
+            {name: "Белград", coords: [44.8125, 20.4612], description: "Столица Сербии"},
+            {name: "Нови-Сад", coords: [45.2671, 19.8335], description: "Культурная столица"},
+            {name: "Ниш", coords: [43.3209, 21.8958], description: "Исторический центр"},
+            {name: "Крагуевац", coords: [44.0128, 20.9114], description: "Промышленный центр"},
+            {name: "Суботица", coords: [46.1000, 19.6667], description: "Архитектурная жемчужина"}
         ];
 
         cities.forEach(city => {
             L.marker(city.coords)
                 .addTo(map)
-                .bindPopup(`<b>${city.name}</b>`);
+                .bindPopup(`<b>${city.name}</b><br>${city.description}`);
         });
 
         // Плавная прокрутка
@@ -861,6 +1043,19 @@
                     });
                 }
             });
+        });
+
+        // Анимация появления элементов при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-card').forEach(card => {
+            observer.observe(card);
         });
     </script>
 </body>
