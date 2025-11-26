@@ -424,6 +424,7 @@ section.active {
     font-weight: 600;
     margin-bottom: 1rem;
     font-family: 'Playfair Display', serif;
+    color: var(--text-light);
 }
 
 .card-text {
@@ -598,6 +599,7 @@ section.active {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--text-light);
 }
 
 .culture-card p {
@@ -636,6 +638,7 @@ section.active {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    color: var(--text-light);
 }
 
 .place-card p {
@@ -678,6 +681,7 @@ section.active {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 1.5rem 0 0.5rem 0;
+    color: var(--text-light);
 }
 
 .food-card p {
@@ -755,6 +759,7 @@ section.active {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--text-light);
 }
 
 .fact-card p {
@@ -781,12 +786,14 @@ footer {
     font-weight: 700;
     margin-bottom: 1rem;
     font-family: 'Playfair Display', serif;
+    color: var(--text-light);
 }
 
 .footer-subtitle {
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: 2rem;
+    color: var(--text-light);
 }
 
 .credits {
