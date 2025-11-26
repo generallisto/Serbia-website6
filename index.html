@@ -6,536 +6,7 @@
     <title>Сербия - Золотая Жемчужина Балкан</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #d4af37;
-            --dark-gold: #b8941f;
-            --light-gold: #f7ef8a;
-            --dark-bg: #0a0a0a;
-            --darker-bg: #050505;
-            --card-bg: #1a1a1a;
-            --text-light: #f5f5f5;
-            --text-gray: #b0b0b0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--darker-bg) 0%, #1a1400 30%, #2a1e00 70%, var(--dark-bg) 100%);
-            background-attachment: fixed;
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        .gold-gradient {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 50%, var(--dark-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .emoji-gold {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 50%, var(--dark-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: rotateEmoji 4s linear infinite;
-        }
-
-        @keyframes rotateEmoji {
-            0% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(90deg) scale(1.1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            75% { transform: rotate(270deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-gray);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-light);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(184, 148, 31, 0.1) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            animation: titleGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes titleGlow {
-            0%, 100% { 
-                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
-                transform: scale(1);
-            }
-            50% { 
-                filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
-                transform: scale(1.02);
-            }
-        }
-
-        .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-gray);
-            font-weight: 300;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 40px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
-            color: var(--dark-bg);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .rounded-window {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(42, 42, 42, 0.9) 100%);
-            border-radius: 24px;
-            padding: 3.5rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .rounded-window::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .rounded-window:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(212, 175, 55, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--light-gold));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .content-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .content-card:hover::before {
-            left: 100%;
-        }
-
-        .content-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            transition: transform 0.4s ease;
-        }
-
-        .content-card:hover .card-image {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .card-text {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .price-info {
-            background: rgba(10, 10, 10, 0.6);
-            padding: 1.2rem;
-            border-radius: 12px;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .price-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .price-currency {
-            font-weight: 600;
-            color: var(--gold);
-            font-size: 0.9rem;
-        }
-
-        .price-label {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(180deg); }
-        }
-
-        footer {
-            background: var(--dark-bg);
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            color: var(--text-gray);
-        }
-
-        .credits {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .credits p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        .tips-container {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(42, 30, 30, 0.9) 100%);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-top: 2rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .tips-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .tips-list {
-            list-style: none;
-            color: var(--text-gray);
-        }
-
-        .tips-list li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .tips-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .rounded-window {
-                padding: 2rem;
-                margin: 2rem 0;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -572,7 +43,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="belgrad.jpg" alt="Белград" class="card-image">
+                    <img src="images/belgrad.jpg" alt="Белград" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Белград <span class="emoji-gold">🏛️</span></h3>
                         <p class="card-text">Столица Сербии, один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
@@ -580,7 +51,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="1678727835_1zoom-club-p-krasota-vostochnoi-serbii-92.jpg" alt="Природа Сербии" class="card-image">
+                    <img src="images/1678727835_1zoom-club-p-krasota-vostochnoi-serbii-92.jpg" alt="Природа Сербии" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Природа Сербии <span class="emoji-gold">🌲</span></h3>
                         <p class="card-text">Почти 70% территории Сербии — холмы и горы. Самые известные хребты: Копаоник (зимний спортивный центр), Тара (национальный парк) и Златибор (популярный курорт).</p>
@@ -588,7 +59,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="serbiya.jpg" alt="Сербские люди" class="card-image">
+                    <img src="images/serbiya.jpg" alt="Сербские люди" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Сербский народ <span class="emoji-gold">👥</span></h3>
                         <p class="card-text">Сербы составляют 83% населения. Высокий уровень гостеприимства и радушия. Традиционные костюмы сохраняются в народных праздниках и фестивалях.</p>
@@ -625,7 +96,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="1200px-Ansambl_KOLO.jpg" alt="Коло" class="card-image">
+                    <img src="images/1200px-Ansambl_KOLO.jpg" alt="Коло" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Коло <span class="emoji-gold">💃</span></h3>
                         <p class="card-text">Традиционный круговой танец, символ единства и веселья на всех праздниках. Каждый регион имеет свои уникальные стили и костюмы.</p>
@@ -633,7 +104,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="1111.jpg" alt="Гусляр" class="card-image">
+                    <img src="images/1111.jpg" alt="Гусляр" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Гусляр <span class="emoji-gold">🎵</span></h3>
                         <p class="card-text">Традиционные народные песни и эпические баллады под аккомпанемент гуслей создают уникальный музыкальный ландшафт Сербии.</p>
@@ -641,7 +112,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="112.jpg" alt="Фестиваль" class="card-image">
+                    <img src="images/112.jpg" alt="Фестиваль" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Фестивали <span class="emoji-gold">🎪</span></h3>
                         <p class="card-text">EXIT Festival в Нови-Саде — один из лучших европейских музыкальных фестивалей. Также популярны Гусие (трубаческий фестиваль) и BELGRADE BEER FEST.</p>
@@ -649,7 +120,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="SYLLEITOYRGO2_1.jpg" alt="Церковь" class="card-image">
+                    <img src="images/SYLLEITOYRGO2_1.jpg" alt="Церковь" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Православие <span class="emoji-gold">⛪</span></h3>
                         <p class="card-text">Сербская Православная Церковь играет ключевую роль в жизни общества. Монастыри с уникальными фресками — культурное наследие ЮНЕСКО.</p>
@@ -657,7 +128,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="40437d6s-1920.jpg" alt="Музей Победы" class="card-image">
+                    <img src="images/40437d6s-1920.jpg" alt="Музей Победы" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Музей Победы <span class="emoji-gold">🏛️</span></h3>
                         <p class="card-text">Мемориальный комплекс, посвященный истории Сербии и борьбе за свободу. Важный культурный и образовательный центр.</p>
@@ -675,7 +146,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="baner3.jpg" alt="Белградская крепость" class="card-image">
+                    <img src="images/baner3.jpg" alt="Белградская крепость" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Белградская крепость <span class="emoji-gold">🏰</span></h3>
                         <p class="card-text">Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев.</p>
@@ -689,7 +160,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="Biseri_Tare_02.jpg" alt="Национальный парк Тара" class="card-image">
+                    <img src="images/Biseri_Tare_02.jpg" alt="Национальный парк Тара" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Национальный парк Тара <span class="emoji-gold">🌲</span></h3>
                         <p class="card-text">Заповедник с уникальной флорой и фауной, включая серн и медведей. Идеальное место для треккинга и наслаждения природой.</p>
@@ -703,7 +174,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="djavolja-varos-2012-07-15-01-1-scaled.jpg" alt="Дьявольский город" class="card-image">
+                    <img src="images/djavolja-varos-2012-07-15-01-1-scaled.jpg" alt="Дьявольский город" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Дьявольский город <span class="emoji-gold">👹</span></h3>
                         <p class="card-text">Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование.</p>
@@ -717,7 +188,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="St-Sava.jpg" alt="Храм Святого Саввы" class="card-image">
+                    <img src="images/St-Sava.jpg" alt="Храм Святого Саввы" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Храм Святого Саввы <span class="emoji-gold">⛪</span></h3>
                         <p class="card-text">Крупнейший православный храм на Балканах и один из крупнейших в мире. Построен на месте сожжения мощей Святого Саввы.</p>
@@ -731,7 +202,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="scale_1200.jpg" alt="Монастырь Студеница" class="card-image">
+                    <img src="images/scale_1200.jpg" alt="Монастырь Студеница" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Монастырь Студеница <span class="emoji-gold">🕌</span></h3>
                         <p class="card-text">Духовный центр сербского православия, основанный в XII веке. Объект Всемирного наследия ЮНЕСКО с уникальными фресками.</p>
@@ -745,7 +216,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="dsd.jpg" alt="Петроварадинская крепость" class="card-image">
+                    <img src="images/dsd.jpg" alt="Петроварадинская крепость" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Петроварадинская крепость <span class="emoji-gold">🏯</span></h3>
                         <p class="card-text">"Гибралтар на Дунае" - одна из крупнейших крепостей в Европе. Известна своими подземными ходами общей длиной 16 км.</p>
@@ -759,7 +230,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="Kopaonik_ski_staza_-_panoramio.jpg" alt="Копаоник" class="card-image">
+                    <img src="images/Kopaonik_ski_staza_-_panoramio.jpg" alt="Копаоник" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Копаоник <span class="emoji-gold">⛷️</span></h3>
                         <p class="card-text">Крупнейший горнолыжный курорт Сербии с современной инфраструктурой. Летом популярен для пеших походов и велотуризма.</p>
@@ -773,7 +244,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="dji-0159-pano.jpg" alt="Златибор" class="card-image">
+                    <img src="images/dji-0159-pano.jpg" alt="Златибор" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Златибор <span class="emoji-gold">🏞️</span></h3>
                         <p class="card-text">Популярный курорт с целебным воздухом. Известен своими сосновыми лесами и традиционной деревянной архитектурой.</p>
@@ -797,7 +268,7 @@
             
             <div class="content-grid">
                 <div class="content-card">
-                    <img src="4aab9496c756abd9837c8258ffc61d42.jpg" alt="Плескавица" class="card-image">
+                    <img src="images/4aab9496c756abd9837c8258ffc61d42.jpg" alt="Плескавица" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Pljeskavica <span class="emoji-gold">🍔</span></h3>
                         <p class="card-text">Гигантская котлета-бургер с разнообразными начинками и соусами. "Лепенья" (лепешка) вместо булки обязательна! Подается с луком, каймаком и уткой.</p>
@@ -815,7 +286,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="35c57dc06133e89f526aa3231a158c5b.jpg" alt="Чевапы" class="card-image">
+                    <img src="images/35c57dc06133e89f526aa3231a158c5b.jpg" alt="Чевапы" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Ćevapi <span class="emoji-gold">🌭</span></h3>
                         <p class="card-text">Мясные колбаски с луком и лепешкой "сомун" - национальное блюдо номер один. Подается с каймаком и уткой. Обычно 5-10 штук в порции.</p>
@@ -833,7 +304,7 @@
                 </div>
                 
                 <div class="content-card">
-                    <img src="aivar.jpg" alt="Айвар" class="card-image">
+                    <img src="images/aivar.jpg" alt="Айвар" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Ajvar <span class="emoji-gold">🫑</span></h3>
                         <p class="card-text">Икра из запеченных перцев — любимая национальная закуска к любому блюду. Бывает острая и сладкая. Домашний айвар ценится выше магазинного.</p>
@@ -851,7 +322,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="Sarma.jpg" alt="Сарма" class="card-image">
+                    <img src="images/Sarma.jpg" alt="Сарма" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Сарма <span class="emoji-gold">🥬</span></h3>
                         <p class="card-text">Голубцы из кислой капусты или виноградных листьев с мясной начинкой. Традиционное блюдо для праздников и семейных обедов.</p>
@@ -865,7 +336,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="Gibanica-Serbian-Pie-Queen.jpg" alt="Гибаница" class="card-image">
+                    <img src="images/Gibanica-Serbian-Pie-Queen.jpg" alt="Гибаница" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Гибаница <span class="emoji-gold">🥧</span></h3>
                         <p class="card-text">Слоеный пирог с сыром и яйцами - популярный завтрак и перекус. Идеально сочетается с йогуртом или кефиром.</p>
@@ -879,7 +350,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="139.jpg" alt="Ракия" class="card-image">
+                    <img src="images/139.jpg" alt="Ракия" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Ракия <span class="emoji-gold">🥃</span></h3>
                         <p class="card-text">Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая (вишња) и сливовая (шљивовица) — самые популярные.</p>
@@ -897,7 +368,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="Z2F0q9pFBPCVXzrALahw.jpg" alt="Каймак" class="card-image">
+                    <img src="images/Z2F0q9pFBPCVXzrALahw.jpg" alt="Каймак" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Каймак <span class="emoji-gold">🧀</span></h3>
                         <p class="card-text">Традиционный молочный продукт, нечто среднее между сливками и сливочным маслом. Подается к мясу, лепешкам и как самостоятельная закуска.</p>
@@ -911,7 +382,7 @@
                 </div>
 
                 <div class="content-card">
-                    <img src="Pro-a-1-optimized.jpg" alt="Проя" class="card-image">
+                    <img src="images/Pro-a-1-optimized.jpg" alt="Проя" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Проя <span class="emoji-gold">🌽</span></h3>
                         <p class="card-text">Кукурузный хлеб - популярный гарнир к мясным блюдам. Часто готовится с добавлением сыра, лука или перца.</p>
