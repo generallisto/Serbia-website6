@@ -15,26 +15,37 @@
         }
 
         :root {
-            --primary: #FFD700;
-            --secondary: #FFA500;
-            --accent: #FFC107;
-            --light: #f8f9fa;
-            --gray: #2F4F4F;
-            --gray-light: #708090;
-            --gray-dark: #1a1a1a;
-            --text: #333333;
-            --text-light: #666666;
-            --border-radius: 16px;
-            --shadow: 0 8px 30px rgba(0,0,0,0.08);
-            --transition: all 0.3s ease;
+            --gold-1: #FFD700;
+            --gold-2: #D4AF37;
+            --gold-3: #FFC107;
+            --gold-4: #B8860B;
+            --dark-bg: #0a0a0a;
+            --dark-card: #1a1a1a;
+            --dark-border: #333333;
+            --text: #ffffff;
+            --text-light: #e0e0e0;
+            --border-radius: 20px;
+            --shadow: 0 8px 40px rgba(212, 175, 55, 0.1);
+            --shadow-hover: 0 15px 50px rgba(212, 175, 55, 0.2);
+            --transition: all 0.4s ease;
+            --glow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #2d2d2d, #1a1a1a);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
             overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
@@ -45,48 +56,63 @@
 
         /* Header */
         header {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(15px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow);
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 2px solid var(--gold-2);
+            transition: var(--transition);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--gray);
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2), var(--gold-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: var(--glow);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--gray);
+            color: var(--text);
             font-weight: 500;
             transition: var(--transition);
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.5rem;
             border-radius: var(--border-radius);
+            position: relative;
+            background: rgba(212, 175, 55, 0.1);
         }
 
         .nav-links a:hover {
-            background: var(--primary);
-            color: var(--gray);
+            background: linear-gradient(45deg, var(--gold-2), var(--gold-3));
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
         }
 
         /* Hero Section */
@@ -96,8 +122,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, var(--gray) 0%, var(--gray-light) 100%);
-            color: white;
+            background: linear-gradient(135deg, rgba(10,10,10,0.9), rgba(26,26,26,0.9));
             position: relative;
             overflow: hidden;
         }
@@ -109,217 +134,281 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,215,0,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease;
-            color: var(--primary);
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2), var(--gold-3), var(--gold-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: var(--glow);
+            letter-spacing: 1px;
         }
 
         .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
             animation: fadeInUp 1s ease 0.2s both;
-            opacity: 0.9;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--primary);
-            color: var(--gray);
-            padding: 1rem 2rem;
+            gap: 1rem;
+            background: linear-gradient(45deg, var(--gold-2), var(--gold-3));
+            color: var(--dark-bg);
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             animation: fadeInUp 1s ease 0.4s both;
+            border: none;
+            box-shadow: var(--glow);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
-            background: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2));
         }
 
         /* Sections */
         section {
-            padding: 100px 0;
+            padding: 120px 0;
+            position: relative;
         }
 
         .section-card {
-            background: white;
+            background: var(--dark-card);
             border-radius: var(--border-radius);
-            padding: 3rem;
+            padding: 4rem;
             box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255,215,0,0.1);
+            margin-bottom: 3rem;
+            border: 1px solid var(--dark-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-1), var(--gold-2), var(--gold-3), var(--gold-4));
+        }
+
+        .section-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold-2);
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             text-align: center;
-            margin-bottom: 1rem;
-            color: var(--gray);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: var(--glow);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+            border-radius: 2px;
+            box-shadow: var(--glow);
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-light);
-            margin-bottom: 3rem;
-            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         /* Grid Systems */
         .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
         }
 
         .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
         }
 
-        /* Cards */
+        /* Info Cards */
         .info-card {
-            background: white;
-            padding: 2rem;
+            background: linear-gradient(135deg, var(--dark-card), #222222);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid rgba(255,215,0,0.2);
+            border: 1px solid var(--dark-border);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: var(--transition);
+        }
+
+        .info-card:hover::before {
+            left: 100%;
         }
 
         .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255,215,0,0.15);
-            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold-2);
         }
 
         .info-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+            text-shadow: var(--glow);
+        }
+
+        .info-card:hover i {
+            transform: scale(1.2);
+            animation: bounce 1s ease infinite;
         }
 
         .info-card h3 {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            text-shadow: var(--glow);
         }
 
-        /* Price Cards */
-        .price-card {
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(255,215,0,0.3);
-            transition: var(--transition);
-        }
-
-        .price-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,215,0,0.2);
-        }
-
-        .price-item:last-child {
-            border-bottom: none;
-        }
-
-        .price-amounts {
-            text-align: right;
-        }
-
-        .price-main {
-            font-weight: 700;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .price-conversion {
-            font-size: 0.9rem;
+        .info-card p {
             color: var(--text-light);
+            line-height: 1.6;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        /* Map */
-        #map {
-            height: 500px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--primary);
-        }
-
-        /* Gallery */
-        .gallery-grid {
+        /* Stats Grid */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
         }
 
-        .gallery-item {
+        .stat-card {
+            background: linear-gradient(135deg, var(--dark-card), #222222);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 4/3;
-            background: #f8f9fa;
-            border: 2px solid var(--primary);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            text-align: center;
+            border: 1px solid var(--dark-border);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-2);
+            box-shadow: var(--shadow-hover);
         }
 
-        /* Image Placeholders */
-        .image-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
-            font-weight: 600;
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--gold-1), var(--gold-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
+            animation: countUp 2s ease-out;
+            text-shadow: var(--glow);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -327,102 +416,40 @@
             }
         }
 
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         .fade-in {
-            animation: fadeInUp 0.6s ease both;
+            animation: fadeInUp 0.8s ease both;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .section-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Side Navigation Dots */
-        .side-nav {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            margin: 15px 0;
-            cursor: pointer;
-            transition: var(--transition);
-            opacity: 0.5;
-        }
-
-        .nav-dot.active {
-            opacity: 1;
-            transform: scale(1.3);
-            background: var(--gray);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gray);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* Currency Converter */
-        .currency-converter {
-            background: var(--primary);
-            padding: 1rem;
-            border-radius: var(--border-radius);
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .converter-inputs {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .converter-inputs input, .converter-inputs select {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
+        /* Continue with the rest of the CSS... */
     </style>
 </head>
 <body>
@@ -435,7 +462,7 @@
                 <li><a href="#prices">Цены</a></li>
                 <li><a href="#living">Жизнь</a></li>
                 <li><a href="#map-section">Карта</a></li>
-                <li><a href="#gallery">Фото</a></li>
+                <li><a href="#gallery">Достопримечательности</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
         </nav>
@@ -449,7 +476,7 @@
                 <p>Жемчужина Балканского полуострова с богатой историей и гостеприимными людьми</p>
                 <a href="#about" class="cta-button">
                     <i class="fas fa-compass"></i>
-                    Узнать больше
+                    Исследовать Сербию
                 </a>
             </div>
         </div>
@@ -459,11 +486,37 @@
     <section id="about" class="container">
         <div class="section-card fade-in">
             <h2 class="section-title">О Сербии</h2>
-            <p class="section-subtitle">Основная информация о стране</p>
+            <p class="section-subtitle">Узнайте о стране, где встречаются Восток и Запад</p>
             
-            <div class="image-placeholder">
-                <i class="fas fa-landmark" style="font-size: 3rem; margin-right: 1rem;"></i>
-                Белград - столица Сербии
+            <div class="info-card" style="max-width: 100%; text-align: left; margin-bottom: 3rem;">
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                    <strong>Сербия</strong> — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                    <strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Это город с богатой историей, бурной ночной жизнью и неповторимым шармом.
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8;">
+                    <strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Самые известные хребты: <strong>Копаоник</strong> (зимний спортивный центр), <strong>Тара</strong> (национальный парк с девственными лесами) и <strong>Златибор</strong> (популярный курорт с целебным воздухом).
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">8.7M</div>
+                    <div class="stat-label">Население</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">88K км²</div>
+                    <div class="stat-label">Территория</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1150+</div>
+                    <div class="stat-label">Лет истории</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Объектов ЮНЕСКО</div>
+                </div>
             </div>
             
             <div class="grid-3">
@@ -482,383 +535,81 @@
                     <h3>Язык</h3>
                     <p>Сербский (кириллица и латиница). Многие понимают русский и английский</p>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Валюта</h3>
-                    <p>Сербский динар (RSD)<br>1€ ≈ 117 RSD<br>1₽ ≈ 1.3 RSD</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-plane"></i>
-                    <h3>Виза</h3>
-                    <p>Для россиян безвизовый въезд до 30 дней. Нужен загранпаспорт</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Менталитет</h3>
-                    <p>Очень гостеприимные и душевные люди. Уважают русских</p>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Prices Section -->
-    <section id="prices" class="container">
-        <div class="section-card fade-in">
-            <h2 class="section-title">Цены в Сербии</h2>
-            <p class="section-subtitle">Актуальные цены в трех валютах</p>
-            
-            <!-- Конвертер валют -->
-            <div class="currency-converter">
-                <h3 style="color: var(--gray); margin-bottom: 1rem;">Курсы валют</h3>
-                <div class="converter-inputs">
-                    <div>1€ = 117 RSD = 100₽</div>
-                    <div>1$ = 107 RSD = 92₽</div>
-                </div>
-            </div>
-            
-            <div class="grid-2">
-                <!-- Продукты -->
-                <div class="price-card">
-                    <h3 style="color: var(--gray); margin-bottom: 1.5rem;">
-                        <i class="fas fa-shopping-cart"></i> Продукты
-                    </h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span>Молоко (1л)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">120 RSD</div>
-                                <div class="price-conversion">100₽ / 1€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Хлеб</span>
-                            <div class="price-amounts">
-                                <div class="price-main">90 RSD</div>
-                                <div class="price-conversion">75₽ / 0.8€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Яйца (12 шт)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">240 RSD</div>
-                                <div class="price-conversion">200₽ / 2€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Сыр (1кг)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">1100 RSD</div>
-                                <div class="price-conversion">920₽ / 9.4€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Курица (1кг)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">750 RSD</div>
-                                <div class="price-conversion">625₽ / 6.4€</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Транспорт -->
-                <div class="price-card">
-                    <h3 style="color: var(--gray); margin-bottom: 1.5rem;">
-                        <i class="fas fa-bus"></i> Транспорт
-                    </h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span>Проезд в автобусе</span>
-                            <div class="price-amounts">
-                                <div class="price-main">90 RSD</div>
-                                <div class="price-conversion">75₽ / 0.8€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Такси (посадка)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">150 RSD</div>
-                                <div class="price-conversion">125₽ / 1.3€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Бензин (1л)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">190 RSD</div>
-                                <div class="price-conversion">158₽ / 1.6€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Аренда авто (день)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">3000 RSD</div>
-                                <div class="price-conversion">2500₽ / 26€</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Жилье -->
-                <div class="price-card">
-                    <h3 style="color: var(--gray); margin-bottom: 1.5rem;">
-                        <i class="fas fa-home"></i> Жилье
-                    </h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span>Аренда 1к кв (центр)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">400€</div>
-                                <div class="price-conversion">47,000 RSD / 40,000₽</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Аренда 1к кв (окраина)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">250€</div>
-                                <div class="price-conversion">29,000 RSD / 25,000₽</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Коммунальные услуги</span>
-                            <div class="price-amounts">
-                                <div class="price-main">100-200€</div>
-                                <div class="price-conversion">12-23k RSD / 10-20k₽</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Развлечения -->
-                <div class="price-card">
-                    <h3 style="color: var(--gray); margin-bottom: 1.5rem;">
-                        <i class="fas fa-utensils"></i> Кафе и развлечения
-                    </h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span>Обед в кафе</span>
-                            <div class="price-amounts">
-                                <div class="price-main">1000 RSD</div>
-                                <div class="price-conversion">830₽ / 8.5€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Кофе в баре</span>
-                            <div class="price-amounts">
-                                <div class="price-main">180 RSD</div>
-                                <div class="price-conversion">150₽ / 1.5€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Пиво (0.5л)</span>
-                            <div class="price-amounts">
-                                <div class="price-main">250 RSD</div>
-                                <div class="price-conversion">208₽ / 2.1€</div>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span>Кино билет</span>
-                            <div class="price-amounts">
-                                <div class="price-main">600 RSD</div>
-                                <div class="price-conversion">500₽ / 5.1€</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Living Section -->
-    <section id="living" class="container">
-        <div class="section-card fade-in">
-            <h2 class="section-title">Жизнь в Сербии</h2>
-            <p class="section-subtitle">Полезная информация для жизни</p>
-            
-            <div class="image-placeholder">
-                <i class="fas fa-city" style="font-size: 3rem; margin-right: 1rem;"></i>
-                Улицы Белграда
-            </div>
-            
-            <div class="grid-3">
-                <div class="info-card">
-                    <i class="fas fa-file-alt"></i>
-                    <h3>Документы</h3>
-                    <p>Борвак карта (ВНЖ) выдается на 1 год. Нужен договор аренды и медстраховка</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>Медицина</h3>
-                    <p>Госмедицина для резидентов, частная страховка ≈50€/мес. Качество хорошее</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Образование</h3>
-                    <p>Бесплатное на сербском. Русские школы в Белграде. Университеты качественные</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-wifi"></i>
-                    <h3>Интернет</h3>
-                    <p>Быстрый и дешевый. 1 Гбит/с ≈ 3000 RSD/мес. Мобильная связь от 500 RSD</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-shopping-bag"></i>
-                    <h3>Шопинг</h3>
-                    <p>Много торговых центров. Цены ниже европейских. Распродажи в январе/июле</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-car"></i>
-                    <h3>Транспорт</h3>
-                    <p>Общественный развит хорошо. Водительские права можно обменять на сербские</p>
-                </div>
-            </div>
-            
-            <!-- Дополнительные цены -->
-            <div style="margin-top: 3rem;">
-                <h3 style="color: var(--gray); text-align: center; margin-bottom: 2rem;">Дополнительные расходы</h3>
-                <div class="grid-3">
-                    <div class="price-card">
-                        <h4>Спортзал</h4>
-                        <div class="price-main">2000 RSD</div>
-                        <div class="price-conversion">1700₽ / 17€ в месяц</div>
-                    </div>
-                    <div class="price-card">
-                        <h4>Мобильная связь</h4>
-                        <div class="price-main">500 RSD</div>
-                        <div class="price-conversion">420₽ / 4.3€ в месяц</div>
-                    </div>
-                    <div class="price-card">
-                        <h4>Интернет дома</h4>
-                        <div class="price-main">3000 RSD</div>
-                        <div class="price-conversion">2500₽ / 26€ в месяц</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section id="map-section" class="container">
-        <div class="section-card fade-in">
-            <h2 class="section-title">Карта Сербии</h2>
-            <p class="section-subtitle">Основные города и регионы</p>
-            <div id="map"></div>
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="container">
         <div class="section-card fade-in">
-            <h2 class="section-title">Фотографии Сербии</h2>
-            <p class="section-subtitle">Красивые места и достопримечательности</p>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, var(--primary), var(--secondary));display:flex;align-items:center;justify-content:center;color:var(--gray);font-weight:600;">
-                        <i class="fas fa-camera" style="font-size:2rem; margin-right: 1rem;"></i>
-                        Белградская крепость
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, var(--primary), var(--secondary));display:flex;align-items:center;justify-content:center;color:var(--gray);font-weight:600;">
-                        <i class="fas fa-camera" style="font-size:2rem; margin-right: 1rem;"></i>
-                        Храм Святого Саввы
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, var(--primary), var(--secondary));display:flex;align-items:center;justify-content:center;color:var(--gray);font-weight:600;">
-                        <i class="fas fa-camera" style="font-size:2rem; margin-right: 1rem;"></i>
-                        Национальный парк Тара
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, var(--primary), var(--secondary));display:flex;align-items:center;justify-content:center;color:var(--gray);font-weight:600;">
-                        <i class="fas fa-camera" style="font-size:2rem; margin-right: 1rem;"></i>
-                        Дьявольский город
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacts Section -->
-    <section id="contacts" class="container">
-        <div class="section-card fade-in">
-            <h2 class="section-title">Полезные контакты</h2>
-            <p class="section-subtitle">Важная информация для связи</p>
+            <h2 class="section-title">Достопримечательности</h2>
+            <p class="section-subtitle">Красивые места и исторические памятники Сербии</p>
             
             <div class="grid-2">
-                <div class="info-card">
-                    <i class="fas fa-ambulance"></i>
-                    <h3>Экстренные службы</h3>
-                    <p>Полиция: 192<br>Скорая: 194<br>Пожарные: 193</p>
+                <div class="info-card" style="text-align: left;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--gold-2), var(--gold-3)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--dark-bg); font-weight: 600; font-size: 1.2rem;">
+                        <i class="fas fa-camera" style="font-size: 3rem; margin-right: 1rem;"></i>
+                        Белградская крепость
+                    </div>
+                    <h3>Белградская крепость</h3>
+                    <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев.</p>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Посольство РФ</h3>
-                    <p>Белград, ул. Делиградска, 32<br>+381 11 361 1090<br>круглосуточный телефон</p>
+                
+                <div class="info-card" style="text-align: left;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--gold-2), var(--gold-3)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--dark-bg); font-weight: 600; font-size: 1.2rem;">
+                        <i class="fas fa-church" style="font-size: 3rem; margin-right: 1rem;"></i>
+                        Храм Святого Саввы
+                    </div>
+                    <h3>Храм Святого Саввы</h3>
+                    <p>Крупнейший православный храм на Балканах, один из самых больших в мире. Построен на месте сожжения мощей святого Саввы. Величественное сооружение в сербско-византийском стиле.</p>
+                </div>
+                
+                <div class="info-card" style="text-align: left;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--gold-2), var(--gold-3)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--dark-bg); font-weight: 600; font-size: 1.2rem;">
+                        <i class="fas fa-tree" style="font-size: 3rem; margin-right: 1rem;"></i>
+                        Национальный парк Тара
+                    </div>
+                    <h3>Национальный парк Тара</h3>
+                    <p>Заповедник с уникальной флорой и фауной, включая серн и медведей. Знаменит каньоном реки Дрина и панорамными видами. Идеальное место для треккинга и экотуризма.</p>
+                </div>
+                
+                <div class="info-card" style="text-align: left;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--gold-2), var(--gold-3)); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--dark-bg); font-weight: 600; font-size: 1.2rem;">
+                        <i class="fas fa-mountain" style="font-size: 3rem; margin-right: 1rem;"></i>
+                        Дьявольский город
+                    </div>
+                    <h3>Дьявольский город</h3>
+                    <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование в Куршумлии.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer style="background: var(--dark-bg); color: var(--text); text-align: center; padding: 4rem 0; border-top: 2px solid var(--gold-2);">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-title">Сербия</div>
-                <p>Страна с богатой историей и большим сердцем</p>
-                <p style="margin-top: 2rem; opacity: 0.7;">© 2024 Информация о жизни в Сербии</p>
+                <div class="logo" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Сербия</div>
+                <p style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-light);">
+                    Страна с богатой историей и большим сердцем <span style="font-size: 1.5rem;">🇷🇸</span>
+                </p>
+                <p style="font-size: 1.4rem; margin-bottom: 2rem; background: linear-gradient(45deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: var(--glow);">
+                    "Слава Сербии! Živela Srbija! <span style="font-size: 1.6rem;">🇷🇸</span>"
+                </p>
+                
+                <div style="margin: 2rem 0; padding: 2rem; background: rgba(212, 175, 55, 0.1); border-radius: var(--border-radius);">
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--gold-2);">
+                        <strong>Личный проект Generallisto</strong> - создано с любовью к Сербии и её культуре
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Образовательный проект © 2025 | Все права защищены
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Side Navigation -->
-    <div class="side-nav">
-        <div class="nav-dot active" data-section="about"></div>
-        <div class="nav-dot" data-section="prices"></div>
-        <div class="nav-dot" data-section="living"></div>
-        <div class="nav-dot" data-section="map-section"></div>
-        <div class="nav-dot" data-section="gallery"></div>
-        <div class="nav-dot" data-section="contacts"></div>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Инициализация карты
-        const map = L.map('map').setView([44.0165, 21.0059], 7);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Добавление маркеров основных городов
-        const cities = [
-            {name: "Белград", coords: [44.8125, 20.4612]},
-            {name: "Нови-Сад", coords: [45.2671, 19.8335]},
-            {name: "Ниш", coords: [43.3209, 21.8958]},
-            {name: "Крагуевац", coords: [44.0128, 20.9114]},
-            {name: "Суботица", coords: [46.1000, 19.6667]}
-        ];
-
-        cities.forEach(city => {
-            L.marker(city.coords)
-                .addTo(map)
-                .bindPopup(`<b>${city.name}</b>`);
-        });
-
-        // Плавная прокрутка
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Анимация появления элементов при скролле
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -872,34 +623,13 @@
             observer.observe(card);
         });
 
-        // Навигационные точки
-        const sections = document.querySelectorAll('section');
-        const navDots = document.querySelectorAll('.nav-dot');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.dataset.section === current) {
-                    dot.classList.add('active');
-                }
-            });
-        });
-
-        // Клик по навигационным точкам
-        navDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const targetSection = document.getElementById(dot.dataset.section);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
