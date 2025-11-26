@@ -1,8 +1,19 @@
-/* style.css - Complete styles for Serbia website with rounded windows */
+/* style.css - Complete golden Serbia website styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --gold: #d4af37;
+    --dark-gold: #b8941f;
+    --light-gold: #f7ef8a;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --card-bg: #1a1a1a;
+    --text-light: #f5f5f5;
+    --text-gray: #b0b0b0;
 }
 
 html {
@@ -11,12 +22,11 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a1e1e 100%);
+    background: linear-gradient(135deg, var(--darker-bg) 0%, #1a1400 30%, #2a1e00 70%, var(--dark-bg) 100%);
     background-attachment: fixed;
-    color: #f5f5f5;
+    color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
-    font-weight: 400;
     min-height: 100vh;
 }
 
@@ -28,49 +38,31 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a1e1e 100%);
+    background: linear-gradient(135deg, var(--darker-bg) 0%, #1a1400 30%, #2a1e00 70%, var(--dark-bg) 100%);
     z-index: -1;
 }
 
-/* ЗАКРУГЛЕННЫЕ ОКНА ДЛЯ ВСЕГО КОНТЕНТА */
-.rounded-window {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%);
-    border-radius: 24px;
-    padding: 3rem;
-    margin: 2rem 0;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.gold-gradient {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 50%, var(--dark-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.rounded-window::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
-    animation: shimmer 3s ease-in-out infinite;
+/* Анимация для эмодзи */
+.emoji-gold {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 50%, var(--dark-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rotateEmoji 4s linear infinite;
 }
 
-@keyframes shimmer {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-}
-
-.rounded-window:hover {
-    transform: translateY(-8px);
-    border-color: #d4af37;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(212, 175, 55, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+@keyframes rotateEmoji {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    75% { transform: rotate(270deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
 }
 
 /* Боковое меню */
@@ -89,16 +81,16 @@ body::before {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #b0b0b0;
+    background: var(--text-gray);
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
 }
 
 .nav-dot.active {
-    background: #d4af37;
+    background: var(--gold);
     transform: scale(1.3);
-    box-shadow: 0 0 15px #d4af37;
+    box-shadow: 0 0 15px var(--gold);
 }
 
 .nav-dot::after {
@@ -116,7 +108,7 @@ body::before {
     opacity: 0;
     transition: all 0.3s ease;
     white-space: nowrap;
-    border: 1px solid #d4af37;
+    border: 1px solid var(--gold);
 }
 
 .nav-dot:hover::after {
@@ -127,8 +119,8 @@ body::before {
 .nav-dot:nth-child(1)::after { content: 'О Сербии'; }
 .nav-dot:nth-child(2)::after { content: 'Культура'; }
 .nav-dot:nth-child(3)::after { content: 'Достопримечательности'; }
-.nav-dot:nth-child(4)::after { content: 'Байина Башта'; }
-.nav-dot:nth-child(5)::after { content: 'Кухня'; }
+.nav-dot:nth-child(4)::after { content: 'Кухня'; }
+.nav-dot:nth-child(5)::after { content: 'Цены'; }
 .nav-dot:nth-child(6)::after { content: 'Факты'; }
 
 .container {
@@ -157,10 +149,6 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
     font-family: 'Playfair Display', serif;
 }
 
@@ -172,7 +160,7 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -186,12 +174,12 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: #d4af37;
+    background: var(--gold);
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #f5f5f5;
+    color: var(--text-light);
 }
 
 .nav-links a:hover::after {
@@ -230,9 +218,6 @@ nav {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #f5f5f5 0%, #d4af37 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
     line-height: 1.1;
     font-family: 'Playfair Display', serif;
@@ -240,15 +225,21 @@ nav {
 }
 
 @keyframes titleGlow {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-    50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); }
+    0%, 100% { 
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        transform: scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+        transform: scale(1.02);
+    }
 }
 
 .hero-content p {
     font-size: 1.3rem;
     font-weight: 500;
     margin-bottom: 3rem;
-    color: #b0b0b0;
+    color: var(--text-gray);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -259,8 +250,8 @@ nav {
     align-items: center;
     gap: 12px;
     padding: 16px 32px;
-    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
+    color: var(--dark-bg);
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
@@ -268,11 +259,59 @@ nav {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    animation: pulse 2s infinite;
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ЗАКРУГЛЕННЫЕ ОКНА ДЛЯ ВСЕГО КОНТЕНТА */
+.rounded-window {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%);
+    border-radius: 24px;
+    padding: 3rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.rounded-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.rounded-window:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(212, 175, 55, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Sections */
@@ -293,7 +332,6 @@ section.active {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #f5f5f5;
     letter-spacing: -0.5px;
     font-family: 'Playfair Display', serif;
     position: relative;
@@ -307,14 +345,14 @@ section.active {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, #d4af37, #f7ef8a);
+    background: linear-gradient(90deg, var(--gold), var(--light-gold));
     border-radius: 2px;
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: #b0b0b0;
+    color: var(--text-gray);
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;
@@ -331,7 +369,7 @@ section.active {
 }
 
 .content-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -357,7 +395,7 @@ section.active {
 
 .content-card:hover {
     transform: translateY(-10px);
-    border-color: #d4af37;
+    border-color: var(--gold);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
@@ -382,12 +420,11 @@ section.active {
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #f5f5f5;
     font-family: 'Playfair Display', serif;
 }
 
 .card-text {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
@@ -419,12 +456,12 @@ section.active {
 
 .price-currency {
     font-weight: 600;
-    color: #d4af37;
+    color: var(--gold);
     font-size: 0.9rem;
 }
 
 .price-label {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.9rem;
 }
 
@@ -439,7 +476,7 @@ section.active {
 .about-text {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #b0b0b0;
+    color: var(--text-gray);
 }
 
 .about-text p {
@@ -447,13 +484,13 @@ section.active {
 }
 
 .about-text strong {
-    color: #f5f5f5;
+    color: var(--text-light);
     font-weight: 600;
 }
 
 /* РАМКИ ДЛЯ ВСЕХ ФОТОГРАФИЙ */
 .about-image, .place-image, .feature-image, .food-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -477,7 +514,7 @@ section.active {
 
 .about-image:hover, .place-image:hover, .feature-image:hover, .food-image:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
+    border-color: var(--gold);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -511,7 +548,7 @@ section.active {
 }
 
 .culture-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     text-align: center;
@@ -538,16 +575,13 @@ section.active {
 
 .culture-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
+    border-color: var(--gold);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .culture-card i {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     animation: iconBounce 3s ease-in-out infinite;
 }
 
@@ -561,11 +595,10 @@ section.active {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #f5f5f5;
 }
 
 .culture-card p {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -578,7 +611,7 @@ section.active {
 }
 
 .place-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -588,7 +621,7 @@ section.active {
 
 .place-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
+    border-color: var(--gold);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -600,11 +633,10 @@ section.active {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #f5f5f5;
 }
 
 .place-card p {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -612,59 +644,8 @@ section.active {
 
 .place-meta {
     font-size: 0.85rem;
-    color: #d4af37;
+    color: var(--gold);
     font-weight: 500;
-}
-
-/* Bajina Basta Section */
-.bajina-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-}
-
-.bajina-text p {
-    margin-bottom: 1.5rem;
-    color: #b0b0b0;
-    line-height: 1.7;
-    font-size: 1.1rem;
-}
-
-.bajina-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.feature {
-    background: transparent;
-    padding: 0;
-    border-radius: 16px;
-    text-align: center;
-    border: none;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.feature:hover {
-    transform: translateY(-5px);
-    background: transparent;
-}
-
-.feature h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 1rem 0 0.5rem 0;
-    color: #f5f5f5;
-    padding: 0 1rem;
-}
-
-.feature p {
-    font-size: 0.9rem;
-    color: #b0b0b0;
-    line-height: 1.5;
-    padding: 0 1rem 1.5rem 1rem;
 }
 
 /* Food Section */
@@ -694,11 +675,10 @@ section.active {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 1.5rem 0 0.5rem 0;
-    color: #f5f5f5;
 }
 
 .food-card p {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 0 0 1rem 0;
@@ -707,13 +687,13 @@ section.active {
 .price {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #d4af37;
+    color: var(--gold);
     margin-bottom: 0.25rem;
 }
 
 .price-conversion {
     font-size: 0.8rem;
-    color: #b0b0b0;
+    color: var(--text-gray);
     margin-bottom: 1.5rem;
 }
 
@@ -725,7 +705,7 @@ section.active {
 }
 
 .fact-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     text-align: center;
@@ -752,16 +732,13 @@ section.active {
 
 .fact-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
+    border-color: var(--gold);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .fact-card i {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     animation: iconSpin 4s linear infinite;
 }
 
@@ -775,18 +752,17 @@ section.active {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #f5f5f5;
 }
 
 .fact-card p {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
 /* Footer */
 footer {
-    background: #0a0a0a;
+    background: var(--dark-bg);
     padding: 4rem 0 2rem;
     margin-top: 4rem;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -801,9 +777,6 @@ footer {
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-family: 'Playfair Display', serif;
 }
 
@@ -811,7 +784,6 @@ footer {
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: 2rem;
-    color: #f5f5f5;
 }
 
 .credits {
@@ -821,7 +793,7 @@ footer {
 }
 
 .credits p {
-    color: #b0b0b0;
+    color: var(--text-gray);
     font-size: 0.9rem;
 }
 
@@ -856,14 +828,14 @@ footer {
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #d4af37;
+    color: var(--gold);
     text-align: center;
     font-family: 'Playfair Display', serif;
 }
 
 .tips-list {
     list-style: none;
-    color: #b0b0b0;
+    color: var(--text-gray);
 }
 
 .tips-list li {
@@ -877,8 +849,72 @@ footer {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #d4af37;
+    color: var(--gold);
     font-weight: bold;
+}
+
+/* Статистика */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+/* Анимации для эмодзи */
+.emoji-animation {
+    animation: emojiJump 2s ease-in-out infinite;
+}
+
+@keyframes emojiJump {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+    40% { transform: translateY(-15px) scale(1.1); }
+    60% { transform: translateY(-7px) scale(1.05); }
+}
+
+/* Анимация перехода между секциями */
+.section-transition {
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ФИКС ДЛЯ ЯНДЕКС БРАУЗЕРА */
+@supports not (backdrop-filter: blur(20px)) {
+    header {
+        background: rgba(10, 10, 10, 0.98) !important;
+        backdrop-filter: none !important;
+    }
+    
+    .rounded-window {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    }
 }
 
 /* Уменьшение масштаба для компьютера */
@@ -941,10 +977,6 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .bajina-content {
-        grid-template-columns: 1fr;
-    }
-    
     .section-title {
         font-size: 2rem;
     }
@@ -953,7 +985,7 @@ footer {
         display: none;
     }
     
-    .places-grid, .culture-grid, .food-grid, .facts-grid, .bajina-features {
+    .places-grid, .culture-grid, .food-grid, .facts-grid {
         grid-template-columns: 1fr;
     }
     
@@ -980,71 +1012,5 @@ footer {
     
     .content-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-/* Дополнительные улучшения */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-
-.stat-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #d4af37;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #b0b0b0;
-}
-
-/* Анимации для эмодзи */
-.emoji-animation {
-    animation: emojiJump 2s ease-in-out infinite;
-}
-
-@keyframes emojiJump {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
-    40% { transform: translateY(-15px) scale(1.1); }
-    60% { transform: translateY(-7px) scale(1.05); }
-}
-
-.pulse {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Анимация перехода между секциями */
-.section-transition {
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* ФИКС ДЛЯ ЯНДЕКС БРАУЗЕРА */
-@supports not (backdrop-filter: blur(20px)) {
-    header {
-        background: rgba(10, 10, 10, 0.98) !important;
-        backdrop-filter: none !important;
-    }
-    
-    .rounded-window {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     }
 }
