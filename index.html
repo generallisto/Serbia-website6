@@ -109,8 +109,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1594736797933-d0b64c365d18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('belgrad.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -241,12 +240,18 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(198, 54, 60, 0.1));
+            z-index: 1;
         }
         
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .content-card:hover .card-image img {
+            transform: scale(1.1);
         }
         
         .card-content {
@@ -457,6 +462,18 @@
                 padding: 2rem 1.5rem;
             }
         }
+
+        /* Fallback for images */
+        .image-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
@@ -495,8 +512,11 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-landmark fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Белград</div>
+                        <img src="belgrad.jpg" alt="Белград">
+                        <div class="image-fallback">
+                            <i class="fas fa-landmark fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Белград</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Белград <span class="emoji-gold">🏛️</span></h3>
@@ -506,8 +526,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-mountain fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Природа Сербии</div>
+                        <img src="1678727835_1zoom-club-p-krasota-vostochnoi-serbii-92.jpg" alt="Природа Сербии">
+                        <div class="image-fallback">
+                            <i class="fas fa-mountain fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Природа Сербии</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Природа Сербии <span class="emoji-gold">🌲</span></h3>
@@ -517,8 +540,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-users fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Сербский народ</div>
+                        <img src="serbiya.jpg" alt="Сербский народ">
+                        <div class="image-fallback">
+                            <i class="fas fa-users fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Сербский народ</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Сербский народ <span class="emoji-gold">👥</span></h3>
@@ -557,8 +583,11 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-music fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Традиционный танец Коло</div>
+                        <img src="1200px-Ansambl_KOLO.jpg" alt="Традиционный танец Коло">
+                        <div class="image-fallback">
+                            <i class="fas fa-music fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Традиционный танец Коло</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Коло <span class="emoji-gold">💃</span></h3>
@@ -568,8 +597,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-guitar fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Гусляр</div>
+                        <img src="1111.jpg" alt="Гусляр">
+                        <div class="image-fallback">
+                            <i class="fas fa-guitar fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Гусляр</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Гусляр <span class="emoji-gold">🎵</span></h3>
@@ -579,8 +611,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-glass-cheers fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Фестивали</div>
+                        <img src="112.jpg" alt="Фестивали">
+                        <div class="image-fallback">
+                            <i class="fas fa-glass-cheers fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Фестивали</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Фестивали <span class="emoji-gold">🎪</span></h3>
@@ -590,8 +625,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-church fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Православие</div>
+                        <img src="SYLLEITOYRGO2_1.jpg" alt="Православие">
+                        <div class="image-fallback">
+                            <i class="fas fa-church fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Православие</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Православие <span class="emoji-gold">⛪</span></h3>
@@ -601,8 +639,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-monument fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Музей Победы</div>
+                        <img src="40437d6s-1920.jpg" alt="Музей Победы">
+                        <div class="image-fallback">
+                            <i class="fas fa-monument fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Музей Победы</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Музей Победы <span class="emoji-gold">🏛️</span></h3>
@@ -622,8 +663,11 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-fort-awesome fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Белградская крепость</div>
+                        <img src="baner3.jpg" alt="Белградская крепость">
+                        <div class="image-fallback">
+                            <i class="fas fa-fort-awesome fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Белградская крепость</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Белградская крепость <span class="emoji-gold">🏰</span></h3>
@@ -639,8 +683,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-tree fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Национальный парк Тара</div>
+                        <img src="Biseri_Tare_02.jpg" alt="Национальный парк Тара">
+                        <div class="image-fallback">
+                            <i class="fas fa-tree fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Национальный парк Тара</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Национальный парк Тара <span class="emoji-gold">🌲</span></h3>
@@ -656,8 +703,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-mountain fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Дьявольский город</div>
+                        <img src="djavolja-varos-2012-07-15-01-1-scaled.jpg" alt="Дьявольский город">
+                        <div class="image-fallback">
+                            <i class="fas fa-mountain fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Дьявольский город</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Дьявольский город <span class="emoji-gold">👹</span></h3>
@@ -673,8 +723,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-place-of-worship fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Храм Святого Саввы</div>
+                        <img src="St-Sava.jpg" alt="Храм Святого Саввы">
+                        <div class="image-fallback">
+                            <i class="fas fa-place-of-worship fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Храм Святого Саввы</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Храм Святого Саввы <span class="emoji-gold">⛪</span></h3>
@@ -690,8 +743,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-archway fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Монастырь Студеница</div>
+                        <img src="scale_1200.jpg" alt="Монастырь Студеница">
+                        <div class="image-fallback">
+                            <i class="fas fa-archway fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Монастырь Студеница</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Монастырь Студеница <span class="emoji-gold">🕌</span></h3>
@@ -707,8 +763,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-fort-awesome fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Петроварадинская крепость</div>
+                        <img src="dsd.jpg" alt="Петроварадинская крепость">
+                        <div class="image-fallback">
+                            <i class="fas fa-fort-awesome fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Петроварадинская крепость</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Петроварадинская крепость <span class="emoji-gold">🏯</span></h3>
@@ -724,8 +783,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-skiing fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Копаоник</div>
+                        <img src="Kopaonik_ski_staza_-_panoramio.jpg" alt="Копаоник">
+                        <div class="image-fallback">
+                            <i class="fas fa-skiing fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Копаоник</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Копаоник <span class="emoji-gold">⛷️</span></h3>
@@ -741,8 +803,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-hiking fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Златибор</div>
+                        <img src="dji-0159-pano.jpg" alt="Златибор">
+                        <div class="image-fallback">
+                            <i class="fas fa-hiking fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Златибор</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Златибор <span class="emoji-gold">🏞️</span></h3>
@@ -768,8 +833,11 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-hamburger fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Плескавица</div>
+                        <img src="4aab9496c756abd9837c8258ffc61d42.jpg" alt="Плескавица">
+                        <div class="image-fallback">
+                            <i class="fas fa-hamburger fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Плескавица</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Pljeskavica <span class="emoji-gold">🍔</span></h3>
@@ -789,8 +857,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-hotdog fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Чевапы</div>
+                        <img src="35c57dc06133e89f526aa3231a158c5b.jpg" alt="Чевапы">
+                        <div class="image-fallback">
+                            <i class="fas fa-hotdog fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Чевапы</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ćevapi <span class="emoji-gold">🌭</span></h3>
@@ -810,8 +881,11 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-pepper-hot fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Айвар</div>
+                        <img src="aivar.jpg" alt="Айвар">
+                        <div class="image-fallback">
+                            <i class="fas fa-pepper-hot fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Айвар</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ajvar <span class="emoji-gold">🫑</span></h3>
@@ -831,8 +905,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-drumstick-bite fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Сарма</div>
+                        <img src="Sarma.jpg" alt="Сарма">
+                        <div class="image-fallback">
+                            <i class="fas fa-drumstick-bite fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Сарма</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Сарма <span class="emoji-gold">🥬</span></h3>
@@ -848,8 +925,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-cheese fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Гибаница</div>
+                        <img src="Gibanica-Serbian-Pie-Queen.jpg" alt="Гибаница">
+                        <div class="image-fallback">
+                            <i class="fas fa-cheese fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Гибаница</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Гибаница <span class="emoji-gold">🥧</span></h3>
@@ -865,8 +945,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-wine-glass-alt fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Ракия</div>
+                        <img src="139.jpg" alt="Ракия">
+                        <div class="image-fallback">
+                            <i class="fas fa-wine-glass-alt fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Ракия</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ракия <span class="emoji-gold">🥃</span></h3>
@@ -886,8 +969,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-cheese fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Каймак</div>
+                        <img src="Z2F0q9pFBPCVXzrALahw.jpg" alt="Каймак">
+                        <div class="image-fallback">
+                            <i class="fas fa-cheese fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Каймак</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Каймак <span class="emoji-gold">🧀</span></h3>
@@ -903,8 +989,11 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        <i class="fas fa-bread-slice fa-3x" style="color: #D4AF37;"></i>
-                        <div style="margin-top: 10px;">Проя</div>
+                        <img src="Pro-a-1-optimized.jpg" alt="Проя">
+                        <div class="image-fallback">
+                            <i class="fas fa-bread-slice fa-3x" style="color: #D4AF37;"></i>
+                            <div style="margin-top: 10px;">Проя</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Проя <span class="emoji-gold">🌽</span></h3>
@@ -1122,6 +1211,13 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                });
+            });
+
+            // Fallback for images
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
                 });
             });
         });
