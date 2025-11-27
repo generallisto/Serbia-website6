@@ -13,9 +13,12 @@
             --gold-dark: #B8860B;
             --serbian-red: #C6363C;
             --serbian-blue: #0C4076;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #1e1e1e;
+            --lighter: #2a2a2a;
+            --text: #e0e0e0;
+            --text-light: #a0a0a0;
         }
         
         * {
@@ -27,8 +30,9 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--text);
+            background-color: var(--dark);
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -45,12 +49,13 @@
         
         /* Header Styles */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(18, 18, 18, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         
         nav {
@@ -77,18 +82,34 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
         }
         
         .nav-links a:hover {
             color: var(--gold);
         }
         
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                         url('https://images.unsplash.com/photo-1594736797933-d0b64c365d18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -99,17 +120,36 @@
             text-align: center;
             color: white;
             margin-top: 70px;
+            position: relative;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(198, 54, 60, 0.2));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .hero-content h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
         
         .hero-content p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             max-width: 700px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
         
         .cta-button {
@@ -122,11 +162,14 @@
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .cta-button:hover {
             background: transparent;
             color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
         
         /* Section Styles */
@@ -135,10 +178,11 @@
         }
         
         .rounded-window {
-            background: white;
+            background: var(--light);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             padding: 3rem;
+            border: 1px solid var(--lighter);
         }
         
         .section-title {
@@ -150,7 +194,7 @@
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: var(--gray);
+            color: var(--text-light);
             margin-bottom: 3rem;
         }
         
@@ -163,28 +207,40 @@
         }
         
         .content-card {
-            background: white;
+            background: var(--lighter);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #333;
         }
         
         .content-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
         .card-image {
             width: 100%;
             height: 200px;
-            background-color: #f0f0f0;
+            background: linear-gradient(45deg, #333, #555);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
+            color: var(--text-light);
             font-size: 0.9rem;
             overflow: hidden;
+            position: relative;
+        }
+        
+        .card-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(198, 54, 60, 0.1));
         }
         
         .card-image img {
@@ -206,7 +262,7 @@
         }
         
         .card-text {
-            color: var(--gray);
+            color: var(--text-light);
             margin-bottom: 1rem;
         }
         
@@ -219,11 +275,12 @@
         }
         
         .stat-card {
-            background: var(--gold-light);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
             border-radius: 10px;
             padding: 1.5rem;
             text-align: center;
             transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
         }
         
         .stat-card:hover {
@@ -233,20 +290,22 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--gold-dark);
+            color: white;
             margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .stat-label {
-            color: var(--dark);
+            color: white;
             font-weight: 500;
+            opacity: 0.9;
         }
         
         /* Price Info */
         .price-info {
             margin-top: 1rem;
             padding-top: 1rem;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #444;
         }
         
         .price-item {
@@ -260,21 +319,23 @@
         }
         
         .price-currency {
-            color: var(--gold-dark);
+            color: var(--gold);
             font-weight: 600;
         }
         
         /* Tips Container */
         .tips-container {
-            background: var(--gold-light);
+            background: linear-gradient(135deg, #2a2a2a, #333);
             border-radius: 10px;
             padding: 2rem;
             margin-top: 3rem;
+            border: 1px solid #444;
         }
         
         .tips-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: var(--gold);
         }
         
         .tips-list {
@@ -297,9 +358,10 @@
         
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--darker);
             color: white;
             padding: 4rem 0 2rem;
+            border-top: 1px solid #333;
         }
         
         .footer-content {
@@ -326,7 +388,7 @@
         
         /* Utility Classes */
         .gold-gradient {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -345,6 +407,24 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
         }
         
         /* Responsive */
@@ -371,6 +451,10 @@
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .rounded-window {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -411,7 +495,8 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Белграда]
+                        <i class="fas fa-landmark fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Белград</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Белград <span class="emoji-gold">🏛️</span></h3>
@@ -421,7 +506,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение природы Сербии]
+                        <i class="fas fa-mountain fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Природа Сербии</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Природа Сербии <span class="emoji-gold">🌲</span></h3>
@@ -431,7 +517,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение сербского народа]
+                        <i class="fas fa-users fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Сербский народ</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Сербский народ <span class="emoji-gold">👥</span></h3>
@@ -470,7 +557,8 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение танца Коло]
+                        <i class="fas fa-music fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Традиционный танец Коло</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Коло <span class="emoji-gold">💃</span></h3>
@@ -480,7 +568,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение гусляра]
+                        <i class="fas fa-guitar fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Гусляр</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Гусляр <span class="emoji-gold">🎵</span></h3>
@@ -490,7 +579,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение фестиваля]
+                        <i class="fas fa-glass-cheers fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Фестивали</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Фестивали <span class="emoji-gold">🎪</span></h3>
@@ -500,7 +590,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение церкви]
+                        <i class="fas fa-church fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Православие</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Православие <span class="emoji-gold">⛪</span></h3>
@@ -510,7 +601,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Музея Победы]
+                        <i class="fas fa-monument fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Музей Победы</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Музей Победы <span class="emoji-gold">🏛️</span></h3>
@@ -530,7 +622,8 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Белградской крепости]
+                        <i class="fas fa-fort-awesome fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Белградская крепость</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Белградская крепость <span class="emoji-gold">🏰</span></h3>
@@ -546,7 +639,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение национального парка Тара]
+                        <i class="fas fa-tree fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Национальный парк Тара</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Национальный парк Тара <span class="emoji-gold">🌲</span></h3>
@@ -562,7 +656,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Дьявольского города]
+                        <i class="fas fa-mountain fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Дьявольский город</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Дьявольский город <span class="emoji-gold">👹</span></h3>
@@ -578,7 +673,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Храма Святого Саввы]
+                        <i class="fas fa-place-of-worship fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Храм Святого Саввы</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Храм Святого Саввы <span class="emoji-gold">⛪</span></h3>
@@ -594,7 +690,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение монастыря Студеница]
+                        <i class="fas fa-archway fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Монастырь Студеница</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Монастырь Студеница <span class="emoji-gold">🕌</span></h3>
@@ -610,7 +707,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Петроварадинской крепости]
+                        <i class="fas fa-fort-awesome fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Петроварадинская крепость</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Петроварадинская крепость <span class="emoji-gold">🏯</span></h3>
@@ -626,7 +724,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Копаоника]
+                        <i class="fas fa-skiing fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Копаоник</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Копаоник <span class="emoji-gold">⛷️</span></h3>
@@ -642,7 +741,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Златибора]
+                        <i class="fas fa-hiking fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Златибор</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Златибор <span class="emoji-gold">🏞️</span></h3>
@@ -668,7 +768,8 @@
             <div class="content-grid">
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Плескавицы]
+                        <i class="fas fa-hamburger fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Плескавица</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Pljeskavica <span class="emoji-gold">🍔</span></h3>
@@ -688,7 +789,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Чевапов]
+                        <i class="fas fa-hotdog fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Чевапы</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ćevapi <span class="emoji-gold">🌭</span></h3>
@@ -708,7 +810,8 @@
                 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Айвара]
+                        <i class="fas fa-pepper-hot fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Айвар</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ajvar <span class="emoji-gold">🫑</span></h3>
@@ -728,7 +831,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Сармы]
+                        <i class="fas fa-drumstick-bite fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Сарма</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Сарма <span class="emoji-gold">🥬</span></h3>
@@ -744,7 +848,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Гибаницы]
+                        <i class="fas fa-cheese fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Гибаница</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Гибаница <span class="emoji-gold">🥧</span></h3>
@@ -760,7 +865,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Ракии]
+                        <i class="fas fa-wine-glass-alt fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Ракия</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Ракия <span class="emoji-gold">🥃</span></h3>
@@ -780,7 +886,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Каймака]
+                        <i class="fas fa-cheese fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Каймак</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Каймак <span class="emoji-gold">🧀</span></h3>
@@ -796,7 +903,8 @@
 
                 <div class="content-card">
                     <div class="card-image">
-                        [Изображение Прои]
+                        <i class="fas fa-bread-slice fa-3x" style="color: #D4AF37;"></i>
+                        <div style="margin-top: 10px;">Проя</div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Проя <span class="emoji-gold">🌽</span></h3>
