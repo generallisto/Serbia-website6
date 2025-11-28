@@ -118,3 +118,55 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveDot);
     updateActiveDot();
 });
+// Анимация для новых элементов
+const newElementsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+// Наблюдаем за новыми элементами
+document.querySelectorAll('.tip-item, .fact').forEach(el => {
+    newElementsObserver.observe(el);
+});
+
+// Плавная прокрутка для всех ссылок
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Анимация чисел в статистике (если хочешь добавить)
+function animateNumbers() {
+    const counters = document.querySelectorAll('.stat-number');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 200;
+        let current = 0;
+        
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                counter.innerText = Math.ceil(current);
+                setTimeout(updateCounter, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Запускаем анимацию чисел при загрузке
+window.addEventListener('load', animateNumbers);
