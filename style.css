@@ -1,4 +1,4 @@
-/* style.css - Golden version of your original style */
+/* style.css - Golden gradients and animations */
 
 * {
     margin: 0;
@@ -12,36 +12,20 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a1e1e 100%);
+    background: linear-gradient(135deg, #0f0c08 0%, #1a140c 25%, #2a1e0f 50%, #1a140c 75%, #0f0c08 100%);
     background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     color: #f5f5f5;
     line-height: 1.6;
     overflow-x: hidden;
     font-weight: 400;
-    min-height: 100vh;
-}
-
-/* Гарантированный фон с золотым оттенком */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(135deg, #0a0a0a 0%, #1a140c 25%, #2a1e0f 50%, #1a140c 75%, #0a0a0a 100%),
-        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.08) 0%, transparent 50%);
-    background-size: 100% 100%, 200% 200%, 200% 200%;
-    animation: gradientShift 15s ease infinite;
-    z-index: -1;
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%, 0% 0%, 100% 100%; }
-    50% { background-position: 100% 50%, 100% 100%, 0% 0%; }
-    100% { background-position: 0% 50%, 0% 0%, 100% 100%; }
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
 }
 
 /* Боковое меню */
@@ -70,12 +54,6 @@ body::before {
     background: #d4af37;
     transform: scale(1.3);
     box-shadow: 0 0 15px #d4af37;
-    animation: dotPulse 2s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
-    50% { box-shadow: 0 0 25px rgba(212, 175, 55, 1); }
 }
 
 .nav-dot::after {
@@ -117,12 +95,12 @@ body::before {
 
 /* Header */
 header {
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(26, 20, 12, 0.95);
     backdrop-filter: blur(20px);
     position: fixed;
     width: 100%;
     z-index: 900;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 nav {
@@ -196,42 +174,31 @@ nav {
     bottom: 0;
     background: 
         radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 50%);
     animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
 }
 
 .hero-content h1 {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #f5f5f5 0%, #d4af37 50%, #f7ef8a 100%);
+    background: linear-gradient(135deg, #f5f5f5 0%, #d4af37 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
     line-height: 1.1;
     font-family: 'Playfair Display', serif;
-    animation: titleGlow 3s ease-in-out infinite, titleFloat 6s ease-in-out infinite;
+    animation: titleGlow 3s ease-in-out infinite;
 }
 
 @keyframes titleGlow {
-    0%, 100% { 
-        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
-        background-size: 100% 100%;
-    }
-    50% { 
-        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
-        background-size: 200% 200%;
-    }
-}
-
-@keyframes titleFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(180deg); }
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
+    50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); }
 }
 
 .hero-content p {
@@ -258,17 +225,17 @@ nav {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    animation: buttonPulse 2s ease-in-out infinite;
+    animation: pulseGlow 2s ease-in-out infinite;
 }
 
-@keyframes buttonPulse {
+@keyframes pulseGlow {
     0%, 100% { 
-        transform: translateY(0);
         box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        transform: translateY(0);
     }
     50% { 
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
         transform: translateY(-2px);
-        box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
     }
 }
 
@@ -342,34 +309,16 @@ section.active {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.stat-card:hover::before {
-    left: 100%;
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
@@ -385,11 +334,7 @@ section.active {
     color: #b0b0b0;
 }
 
-/* РАМКИ ДЛЯ ВСЕХ ФОТОГРАФИЙ */
-.about-image,
-.place-image,
-.feature-image,
-.food-image {
+.about-image {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     border-radius: 16px;
     overflow: hidden;
@@ -397,13 +342,10 @@ section.active {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
+    height: 400px;
 }
 
-/* Единые стили для всех изображений */
-.about-image img,
-.place-image img,
-.feature-image img,
-.food-image img {
+.about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -411,26 +353,13 @@ section.active {
     transition: transform 0.3s ease;
 }
 
-/* Фиксированные высоты для консистентности */
-.about-image { height: 400px; }
-.place-image { height: 280px; }
-.feature-image { height: 220px; }
-.food-image { height: 220px; }
-
-/* Эффекты при наведении */
-.about-image:hover,
-.place-image:hover,
-.feature-image:hover,
-.food-image:hover {
+.about-image:hover {
     transform: translateY(-5px);
     border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.about-image:hover img,
-.place-image:hover img,
-.feature-image:hover img,
-.food-image:hover img {
+.about-image:hover img {
     transform: scale(1.05);
 }
 
@@ -460,11 +389,11 @@ section.active {
 }
 
 .culture-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -488,7 +417,7 @@ section.active {
 .culture-card:hover {
     transform: translateY(-5px);
     border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .culture-card i {
@@ -533,10 +462,10 @@ section.active {
 }
 
 .place-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
 }
@@ -544,7 +473,18 @@ section.active {
 .place-card:hover {
     transform: translateY(-5px);
     border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.place-image {
+    height: 280px;
+}
+
+.place-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .place-card-content {
@@ -572,19 +512,6 @@ section.active {
 }
 
 /* Bajina Basta Section */
-.bajina-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-}
-
-.bajina-text p {
-    margin-bottom: 1.5rem;
-    color: #b0b0b0;
-    line-height: 1.7;
-    font-size: 1.1rem;
-}
-
 .bajina-features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -607,19 +534,193 @@ section.active {
     background: transparent;
 }
 
+.feature-image {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 220px;
+    margin-bottom: 1rem;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover .feature-image {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.feature:hover .feature-image img {
+    transform: scale(1.05);
+}
+
 .feature h4 {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 1rem 0 0.5rem 0;
     color: #f5f5f5;
-    padding: 0 1rem;
 }
 
 .feature p {
     font-size: 0.9rem;
     color: #b0b0b0;
     line-height: 1.5;
-    padding: 0 1rem 1.5rem 1rem;
+}
+
+/* Prices Section */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.price-category {
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.price-category h3 {
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.price-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.price-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.item-name {
+    color: #f5f5f5;
+    font-weight: 500;
+    flex: 1;
+}
+
+.prices {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.price-rsd {
+    font-weight: 600;
+    color: #d4af37;
+    font-size: 1rem;
+}
+
+.price-conv {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    opacity: 0.8;
+}
+
+.currency-converter {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.converter-card {
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+}
+
+.converter-card h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.rates {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.rate {
+    color: #f5f5f5;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.price-tips {
+    margin-top: 3rem;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+}
+
+.tip-card i {
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+.tip-card h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.tip-card ul {
+    list-style: none;
+    text-align: left;
+    color: #b0b0b0;
+}
+
+.tip-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tip-card li:before {
+    content: '•';
+    color: #d4af37;
+    position: absolute;
+    left: 0;
 }
 
 /* Food Section */
@@ -630,25 +731,56 @@ section.active {
 }
 
 .food-card {
-    background: transparent;
-    padding: 0;
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    border: none;
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
 .food-card:hover {
-    background: transparent;
     transform: translateY(-5px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.food-image {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 220px;
+    margin-bottom: 1.5rem;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.food-card:hover .food-image {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.05);
 }
 
 .food-card h3 {
     font-size: 1.2rem;
     font-weight: 600;
-    margin: 1.5rem 0 0.5rem 0;
+    margin-bottom: 0.5rem;
     color: #f5f5f5;
 }
 
@@ -656,7 +788,7 @@ section.active {
     color: #b0b0b0;
     font-size: 0.9rem;
     line-height: 1.6;
-    margin: 0 0 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .price {
@@ -672,6 +804,15 @@ section.active {
     margin-bottom: 1.5rem;
 }
 
+.restaurant-tip {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
 /* Facts Section */
 .facts-grid {
     display: grid;
@@ -680,11 +821,11 @@ section.active {
 }
 
 .fact-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -708,7 +849,7 @@ section.active {
 .fact-card:hover {
     transform: translateY(-5px);
     border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .fact-card i {
@@ -744,7 +885,7 @@ footer {
     background: #0a0a0a;
     padding: 4rem 0 2rem;
     margin-top: 4rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
     position: relative;
 }
 
@@ -753,8 +894,8 @@ footer {
 }
 
 .footer-title {
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
     -webkit-background-clip: text;
@@ -763,10 +904,9 @@ footer {
 }
 
 .footer-subtitle {
-    font-size: 1.8rem;
-    font-weight: 800;
+    font-size: 1.1rem;
+    color: #b0b0b0;
     margin-bottom: 2rem;
-    color: #f5f5f5;
 }
 
 .credits {
@@ -824,6 +964,13 @@ footer {
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .side-nav {
@@ -835,10 +982,6 @@ footer {
     }
 
     .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .bajina-content {
         grid-template-columns: 1fr;
     }
 
@@ -854,7 +997,8 @@ footer {
     .culture-grid,
     .food-grid,
     .facts-grid,
-    .bajina-features {
+    .bajina-features,
+    .pricing-grid {
         grid-template-columns: 1fr;
     }
     
@@ -873,205 +1017,9 @@ footer {
     .food-image {
         height: 180px;
     }
-}
-
-/* Уменьшение масштаба для компьютера */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1100px;
-    }
     
-    .about-content {
-        gap: 3rem;
+    .rates {
+        flex-direction: column;
+        gap: 0.5rem;
     }
-    
-    .about-image {
-        height: 350px;
-    }
-    
-    .place-image {
-        height: 240px;
-    }
-    
-    .feature-image {
-        height: 180px;
-    }
-    
-    .food-image {
-        height: 180px;
-    }
-    
-    .section-title {
-        font-size: 2.2rem;
-    }
-    
-    .hero-content h1 {
-        font-size: 3.2rem;
-    }
-}
-
-/* Еще меньше для очень больших экранов */
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1200px;
-    }
-}
-/* Дополнительные стили для нового контента */
-
-/* Заголовки внутри секций */
-.about-text h3,
-.bajina-text h3,
-.food-tips h3,
-.quick-facts h3 {
-    color: #d4af37;
-    margin: 2rem 0 1rem 0;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-/* Сетка советов по еде */
-.food-tips {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.tips-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.tip-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    transition: all 0.3s ease;
-}
-
-.tip-item:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.tip-item h4 {
-    color: #d4af37;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.tip-item p {
-    color: #b0b0b0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* Быстрые факты */
-.quick-facts {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.facts-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.fact {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #b0b0b0;
-    font-size: 0.95rem;
-}
-
-.fact strong {
-    color: #f5f5f5;
-}
-
-/* Улучшения для карточек еды */
-.food-card {
-    background: transparent;
-    padding: 0;
-    border-radius: 16px;
-    text-align: center;
-    border: none;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.food-card:hover {
-    background: transparent;
-    transform: translateY(-5px);
-}
-
-.food-card h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 1.5rem 0 0.5rem 0;
-    color: #f5f5f5;
-}
-
-.food-card p {
-    color: #b0b0b0;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
-    padding: 0 1rem;
-}
-
-.price {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #d4af37;
-    margin-bottom: 0.25rem;
-}
-
-.price-conversion {
-    font-size: 0.8rem;
-    color: #b0b0b0;
-    margin-bottom: 1.5rem;
-}
-
-/* Адаптивность для новых элементов */
-@media (max-width: 768px) {
-    .tips-grid,
-    .facts-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .food-tips,
-    .quick-facts {
-        padding: 1.5rem;
-        margin: 2rem 0;
-    }
-    
-    .tip-item {
-        padding: 1rem;
-    }
-}
-
-/* Анимация для новых карточек */
-.tip-item,
-.fact {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
-}
-
-.tip-item.visible,
-.fact.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
