@@ -9,78 +9,139 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
     <!-- Боковое меню навигации -->
     <div class="side-nav">
-        <div class="nav-dot active" data-section="about"></div>
-        <div class="nav-dot" data-section="culture"></div>
-        <div class="nav-dot" data-section="places"></div>
-        <div class="nav-dot" data-section="bajina-basta"></div>
-        <div class="nav-dot" data-section="prices"></div>
-        <div class="nav-dot" data-section="food"></div>
-        <div class="nav-dot" data-section="facts"></div>
+        <div class="nav-dot active" data-section="about">
+            <div class="dot-pulse"></div>
+        </div>
+        <div class="nav-dot" data-section="culture">
+            <div class="dot-pulse"></div>
+        </div>
+        <div class="nav-dot" data-section="places">
+            <div class="dot-pulse"></div>
+        </div>
+        <div class="nav-dot" data-section="bajina-basta">
+            <div class="dot-pulse"></div>
+        </div>
+        <div class="nav-dot" data-section="prices">
+            <div class="dot-pulse"></div>
+        </div>
+        <div class="nav-dot" data-section="food">
+            <div class="dot-pulse"></div>
+        </div>
+        <div class="nav-dot" data-section="facts">
+            <div class="dot-pulse"></div>
+        </div>
     </div>
 
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">🇷🇸 Сербия</div>
+            <div class="logo">
+                <div class="logo-glow">🇷🇸 Сербия</div>
+            </div>
             <ul class="nav-links">
-                <li><a href="#about">О стране</a></li>
-                <li><a href="#culture">Культура</a></li>
-                <li><a href="#places">Достопримечательности</a></li>
-                <li><a href="#bajina-basta">Байина Башта</a></li>
-                <li><a href="#prices">Цены в Сербии</a></li>
-                <li><a href="#food">Кухня</a></li>
-                <li><a href="#facts">Факты</a></li>
+                <li><a href="#about" class="nav-link">О стране</a></li>
+                <li><a href="#culture" class="nav-link">Культура</a></li>
+                <li><a href="#places" class="nav-link">Достопримечательности</a></li>
+                <li><a href="#bajina-basta" class="nav-link">Байина Башта</a></li>
+                <li><a href="#prices" class="nav-link">Цены в Сербии</a></li>
+                <li><a href="#food" class="nav-link">Кухня</a></li>
+                <li><a href="#facts" class="nav-link">Факты</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero active">
+        <div class="hero-glow"></div>
         <div class="container">
-            <div class="hero-content fade-in visible">
-                <h1>Сербия</h1>
-                <p>Страна с богатой историей, гостеприимными людьми и неповторимой атмосферой</p>
-                <a href="#about" class="cta-button">
+            <div class="hero-content">
+                <div class="title-wrapper">
+                    <h1 class="hero-title glitch" data-text="Сербия">Сербия</h1>
+                </div>
+                <p class="hero-subtitle typing-animation">Страна с богатой историей, гостеприимными людьми и неповторимой атмосферой</p>
+                <a href="#about" class="cta-button pulse-glow">
                     <i class="fas fa-compass"></i>
-                    Исследовать Сербию
+                    <span>Исследовать Сербию</span>
+                    <div class="button-shine"></div>
                 </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in visible">О Сербии</h2>
-            <p class="section-subtitle fade-in visible">Узнайте о стране, где встречаются Восток и Запад</p>
+            <h2 class="section-title slide-in-left">О Сербии</h2>
+            <p class="section-subtitle slide-in-right">Узнайте о стране, где встречаются Восток и Запад</p>
             <div class="about-content">
-                <div class="about-text fade-in visible">
-                    <p>Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
-                    <p><strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Это город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
-                    <p><strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Самые известные хребты: <strong>Копаоник</strong> (зимний спортивный центр), <strong>Тара</strong> (национальный парк с девственными лесами) и <strong>Златибор</strong> (популярный курорт с целебным воздухом).</p>
-                    
+                <div class="about-text">
+                    <div class="text-group">
+                        <p class="fade-in-up">Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
+                        
+                        <div class="highlight-card slide-in-left">
+                            <div class="card-glow"></div>
+                            <i class="fas fa-landmark"></i>
+                            <div>
+                                <h4>Столица Белград</h4>
+                                <p>Один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-card slide-in-right">
+                            <div class="card-glow"></div>
+                            <i class="fas fa-mountain"></i>
+                            <div>
+                                <h4>Горные пейзажи</h4>
+                                <p>Почти 70% территории Сербии — холмы и горы. Самые известные хребты: Копаоник (зимний спортивный центр), Тара (национальный парк) и Златибор (популярный курорт).</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="stats-grid">
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">8.7M</div>
-                            <div class="stat-label">Население</div>
+                        <div class="stat-card bounce-in">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-number" data-count="8.7">0</div>
+                            <div class="stat-label">Млн населения</div>
                         </div>
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">88K км²</div>
-                            <div class="stat-label">Территория</div>
+                        <div class="stat-card bounce-in" style="animation-delay: 0.1s">
+                            <div class="stat-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <div class="stat-number" data-count="88">0</div>
+                            <div class="stat-label">Тыс. км² территории</div>
                         </div>
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">1150+</div>
+                        <div class="stat-card bounce-in" style="animation-delay: 0.2s">
+                            <div class="stat-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="stat-number" data-count="1150">0</div>
                             <div class="stat-label">Лет истории</div>
                         </div>
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">5</div>
+                        <div class="stat-card bounce-in" style="animation-delay: 0.3s">
+                            <div class="stat-icon">
+                                <i class="fas fa-unesco"></i>
+                            </div>
+                            <div class="stat-number" data-count="5">0</div>
                             <div class="stat-label">Объектов ЮНЕСКО</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image fade-in visible">
+                
+                <div class="about-image zoom-in">
+                    <div class="image-glow"></div>
                     <img src="images/serbia-main.jpg" alt="Сербия - Белград" class="responsive-image">
                     <div class="image-caption">Белград - столица Сербии</div>
                 </div>
@@ -90,34 +151,46 @@
 
     <!-- Culture Section -->
     <section id="culture" class="culture section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in">Культура и традиции</h2>
-            <p class="section-subtitle fade-in">Богатое наследие и уникальные обычаи сербского народа</p>
+            <h2 class="section-title slide-in-left">Культура и традиции</h2>
+            <p class="section-subtitle slide-in-right">Богатое наследие и уникальные обычаи сербского народа</p>
+            
             <div class="culture-grid">
-                <div class="culture-card fade-in">
-                    <i class="fas fa-music"></i>
-                    <h3>Музыка</h3>
-                    <p>Турбо-фолк и традиционные народные песни создают уникальный музыкальный ландшафт Сербии. От эпических гуслярских баллад до современной поп-музыки.</p>
+                <div class="culture-card flip-in">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Музыка и танцы</h3>
+                    <p>Турбо-фолк и традиционные народные песни. Коло — традиционный круговой танец, символ единства на всех праздниках.</p>
                 </div>
-                <div class="culture-card fade-in">
-                    <i class="fas fa-dancing"></i>
-                    <h3>Танцы</h3>
-                    <p>Коло — традиционный круговой танец, символ единства и веселья на всех праздниках. Каждый регион имеет свои уникальные стили и костюмы.</p>
-                </div>
-                <div class="culture-card fade-in">
-                    <i class="fas fa-glass-cheers"></i>
+                
+                <div class="culture-card flip-in" style="animation-delay: 0.1s">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
                     <h3>Фестивали</h3>
-                    <p>EXIT Festival в Нови-Саде — один из лучших европейских музыкальных фестивалей. Также популярны Гусие (трубаческий фестиваль) и BELGRADE BEER FEST.</p>
+                    <p>EXIT Festival в Нови-Саде — один из лучших европейских музыкальных фестивалей. Гусие и BELGRADE BEER FEST.</p>
                 </div>
-                <div class="culture-card fade-in">
-                    <i class="fas fa-church"></i>
+                
+                <div class="culture-card flip-in" style="animation-delay: 0.2s">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
                     <h3>Религия</h3>
-                    <p>Православные монастыри с уникальными фресками — культурное наследие ЮНЕСКО. Сербская Православная Церковь играет ключевую роль в жизни общества.</p>
+                    <p>Православные монастыри с уникальными фресками — культурное наследие ЮНЕСКО. Сербская Православная Церковь играет ключевую роль.</p>
                 </div>
-                <div class="culture-card fade-in">
-                    <i class="fas fa-handshake"></i>
+
+                <div class="culture-card flip-in" style="animation-delay: 0.3s">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
                     <h3>Гостеприимство</h3>
-                    <p>Сербы известны своим радушием. Гостям всегда предлагают "ракию и слатко" — традиционное угощение. "Гость в дом — Бог в дом" — местная пословица.</p>
+                    <p>Сербы известны радушием. Гостям всегда предлагают "ракию и слатко". "Гость в дом — Бог в дом" — местная пословица.</p>
                 </div>
             </div>
         </div>
@@ -125,38 +198,72 @@
 
     <!-- Places Section -->
     <section id="places" class="places section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in">Достопримечательности</h2>
-            <p class="section-subtitle fade-in">Откройте для себя самые красивые места Сербии</p>
+            <h2 class="section-title slide-in-left">Достопримечательности</h2>
+            <p class="section-subtitle slide-in-right">Откройте для себя самые красивые места Сербии</p>
+            
             <div class="places-grid">
-                <div class="place-card fade-in">
+                <div class="place-card slide-in-up">
+                    <div class="card-glow"></div>
                     <div class="place-image">
                         <img src="images/belgrade-fortress.jpg" alt="Белградская крепость" class="responsive-image">
+                        <div class="place-overlay">
+                            <div class="place-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8/5</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="place-card-content">
+                    <div class="place-content">
                         <h3>Белградская крепость</h3>
-                        <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев.</p>
-                        <div class="place-meta">📍 Белград | 🎫 Вход бесплатный | ⭐ 4.8/5</div>
+                        <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан.</p>
+                        <div class="place-meta">
+                            <span class="location">📍 Белград</span>
+                            <span class="price">🎫 Бесплатно</span>
+                        </div>
                     </div>
                 </div>
-                <div class="place-card fade-in">
+
+                <div class="place-card slide-in-up" style="animation-delay: 0.1s">
+                    <div class="card-glow"></div>
                     <div class="place-image">
                         <img src="images/manastir-zica.jpg" alt="Монастырь Жича" class="responsive-image">
+                        <div class="place-overlay">
+                            <div class="place-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="place-card-content">
+                    <div class="place-content">
                         <h3>Монастырь Жича</h3>
-                        <p>Духовный центр сербского православия с XIII века, место коронации сербских королей. Известен своей уникальной красной окраской и великолепными фресками.</p>
-                        <div class="place-meta">📍 Кралево | 🎫 Пожертвование | ⭐ 4.9/5</div>
+                        <p>Духовный центр сербского православия с XIII века, место коронации сербских королей. Известен уникальной красной окраской и фресками.</p>
+                        <div class="place-meta">
+                            <span class="location">📍 Кралево</span>
+                            <span class="price">🎫 Пожертвование</span>
+                        </div>
                     </div>
                 </div>
-                <div class="place-card fade-in">
+
+                <div class="place-card slide-in-up" style="animation-delay: 0.2s">
+                    <div class="card-glow"></div>
                     <div class="place-image">
                         <img src="images/devils-town.jpg" alt="Дьявольский город" class="responsive-image">
+                        <div class="place-overlay">
+                            <div class="place-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7/5</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="place-card-content">
+                    <div class="place-content">
                         <h3>Дьявольский город</h3>
-                        <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование.</p>
-                        <div class="place-meta">📍 Куршумлия | 🎫 ~300 динар | ⭐ 4.7/5</div>
+                        <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом.</p>
+                        <div class="place-meta">
+                            <span class="location">📍 Куршумлия</span>
+                            <span class="price">🎫 300 динар</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -165,37 +272,50 @@
 
     <!-- Bajina Basta Section -->
     <section id="bajina-basta" class="bajina-basta section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in">Байина Башта</h2>
-            <p class="section-subtitle fade-in">Жемчужина западной Сербии у подножия горы Тара</p>
-            <div class="bajina-content">
-                <div class="bajina-text">
-                    <p class="fade-in"><strong>Байина-Башта</strong> — очаровательный город на западе Сербии, расположенный у подножия горы Тара. Этот регион славится своей потрясающей природой и богатой историей.</p>
-                    <p class="fade-in">Главная достопримечательность — <strong>монастырь Рача</strong> XIV века, спрятанный в ущелье реки Рача. Монастырь известен своей школой переписчиков, которая сохраняла сербскую культуру во времена османского владычества.</p>
-                    <p class="fade-in">Природный заповедник <strong>Тара</strong> предлагает уникальные возможности для экотуризма, пеших походов и наблюдения за дикой природой. Обязательно посетите <strong>Дом на Дрине</strong> — крошечный домик на скале посреди реки, символ этого региона.</p>
-                    
-                    <div class="bajina-features">
-                        <div class="feature fade-in">
-                            <div class="feature-image">
-                                <img src="images/tara-mountain.jpg" alt="Гора Тара" class="responsive-image">
-                            </div>
-                            <h4>Гора Тара</h4>
-                            <p>Национальный парк с уникальной флорой и фауной, включая серн и медведей. Идеальное место для треккинга.</p>
-                        </div>
-                        <div class="feature fade-in">
-                            <div class="feature-image">
-                                <img src="images/manastir-raca.jpg" alt="Монастырь Рача" class="responsive-image">
-                            </div>
-                            <h4>Монастырь Рача</h4>
-                            <p>Духовный и культурный центр XIV века, шедевр сербской средневековой архитектуры с богатой библиотекой.</p>
-                        </div>
-                        <div class="feature fade-in">
-                            <div class="feature-image">
-                                <img src="images/house-on-drina.jpg" alt="Дом на Дрине" class="responsive-image">
-                            </div>
-                            <h4>Дом на Дрине</h4>
-                            <p>Легендарный домик на скале посреди реки Дрина - символ человеческого упорства и гармонии с природой.</p>
-                        </div>
+            <h2 class="section-title slide-in-left">Байина Башта</h2>
+            <p class="section-subtitle slide-in-right">Жемчужина западной Сербии у подножия горы Тара</p>
+            
+            <div class="bajina-hero zoom-in">
+                <div class="image-glow"></div>
+                <img src="images/bajina-basta-hero.jpg" alt="Байина Башта панорама" class="hero-image">
+                <div class="hero-overlay">
+                    <h3 class="fade-in-up">Край природных чудес</h3>
+                </div>
+            </div>
+
+            <div class="bajina-features">
+                <div class="feature slide-in-left">
+                    <div class="feature-image">
+                        <div class="image-glow"></div>
+                        <img src="images/tara-mountain.jpg" alt="Гора Тара" class="responsive-image">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Гора Тара</h4>
+                        <p>Национальный парк с уникальной флорой и фауной, включая серн и медведей. Идеальное место для треккинга и экотуризма.</p>
+                    </div>
+                </div>
+
+                <div class="feature slide-in-up" style="animation-delay: 0.2s">
+                    <div class="feature-image">
+                        <div class="image-glow"></div>
+                        <img src="images/manastir-raca.jpg" alt="Монастырь Рача" class="responsive-image">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Монастырь Рача</h4>
+                        <p>Духовный и культурный центр XIV века, шедевр сербской средневековой архитектуры с богатой библиотекой и историей.</p>
+                    </div>
+                </div>
+
+                <div class="feature slide-in-right" style="animation-delay: 0.4s">
+                    <div class="feature-image">
+                        <div class="image-glow"></div>
+                        <img src="images/house-on-drina.jpg" alt="Дом на Дрине" class="responsive-image">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Дом на Дрине</h4>
+                        <p>Легендарный домик на скале посреди реки Дрина - символ человеческого упорства и гармонии с природой.</p>
                     </div>
                 </div>
             </div>
@@ -204,12 +324,14 @@
 
     <!-- Prices Section -->
     <section id="prices" class="prices section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in">Цены в Сербии</h2>
-            <p class="section-subtitle fade-in">Актуальные цены в супермаркетах, на рынках и в магазинах</p>
+            <h2 class="section-title slide-in-left">Цены в Сербии</h2>
+            <p class="section-subtitle slide-in-right">Актуальные цены в супермаркетах, на рынках и в магазинах</p>
 
-            <div class="currency-converter fade-in">
+            <div class="currency-converter bounce-in">
                 <div class="converter-card">
+                    <div class="card-glow"></div>
                     <h4>💱 Актуальный курс</h4>
                     <div class="rates">
                         <div class="rate">1€ ≈ 117 RSD</div>
@@ -221,38 +343,39 @@
 
             <div class="pricing-grid">
                 <!-- Продукты питания -->
-                <div class="price-category fade-in">
+                <div class="price-category slide-in-left">
+                    <div class="card-glow"></div>
                     <h3><i class="fas fa-shopping-basket"></i> Продукты питания</h3>
                     <div class="price-items">
-                        <div class="price-item">
+                        <div class="price-item fade-in-up">
                             <span class="item-name">Хлеб (буханка)</span>
                             <div class="prices">
                                 <span class="price-rsd">80-120 RSD</span>
                                 <span class="price-conv">0.7-1€ / 60-90₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.1s">
                             <span class="item-name">Молоко (1л)</span>
                             <div class="prices">
                                 <span class="price-rsd">110-150 RSD</span>
                                 <span class="price-conv">0.9-1.3€ / 85-115₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.2s">
                             <span class="item-name">Яйца (10 шт)</span>
                             <div class="prices">
                                 <span class="price-rsd">180-250 RSD</span>
                                 <span class="price-conv">1.5-2.1€ / 140-190₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.3s">
                             <span class="item-name">Сыр (1кг)</span>
                             <div class="prices">
                                 <span class="price-rsd">700-1000 RSD</span>
                                 <span class="price-conv">6-8.5€ / 540-770₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.4s">
                             <span class="item-name">Курица (1кг)</span>
                             <div class="prices">
                                 <span class="price-rsd">450-650 RSD</span>
@@ -263,31 +386,32 @@
                 </div>
 
                 <!-- Рынки и местное -->
-                <div class="price-category fade-in">
+                <div class="price-category slide-in-up">
+                    <div class="card-glow"></div>
                     <h3><i class="fas fa-store"></i> Рынки и местные продукты</h3>
                     <div class="price-items">
-                        <div class="price-item">
+                        <div class="price-item fade-in-up">
                             <span class="item-name">Айвар (банка)</span>
                             <div class="prices">
                                 <span class="price-rsd">300-500 RSD</span>
                                 <span class="price-conv">2.5-4.3€ / 230-380₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.1s">
                             <span class="item-name">Каймак (200г)</span>
                             <div class="prices">
                                 <span class="price-rsd">250-400 RSD</span>
                                 <span class="price-conv">2.1-3.4€ / 190-300₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.2s">
                             <span class="item-name">Сливовица (0.5л)</span>
                             <div class="prices">
                                 <span class="price-rsd">500-1500 RSD</span>
                                 <span class="price-conv">4.3-12.8€ / 380-1150₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.3s">
                             <span class="item-name">Мед местный (1кг)</span>
                             <div class="prices">
                                 <span class="price-rsd">800-1200 RSD</span>
@@ -298,31 +422,32 @@
                 </div>
 
                 <!-- Техника и услуги -->
-                <div class="price-category fade-in">
+                <div class="price-category slide-in-right">
+                    <div class="card-glow"></div>
                     <h3><i class="fas fa-laptop"></i> Техника и услуги</h3>
                     <div class="price-items">
-                        <div class="price-item">
+                        <div class="price-item fade-in-up">
                             <span class="item-name">iPhone 15 (базовый)</span>
                             <div class="prices">
                                 <span class="price-rsd">120,000+ RSD</span>
                                 <span class="price-conv">1025+€ / 92,000+₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.1s">
                             <span class="item-name">Ноутбук средний</span>
                             <div class="prices">
                                 <span class="price-rsd">80,000-150,000 RSD</span>
                                 <span class="price-conv">680-1280€ / 61,500-115,000₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.2s">
                             <span class="item-name">Такси (за км)</span>
                             <div class="prices">
                                 <span class="price-rsd">60-100 RSD</span>
                                 <span class="price-conv">0.5-0.85€ / 46-77₽</span>
                             </div>
                         </div>
-                        <div class="price-item">
+                        <div class="price-item fade-in-up" style="animation-delay: 0.3s">
                             <span class="item-name">Кофе в кафе</span>
                             <div class="prices">
                                 <span class="price-rsd">150-250 RSD</span>
@@ -333,8 +458,9 @@
                 </div>
             </div>
 
-            <div class="price-tips fade-in">
+            <div class="price-tips bounce-in">
                 <div class="tip-card">
+                    <div class="card-glow"></div>
                     <i class="fas fa-lightbulb"></i>
                     <h4>Советы по экономии</h4>
                     <ul>
@@ -349,193 +475,187 @@
 
     <!-- Food Section -->
     <section id="food" class="food section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in">Сербская кухня</h2>
-            <p class="section-subtitle fade-in">Вкусные блюда по доступным ценам - гастрономический рай</p>
+            <h2 class="section-title slide-in-left">Сербская кухня</h2>
+            <p class="section-subtitle slide-in-right">Вкусные блюда по доступным ценам - гастрономический рай</p>
             
             <div class="food-grid">
-                <div class="food-card fade-in">
+                <div class="food-card flip-in">
+                    <div class="card-glow"></div>
                     <div class="food-image">
                         <img src="images/pljeskavica.jpg" alt="Плескавица" class="responsive-image">
+                        <div class="food-overlay">
+                            <span class="food-price">400-600 RSD</span>
+                        </div>
                     </div>
-                    <h3>Pljeskavica</h3>
-                    <p>Гигантская котлета-бургер с разнообразными начинками и соусами. "Лепенья" (лепешка) вместо булки обязательна!</p>
-                    <div class="price">400-600 RSD</div>
-                    <div class="price-conversion">3.5-5€ / 350-500₽</div>
+                    <div class="food-content">
+                        <h3>Pljeskavica</h3>
+                        <p>Гигантская котлета-бургер с разнообразными начинками и соусами. "Лепенья" (лепешка) вместо булки обязательна!</p>
+                        <div class="food-meta">
+                            <span>3.5-5€ / 350-500₽</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="food-card fade-in">
+
+                <div class="food-card flip-in" style="animation-delay: 0.1s">
+                    <div class="card-glow"></div>
                     <div class="food-image">
                         <img src="images/cevapi.jpg" alt="Чевапы" class="responsive-image">
+                        <div class="food-overlay">
+                            <span class="food-price">350-500 RSD</span>
+                        </div>
                     </div>
-                    <h3>Ćevapi</h3>
-                    <p>Мясные колбаски с луком и лепешкой "сомун" - национальное блюдо номер один. Подается с каймаком и уткой.</p>
-                    <div class="price">350-500 RSD</div>
-                    <div class="price-conversion">3-4€ / 300-400₽</div>
+                    <div class="food-content">
+                        <h3>Ćevapi</h3>
+                        <p>Мясные колбаски с луком и лепешкой "сомун" - национальное блюдо номер один. Подается с каймаком и уткой.</p>
+                        <div class="food-meta">
+                            <span>3-4€ / 300-400₽</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="food-card fade-in">
+
+                <div class="food-card flip-in" style="animation-delay: 0.2s">
+                    <div class="card-glow"></div>
                     <div class="food-image">
                         <img src="images/ajvar.jpg" alt="Айвар" class="responsive-image">
+                        <div class="food-overlay">
+                            <span class="food-price">200-300 RSD</span>
+                        </div>
                     </div>
-                    <h3>Ajvar</h3>
-                    <p>Икра из запеченных перцев — любимая национальная закуска к любому блюду. Бывает острая и сладкая.</p>
-                    <div class="price">200-300 RSD</div>
-                    <div class="price-conversion">1.7-2.5€ / 170-250₽</div>
+                    <div class="food-content">
+                        <h3>Ajvar</h3>
+                        <p>Икра из запеченных перцев — любимая национальная закуска к любому блюду. Бывает острая и сладкая.</p>
+                        <div class="food-meta">
+                            <span>1.7-2.5€ / 170-250₽</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="food-card fade-in">
+
+                <div class="food-card flip-in" style="animation-delay: 0.3s">
+                    <div class="card-glow"></div>
                     <div class="food-image">
                         <img src="images/rakija.jpg" alt="Ракия" class="responsive-image">
+                        <div class="food-overlay">
+                            <span class="food-price">150-300 RSD</span>
+                        </div>
                     </div>
-                    <h3>Rakija</h3>
-                    <p>Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая и сливовая — самые популярные.</p>
-                    <div class="price">150-300 RSD</div>
-                    <div class="price-conversion">1.3-2.5€ / 130-250₽</div>
+                    <div class="food-content">
+                        <h3>Rakija</h3>
+                        <p>Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая и сливовая — самые популярные.</p>
+                        <div class="food-meta">
+                            <span>1.3-2.5€ / 130-250₽</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="restaurant-tip fade-in">
-                <p style="color: #d4af37; font-weight: 600; font-size: 1.1rem;">
-                    🍽️ <strong>Совет:</strong> Средний чек в ресторане — 1000-1500 RSD (8-12€ / 800-1200₽) на человека
-                </p>
+
+            <div class="restaurant-tip bounce-in">
+                <div class="tip-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="tip-content">
+                    <h4>🍽️ Средний чек в ресторане</h4>
+                    <p><strong>1000-1500 RSD</strong> (8-12€ / 800-1200₽) на человека включая напиток</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Facts Section -->
     <section id="facts" class="facts section-transition">
+        <div class="section-glow"></div>
         <div class="container">
-            <h2 class="section-title fade-in">Факты и экономика</h2>
-            <p class="section-subtitle fade-in">Ключевая информация о стране для путешественников</p>
+            <h2 class="section-title slide-in-left">Факты о Сербии</h2>
+            <p class="section-subtitle slide-in-right">Интересная информация и полезные знания</p>
+            
             <div class="facts-grid">
-                <div class="fact-card fade-in">
-                    <i class="fas fa-landmark"></i>
+                <div class="fact-card rotate-in">
+                    <div class="card-glow"></div>
+                    <div class="fact-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
                     <h3>Столица</h3>
-                    <p><strong>Белград</strong> — один из древнейших городов Европы, постоянно населен с 4800 г. до н.э. Город на слиянии двух рек с богатой историей.</p>
+                    <p><strong>Белград</strong> — один из древнейших городов Европы, постоянно населен с 4800 г. до н.э. Город на слиянии двух рек.</p>
                 </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-users"></i>
+
+                <div class="fact-card rotate-in" style="animation-delay: 0.1s">
+                    <div class="card-glow"></div>
+                    <div class="fact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <h3>Население</h3>
-                    <p>Около <strong>6.7 млн</strong> человек (без Косово). Сербы составляют 83% населения. Высокий уровень гостеприимства и радушия.</p>
+                    <p>Около <strong>6.7 млн</strong> человек (без Косово). Сербы составляют 83% населения. Высокий уровень гостеприимства.</p>
                 </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-money-bill-wave"></i>
+
+                <div class="fact-card rotate-in" style="animation-delay: 0.2s">
+                    <div class="card-glow"></div>
+                    <div class="fact-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
                     <h3>Валюта</h3>
-                    <p><strong>Сербский динар</strong> (RSD). ~1€ ≈ 117 RSD, ~1₽ ≈ 1.3 RSD. Российские рубли и евро можно легко обменять в любом банке.</p>
+                    <p><strong>Сербский динар</strong> (RSD). Российские рубли и евро можно легко обменять в любом банке или обменнике.</p>
                 </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-chart-line"></i>
+
+                <div class="fact-card rotate-in" style="animation-delay: 0.3s">
+                    <div class="card-glow"></div>
+                    <div class="fact-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <h3>Экономика</h3>
                     <p>Автомобилестроение (Fiat), IT, сельское хозяйство. Сербия — мировой лидер по экспорту малины и слив.</p>
                 </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-plane"></i>
+
+                <div class="fact-card rotate-in" style="animation-delay: 0.4s">
+                    <div class="card-glow"></div>
+                    <div class="fact-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
                     <h3>Виза</h3>
                     <p>Для граждан России и многих других стран <strong>виза не требуется</strong> до 30 дней. Нужен только загранпаспорт.</p>
                 </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-futbol"></i>
+
+                <div class="fact-card rotate-in" style="animation-delay: 0.5s">
+                    <div class="card-glow"></div>
+                    <div class="fact-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
                     <h3>Спорт</h3>
-                    <p>Сербия — родина многих знаменитых спортсменов: Новак Джокович (теннис), Никола Йокич (баскетбол), водное поло (чемпионы мира).</p>
+                    <p>Сербия — родина многих знаменитых спортсменов: Новак Джокович (теннис), Никола Йокич (баскетбол).</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
+        <div class="footer-glow"></div>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-title">Сербия</div>
-                <div class="footer-subtitle">Страна с богатой историей и большим сердцем <span class="pulse">🇷🇸</span></div>
-                
-                <div style="margin: 2rem 0;">
-                    <p style="color: #b0b0b0; font-size: 1rem;">
-                        "Слава Сербии! Živela Srbija! <span class="emoji-animation">🇷🇸</span>"
-                    </p>
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <div class="logo-glow">🇷🇸 Сербия</div>
+                    </div>
+                    <p class="footer-subtitle">Страна с богатой историей и большим сердцем</p>
                 </div>
                 
-                <div class="credits">
+                <div class="footer-quote">
+                    <p>"Слава Сербии! Živela Srbija!"</p>
+                </div>
+                
+                <div class="footer-credits">
                     <p><strong>Личный проект Generallisto</strong> - создано с любовью к Сербии и её культуре</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Образовательный проект © 2025 | Все права защищены</p>
+                    <p class="copyright">Образовательный проект © 2025 | Все права защищены</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navDots = document.querySelectorAll('.nav-dot');
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            function scrollToSection(sectionId) {
-                const targetSection = document.getElementById(sectionId);
-                if (targetSection) {
-                    document.querySelectorAll('section').forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    setTimeout(() => {
-                        targetSection.classList.add('active');
-                    }, 300);
-                }
-            }
-            
-            function updateActiveDot() {
-                let currentSection = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        currentSection = section.id;
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-                
-                navDots.forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.dataset.section === currentSection) {
-                        dot.classList.add('active');
-                    }
-                });
-            }
-            
-            navDots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    scrollToSection(this.dataset.section);
-                });
-            });
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    scrollToSection(targetId);
-                });
-            });
-            
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
-            
-            window.addEventListener('scroll', updateActiveDot);
-            updateActiveDot();
-        });
-    </script>
+    <!-- Back to Top -->
+    <button class="back-to-top bounce">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
