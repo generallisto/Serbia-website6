@@ -916,3 +916,162 @@ footer {
         max-width: 1200px;
     }
 }
+/* Дополнительные стили для нового контента */
+
+/* Заголовки внутри секций */
+.about-text h3,
+.bajina-text h3,
+.food-tips h3,
+.quick-facts h3 {
+    color: #d4af37;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Сетка советов по еде */
+.food-tips {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tip-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tip-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tip-item h4 {
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tip-item p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Быстрые факты */
+.quick-facts {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.facts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.fact {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+.fact strong {
+    color: #f5f5f5;
+}
+
+/* Улучшения для карточек еды */
+.food-card {
+    background: transparent;
+    padding: 0;
+    border-radius: 16px;
+    text-align: center;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.food-card:hover {
+    background: transparent;
+    transform: translateY(-5px);
+}
+
+.food-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem 0;
+    color: #f5f5f5;
+}
+
+.food-card p {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #d4af37;
+    margin-bottom: 0.25rem;
+}
+
+.price-conversion {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+}
+
+/* Адаптивность для новых элементов */
+@media (max-width: 768px) {
+    .tips-grid,
+    .facts-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .food-tips,
+    .quick-facts {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .tip-item {
+        padding: 1rem;
+    }
+}
+
+/* Анимация для новых карточек */
+.tip-item,
+.fact {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.tip-item.visible,
+.fact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
