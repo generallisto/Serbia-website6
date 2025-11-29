@@ -1,43 +1,5 @@
-// script.js - Полный исправленный код
+// script.js - Упрощенный и рабочий
 document.addEventListener('DOMContentLoaded', function() {
-    // Анимация чисел в статистике - ИСПРАВЛЕННАЯ ВЕРСИЯ
-    function initStatsAnimation() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        const values = ['8.7M', '88K', '1150+', '5'];
-        
-        statNumbers.forEach((stat, index) => {
-            if (index < values.length) {
-                const targetValue = values[index];
-                animateNumber(stat, targetValue, 2000);
-            }
-        });
-    }
-
-    function animateNumber(element, finalValue, duration) {
-        // Для числовых значений с суффиксами
-        const numericMatch = finalValue.match(/(\d+\.?\d*)(.*)/);
-        if (numericMatch) {
-            const number = parseFloat(numericMatch[1]);
-            const suffix = numericMatch[2] || '';
-            let startTimestamp = null;
-            
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const currentValue = Math.floor(progress * number);
-                element.textContent = currentValue + suffix;
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    element.textContent = finalValue; // Финальное значение
-                }
-            };
-            window.requestAnimationFrame(step);
-        } else {
-            element.textContent = finalValue;
-        }
-    }
-
     // Smooth scroll для навигации
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
@@ -98,40 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Анимация появления элементов при скролле
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                const delay = entry.target.getAttribute('data-delay') || 0;
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, delay);
-            }
-        });
-    }, observerOptions);
-
-    fadeElements.forEach((element, index) => {
-        element.setAttribute('data-delay', index * 100);
-        fadeObserver.observe(element);
-    });
-
-    // Параллакс эффект для героя
-    function parallaxEffect() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    }
 
     // Анимация хедера при скролле
     let lastScrollTop = 0;
@@ -209,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Анимация карточек при наведении
-    const cards = document.querySelectorAll('.culture-card, .place-card, .food-card, .fact-card');
+    const cards = document.querySelectorAll('.culture-card, .place-card, .food-card, .fact-card, .stat-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -220,68 +148,72 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Loading Screen
-    const loadingScreen = document.getElementById('loadingScreen');
-    function initLoadingScreen() {
-        if (loadingScreen) {
-            window.addEventListener('load', function() {
-                setTimeout(() => {
-                    loadingScreen.style.opacity = '0';
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                    }, 500);
-                }, 1000);
-            });
+    // Анимация для кнопки CTA
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    }
+
+    // Параллакс эффект для героя
+    function parallaxEffect() {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
     }
 
-    // Mobile Menu
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinksContainer = document.querySelector('.nav-links');
+    // Анимация появления элементов при скролле
+    const fadeElements = document.querySelectorAll('.culture-card, .place-card, .food-card, .fact-card, .stat-card');
     
-    function initMobileMenu() {
-        if (mobileMenuBtn && navLinksContainer) {
-            mobileMenuBtn.addEventListener('click', function() {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                navLinksContainer.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-        }
-    }
-
-    // Анимация иконок при скролле
-    const icons = document.querySelectorAll('.culture-card i, .fact-card i');
-    const iconObserver = new IntersectionObserver((entries) => {
+    const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'iconBounce 1s ease';
-                setTimeout(() => {
-                    entry.target.style.animation = '';
-                }, 1000);
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.transition = 'all 0.6s ease';
             }
         });
-    }, { threshold: 0.5 });
-
-    icons.forEach(icon => {
-        iconObserver.observe(icon);
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
+
+    // Изначально скрываем элементы
+    fadeElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        fadeObserver.observe(element);
+    });
+
+    // Инициализация всех функций
+    function init() {
+        setActiveSection();
+        toggleBackToTop();
+        
+        // Слушатели событий
+        window.addEventListener('scroll', function() {
+            setActiveSection();
+            headerScroll();
+            toggleBackToTop();
+            parallaxEffect();
+        });
+
+        window.addEventListener('resize', setActiveSection);
+    }
+
+    // Запускаем инициализацию
+    init();
 
     // Добавляем стили для анимаций
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes iconBounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            40% {
-                transform: translateY(-10px) scale(1.1);
-            }
-            60% {
-                transform: translateY(-5px) scale(1.05);
-            }
-        }
-        
         .back-to-top:hover {
             animation: bounce 0.5s ease;
         }
@@ -298,172 +230,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        /* Loading Screen Styles */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-content {
-            text-align: center;
-        }
-
-        .flag-loader {
-            width: 80px;
-            height: 60px;
-            margin: 0 auto 20px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .flag-red, .flag-blue, .flag-white {
-            position: absolute;
-            width: 100%;
-            height: 33.33%;
-            left: 0;
-        }
-
-        .flag-red {
-            top: 0;
-            background: #c6363c;
-            animation: slideDown 1.5s ease-in-out infinite;
-        }
-
-        .flag-blue {
-            top: 33.33%;
-            background: #0c4076;
-            animation: slideDown 1.5s ease-in-out infinite 0.5s;
-        }
-
-        .flag-white {
-            top: 66.66%;
-            background: #ffffff;
-            animation: slideDown 1.5s ease-in-out infinite 1s;
-        }
-
-        @keyframes slideDown {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-        }
-
-        /* Mobile Menu Styles */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #d4af37;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 1rem 0;
-                border-top: 1px solid rgba(212, 175, 55, 0.3);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
+        /* Плавное появление элементов */
+        .culture-card,
+        .place-card, 
+        .food-card,
+        .fact-card,
+        .stat-card {
+            transition: all 0.6s ease !important;
         }
     `;
     document.head.appendChild(style);
-
-    // Инициализация всех функций
-    function init() {
-        initStatsAnimation();
-        setActiveSection();
-        toggleBackToTop();
-        initLoadingScreen();
-        initMobileMenu();
-        
-        // Слушатели событий
-        window.addEventListener('scroll', function() {
-            setActiveSection();
-            headerScroll();
-            toggleBackToTop();
-            parallaxEffect();
-        });
-
-        window.addEventListener('resize', setActiveSection);
-        
-        // Запускаем начальные анимации
-        setTimeout(() => {
-            const hero = document.querySelector('.hero');
-            if (hero) hero.classList.add('active');
-        }, 500);
-    }
-
-    // Запускаем инициализацию
-    init();
-
-    // Дополнительные анимации для интерактивности
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        });
-    }
-
-    // Skip link functionality
-    const skipLink = document.querySelector('.skip-link');
-    if (skipLink) {
-        skipLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.getElementById('main-content');
-            if (target) {
-                target.setAttribute('tabindex', '-1');
-                target.focus();
-                setTimeout(() => target.removeAttribute('tabindex'), 1000);
-            }
-        });
-    }
 });
 
 // Дополнительные утилиты
@@ -481,7 +257,7 @@ function debounce(func, wait, immediate) {
     };
 }
 
-// Анимация для счетчиков (альтернативный вариант)
+// Анимация для чисел (если понадобится)
 function animateCounter(element, start, end, duration) {
     let startTimestamp = null;
     const step = (timestamp) => {
