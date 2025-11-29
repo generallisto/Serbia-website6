@@ -1,651 +1,692 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сербия - Жемчужина Балкан</title>
+    <meta name="description" content="Сербия - страна с богатой историей, гостеприимными людьми и неповторимой атмосферой. Узнайте о культуре, достопримечательностях и ценах.">
+    <meta name="keywords" content="Сербия, Белград, путешествие, цены, кухня, достопримечательности, Байина Башта">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Сербия - Жемчужина Балкан">
+    <meta property="og:description" content="Страна с богатой историей, гостеприимными людьми и неповторимой атмосферой">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/serbia-og.jpg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" as="style">
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇷🇸</text></svg>">
 </head>
 <body>
-    <!-- Боковое меню навигации -->
-    <div class="side-nav">
-        <div class="nav-dot active" data-section="about"></div>
-        <div class="nav-dot" data-section="culture"></div>
-        <div class="nav-dot" data-section="places"></div>
-        <div class="nav-dot" data-section="bajina-basta"></div>
-        <div class="nav-dot" data-section="prices"></div>
-        <div class="nav-dot" data-section="food"></div>
-        <div class="nav-dot" data-section="facts"></div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="flag-loader">
+                <div class="flag-red"></div>
+                <div class="flag-blue"></div>
+                <div class="flag-white"></div>
+            </div>
+            <p>Загружаем красоты Сербии...</p>
+        </div>
     </div>
 
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+
+    <!-- Боковое меню навигации -->
+    <nav class="side-nav" aria-label="Быстрая навигация по разделам">
+        <div class="nav-dot active" data-section="about" aria-label="О Сербии" tabindex="0"></div>
+        <div class="nav-dot" data-section="culture" aria-label="Культура" tabindex="0"></div>
+        <div class="nav-dot" data-section="places" aria-label="Достопримечательности" tabindex="0"></div>
+        <div class="nav-dot" data-section="bajina-basta" aria-label="Байина Башта" tabindex="0"></div>
+        <div class="nav-dot" data-section="prices" aria-label="Цены" tabindex="0"></div>
+        <div class="nav-dot" data-section="food" aria-label="Кухня" tabindex="0"></div>
+        <div class="nav-dot" data-section="facts" aria-label="Факты" tabindex="0"></div>
+    </nav>
+
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">🇷🇸 Сербия</div>
-            <ul class="nav-links">
-                <li><a href="#about">О стране</a></li>
-                <li><a href="#culture">Культура</a></li>
-                <li><a href="#places">Достопримечательности</a></li>
-                <li><a href="#bajina-basta">Байина Башта</a></li>
-                <li><a href="#prices">Цены в Сербии</a></li>
-                <li><a href="#food">Кухня</a></li>
-                <li><a href="#facts">Факты</a></li>
-            </ul>
-        </nav>
+    <header role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Основная навигация">
+                <div class="logo" aria-label="Сербия - главная страница">🇷🇸 Сербия</div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="#about" role="menuitem">О стране</a></li>
+                    <li role="none"><a href="#culture" role="menuitem">Культура</a></li>
+                    <li role="none"><a href="#places" role="menuitem">Достопримечательности</a></li>
+                    <li role="none"><a href="#bajina-basta" role="menuitem">Байина Башта</a></li>
+                    <li role="none"><a href="#prices" role="menuitem">Цены</a></li>
+                    <li role="none"><a href="#food" role="menuitem">Кухня</a></li>
+                    <li role="none"><a href="#facts" role="menuitem">Факты</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero active">
-        <div class="container">
-            <div class="hero-content fade-in visible">
-                <h1>Сербия</h1>
-                <p>Страна с богатой историей, гостеприимными людьми и неповторимой атмосферой</p>
-                <a href="#about" class="cta-button">
-                    <i class="fas fa-compass"></i>
-                    Исследовать Сербию
-                </a>
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero active" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content fade-in visible">
+                    <h1 id="hero-title">Сербия</h1>
+                    <p>Страна с богатой историей, гостеприимными людьми и неповторимой атмосферой</p>
+                    <a href="#about" class="cta-button" aria-label="Начать исследование Сербии">
+                        <i class="fas fa-compass" aria-hidden="true"></i>
+                        Исследовать Сербию
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in visible">О Сербии</h2>
-            <p class="section-subtitle fade-in visible">Узнайте о стране, где встречаются Восток и Запад</p>
-            <div class="about-content">
-                <div class="about-text fade-in visible">
-                    <p>Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
-                    <p><strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Это город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
-                    <p><strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Самые известные хребты: <strong>Копаоник</strong> (зимний спортивный центр), <strong>Тара</strong> (национальный парк с девственными лесами) и <strong>Златибор</strong> (популярный курорт с целебным воздухом).</p>
+        <!-- About Section -->
+        <section id="about" class="about section-transition" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title" class="section-title fade-in visible">О Сербии</h2>
+                <p class="section-subtitle fade-in visible">Узнайте о стране, где встречаются Восток и Запад</p>
+                <div class="about-content">
+                    <div class="about-text fade-in visible">
+                        <p>Сербия — удивительная страна в самом сердце Балкан, где переплетаются восточная и западная культуры, создавая уникальную атмосферу гостеприимства и радушия.</p>
+                        <p><strong>Столица:</strong> Белград — один из старейших городов Европы, стоящий на слиянии рек Савы и Дуная. Это город с богатой историей, бурной ночной жизнью и неповторимым шармом.</p>
+                        <p><strong>Горы:</strong> Почти 70% территории Сербии — холмы и горы. Самые известные хребты: <strong>Копаоник</strong> (зимний спортивный центр), <strong>Тара</strong> (национальный парк с девственными лесами) и <strong>Златибор</strong> (популярный курорт с целебным воздухом).</p>
+                        
+                        <div class="stats-grid" role="list" aria-label="Статистика Сербии">
+                            <div class="stat-card fade-in visible" role="listitem">
+                                <div class="stat-number">8.7M</div>
+                                <div class="stat-label">Население</div>
+                            </div>
+                            <div class="stat-card fade-in visible" role="listitem">
+                                <div class="stat-number">88K км²</div>
+                                <div class="stat-label">Территория</div>
+                            </div>
+                            <div class="stat-card fade-in visible" role="listitem">
+                                <div class="stat-number">1150+</div>
+                                <div class="stat-label">Лет истории</div>
+                            </div>
+                            <div class="stat-card fade-in visible" role="listitem">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Объектов ЮНЕСКО</div>
+                            </div>
+                        </div>
+                    </div>
+                    <figure class="about-image fade-in visible">
+                        <img src="images/serbia-main.jpg" alt="Панорама Белграда - столицы Сербии с видом на крепость Калемегдан и слияние рек Савы и Дуная" class="responsive-image" loading="lazy">
+                        <figcaption class="image-caption">Белград - столица Сербии</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Culture Section -->
+        <section id="culture" class="culture section-transition" aria-labelledby="culture-title">
+            <div class="container">
+                <h2 id="culture-title" class="section-title fade-in">Культура и традиции</h2>
+                <p class="section-subtitle fade-in">Богатое наследие и уникальные обычаи сербского народа</p>
+                <div class="culture-grid" role="list" aria-label="Элементы сербской культуры">
+                    <article class="culture-card fade-in" role="listitem">
+                        <div class="culture-image">
+                            <img src="images/culture-music.jpg" alt="Сербские музыканты играют на традиционных народных инструментах - гуслях и фруле" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="culture-content">
+                            <i class="fas fa-music" aria-hidden="true"></i>
+                            <h3>Музыка</h3>
+                            <p>Турбо-фолк и традиционные народные песни создают уникальный музыкальный ландшафт Сербии. От эпических гуслярских баллад до современной поп-музыки. Особенно популярны народные инструменты - гусли, фрула и тамбура.</p>
+                        </div>
+                    </article>
                     
-                    <div class="stats-grid">
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">8.7M</div>
-                            <div class="stat-label">Население</div>
+                    <article class="culture-card fade-in" role="listitem">
+                        <div class="culture-image">
+                            <img src="images/culture-dance.jpg" alt="Сербский народный танец Коло - люди в национальных костюмах танцуют в кругу" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">88K км²</div>
-                            <div class="stat-label">Территория</div>
+                        <div class="culture-content">
+                            <i class="fas fa-dancing" aria-hidden="true"></i>
+                            <h3>Танцы</h3>
+                            <p>Коло — традиционный круговой танец, символ единства и веселья на всех праздниках. Каждый регион имеет свои уникальные стили и костюмы. Танец объединяет людей всех возрастов в гармоничном круговом движении под народную музыку.</p>
                         </div>
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">1150+</div>
-                            <div class="stat-label">Лет истории</div>
-                        </div>
-                        <div class="stat-card fade-in visible">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Объектов ЮНЕСКО</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image fade-in visible">
-                    <img src="images/serbia-main.jpg" alt="Сербия - Белград" class="responsive-image">
-                    <div class="image-caption">Белград - столица Сербии</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Culture Section -->
-    <section id="culture" class="culture section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in">Культура и традиции</h2>
-            <p class="section-subtitle fade-in">Богатое наследие и уникальные обычаи сербского народа</p>
-            <div class="culture-grid">
-                <div class="culture-card fade-in">
-                    <div class="culture-image">
-                        <img src="images/culture-music.jpg" alt="Сербская народная музыка" class="responsive-image">
-                    </div>
-                    <div class="culture-content">
-                        <i class="fas fa-music"></i>
-                        <h3>Музыка</h3>
-                        <p>Турбо-фолк и традиционные народные песни создают уникальный музыкальный ландшафт Сербии. От эпических гуслярских баллад до современной поп-музыки. Особенно популярны народные инструменты - гусли, фрула и тамбура.</p>
-                    </div>
-                </div>
-                
-                <div class="culture-card fade-in">
-                    <div class="culture-image">
-                        <img src="images/culture-dance.jpg" alt="Сербский народный танец Коло" class="responsive-image">
-                    </div>
-                    <div class="culture-content">
-                        <i class="fas fa-dancing"></i>
-                        <h3>Танцы</h3>
-                        <p>Коло — традиционный круговой танец, символ единства и веселья на всех праздниках. Каждый регион имеет свои уникальные стили и костюмы. Танец объединяет людей всех возрастов в гармоничном круговом движении под народную музыку.</p>
-                    </div>
-                </div>
-                
-                <div class="culture-card fade-in">
-                    <div class="culture-image">
-                        <img src="images/culture-festival.jpg" alt="EXIT Festival в Нови-Саде" class="responsive-image">
-                    </div>
-                    <div class="culture-content">
-                        <i class="fas fa-glass-cheers"></i>
-                        <h3>Фестивали</h3>
-                        <p>EXIT Festival в Нови-Саде — один из лучших европейских музыкальных фестивалей, проводящийся в Петроварадинской крепости. Также популярны Гусие (традиционный трубаческий фестиваль) и BELGRADE BEER FEST с живой музыкой и местным пивом.</p>
-                    </div>
-                </div>
-                
-                <div class="culture-card fade-in">
-                    <div class="culture-image">
-                        <img src="images/culture-religion.jpg" alt="Православный монастырь в Сербии" class="responsive-image">
-                    </div>
-                    <div class="culture-content">
-                        <i class="fas fa-church"></i>
-                        <h3>Религия</h3>
-                        <p>Православные монастыри с уникальными фресками XIII-XIV веков — культурное наследие ЮНЕСКО. Сербская Православная Церковь играет ключевую роль в жизни общества. Монастыри Студеница, Жича и Милешева поражают своей архитектурой.</p>
-                    </div>
-                </div>
-                
-                <div class="culture-card fade-in">
-                    <div class="culture-image">
-                        <img src="images/culture-hospitality.jpg" alt="Сербское гостеприимство" class="responsive-image">
-                    </div>
-                    <div class="culture-content">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Гостеприимство</h3>
-                        <p>Сербы известны своим радушием. Гостям всегда предлагают "ракию и слатко" — традиционное угощение из фруктовой водки и домашнего варенья. "Гость в дом — Бог в дом" — эта пословица точно отражает сербское отношение к гостям.</p>
-                    </div>
-                </div>
-
-                <div class="culture-card fade-in">
-                    <div class="culture-image">
-                        <img src="images/culture-cuisine.jpg" alt="Традиционная сербская кухня" class="responsive-image">
-                    </div>
-                    <div class="culture-content">
-                        <i class="fas fa-utensils"></i>
-                        <h3>Кулинарные традиции</h3>
-                        <p>Сербская кухня — смешение балканских, турецких и средиземноморских влияний. Особое место занимают мясные блюда на гриле, домашние сыры и овощные закуски. Каждое застолье сопровождается тостами и веселыми разговорами.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Places Section -->
-    <section id="places" class="places section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in">Достопримечательности</h2>
-            <p class="section-subtitle fade-in">Откройте для себя самые красивые места Сербии</p>
-            <div class="places-grid">
-                <div class="place-card fade-in">
-                    <div class="place-image">
-                        <img src="images/belgrade-fortress.jpg" alt="Белградская крепость" class="responsive-image">
-                    </div>
-                    <div class="place-card-content">
-                        <h3>Белградская крепость</h3>
-                        <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев. Крепость пережила 115 сражений и была разрушена 44 раза.</p>
-                        <div class="place-meta">📍 Белград | 🎫 Вход бесплатный | ⭐ 4.8/5</div>
-                    </div>
-                </div>
-                
-                <div class="place-card fade-in">
-                    <div class="place-image">
-                        <img src="images/manastir-zica.jpg" alt="Монастырь Жича" class="responsive-image">
-                    </div>
-                    <div class="place-card-content">
-                        <h3>Монастырь Жича</h3>
-                        <p>Духовный центр сербского православия с XIII века, место коронации семи сербских королей. Известен своей уникальной красной окраской и великолепными фресками. Монастырь был резиденцией первого сербского архиепископа.</p>
-                        <div class="place-meta">📍 Кралево | 🎫 Пожертвование | ⭐ 4.9/5</div>
-                    </div>
-                </div>
-                
-                <div class="place-card fade-in">
-                    <div class="place-image">
-                        <img src="images/devils-town.jpg" alt="Дьявольский город" class="responsive-image">
-                    </div>
-                    <div class="place-card-content">
-                        <h3>Дьявольский город</h3>
-                        <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование возрастом более миллиона лет, охраняемое как памятник природы.</p>
-                        <div class="place-meta">📍 Куршумлия | 🎫 ~300 динар | ⭐ 4.7/5</div>
-                    </div>
-                </div>
-
-                <div class="place-card fade-in">
-                    <div class="place-image">
-                        <img src="images/tara-national-park.jpg" alt="Национальный парк Тара" class="responsive-image">
-                    </div>
-                    <div class="place-card-content">
-                        <h3>Национальный парк Тара</h3>
-                        <p>Жемчужина западной Сербии с девственными лесами, каньонами и альпийскими лугами. Парк известен уникальной флорой и фауной, включая серн, медведей и эндемичные виды растений. Идеальное место для треккинга и экотуризма.</p>
-                        <div class="place-meta">📍 Байина Башта | 🎫 300 динар | ⭐ 4.9/5</div>
-                    </div>
-                </div>
-
-                <div class="place-card fade-in">
-                    <div class="place-image">
-                        <img src="images/studenica-monastery.jpg" alt="Монастырь Студеница" class="responsive-image">
-                    </div>
-                    <div class="place-card-content">
-                        <h3>Монастырь Студеница</h3>
-                        <p>Крупнейший и самый богатый православный монастырь Сербии, основанный в XII веке Стефаном Неманей. Объект Всемирного наследия ЮНЕСКО с уникальными византийскими фресками. Духовный и культурный центр средневековой Сербии.</p>
-                        <div class="place-meta">📍 Кралево | 🎫 Пожертвование | ⭐ 4.8/5</div>
-                    </div>
-                </div>
-
-                <div class="place-card fade-in">
-                    <div class="place-image">
-                        <img src="images/djerdap-national-park.jpg" alt="Национальный парк Джердап" class="responsive-image">
-                    </div>
-                    <div class="place-card-content">
-                        <h3>Национальный парк Джердап</h3>
-                        <p>Крупнейший национальный парк Сербии на берегу Дуная, известный Джердапским ущельем - самым длинным речным каньоном в Европе. Здесь находятся археологические памятники от неолита до римских времен, включая Лепенски-Вир.</p>
-                        <div class="place-meta">📍 Восточная Сербия | 🎫 400 динар | ⭐ 4.6/5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bajina Basta Section -->
-    <section id="bajina-basta" class="bajina-basta section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in">Байина Башта</h2>
-            <p class="section-subtitle fade-in">Жемчужина западной Сербии у подножия горы Тара</p>
-            <div class="bajina-content">
-                <div class="bajina-text">
-                    <p class="fade-in"><strong>Байина-Башта</strong> — очаровательный город на западе Сербии, расположенный у подножия горы Тара. Этот регион славится своей потрясающей природой и богатой историей.</p>
-                    <p class="fade-in">Главная достопримечательность — <strong>монастырь Рача</strong> XIV века, спрятанный в ущелье реки Рача. Монастырь известен своей школой переписчиков, которая сохраняла сербскую культуру во времена османского владычества.</p>
-                    <p class="fade-in">Природный заповедник <strong>Тара</strong> предлагает уникальные возможности для экотуризма, пеших походов и наблюдения за дикой природой. Обязательно посетите <strong>Дом на Дрине</strong> — крошечный домик на скале посреди реки, символ этого региона.</p>
+                    </article>
                     
-                    <div class="bajina-features">
-                        <div class="feature fade-in">
-                            <div class="feature-image">
-                                <img src="images/tara-mountain.jpg" alt="Гора Тара" class="responsive-image">
-                            </div>
-                            <h4>Гора Тара</h4>
-                            <p>Национальный парк с уникальной флорой и фауной, включая серн и медведей. Идеальное место для треккинга.</p>
+                    <article class="culture-card fade-in" role="listitem">
+                        <div class="culture-image">
+                            <img src="images/culture-festival.jpg" alt="EXIT Festival в Нови-Саде - ночное шоу с лазерами и тысячи зрителей на Петроварадинской крепости" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="feature fade-in">
-                            <div class="feature-image">
-                                <img src="images/manastir-raca.jpg" alt="Монастырь Рача" class="responsive-image">
-                            </div>
-                            <h4>Монастырь Рача</h4>
-                            <p>Духовный и культурный центр XIV века, шедевр сербской средневековой архитектуры с богатой библиотекой.</p>
+                        <div class="culture-content">
+                            <i class="fas fa-glass-cheers" aria-hidden="true"></i>
+                            <h3>Фестивали</h3>
+                            <p>EXIT Festival в Нови-Саде — один из лучших европейских музыкальных фестивалей, проводящийся в Петроварадинской крепости. Также популярны Гусие (традиционный трубаческий фестиваль) и BELGRADE BEER FEST с живой музыкой и местным пивом.</p>
                         </div>
-                        <div class="feature fade-in">
-                            <div class="feature-image">
-                                <img src="images/house-on-drina.jpg" alt="Дом на Дрине" class="responsive-image">
-                            </div>
-                            <h4>Дом на Дрине</h4>
-                            <p>Легендарный домик на скале посреди реки Дрина - символ человеческого упорства и гармонии с природой.</p>
+                    </article>
+                    
+                    <article class="culture-card fade-in" role="listitem">
+                        <div class="culture-image">
+                            <img src="images/culture-religion.jpg" alt="Православный монастырь Студеница - средневековая сербская архитектура с уникальными фресками" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="culture-content">
+                            <i class="fas fa-church" aria-hidden="true"></i>
+                            <h3>Религия</h3>
+                            <p>Православные монастыри с уникальными фресками XIII-XIV веков — культурное наследие ЮНЕСКО. Сербская Православная Церковь играет ключевую роль в жизни общества. Монастыри Студеница, Жича и Милешева поражают своей архитектурой.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="culture-card fade-in" role="listitem">
+                        <div class="culture-image">
+                            <img src="images/culture-hospitality.jpg" alt="Сербское гостеприимство - хозяева угощают гостей ракией и домашними закусками" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="culture-content">
+                            <i class="fas fa-handshake" aria-hidden="true"></i>
+                            <h3>Гостеприимство</h3>
+                            <p>Сербы известны своим радушием. Гостям всегда предлагают "ракию и слатко" — традиционное угощение из фруктовой водки и домашнего варенья. "Гость в дом — Бог в дом" — эта пословица точно отражает сербское отношение к гостям.</p>
+                        </div>
+                    </article>
+
+                    <article class="culture-card fade-in" role="listitem">
+                        <div class="culture-image">
+                            <img src="images/culture-cuisine.jpg" alt="Традиционный сербский стол с мясными блюдами, сырами и овощными закусками" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="culture-content">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <h3>Кулинарные традиции</h3>
+                            <p>Сербская кухня — смешение балканских, турецких и средиземноморских влияний. Особое место занимают мясные блюда на гриле, домашние сыры и овощные закуски. Каждое застолье сопровождается тостами и веселыми разговорами.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Places Section -->
+        <section id="places" class="places section-transition" aria-labelledby="places-title">
+            <div class="container">
+                <h2 id="places-title" class="section-title fade-in">Достопримечательности</h2>
+                <p class="section-subtitle fade-in">Откройте для себя самые красивые места Сербии</p>
+                <div class="places-grid" role="list" aria-label="Достопримечательности Сербии">
+                    <article class="place-card fade-in" role="listitem">
+                        <div class="place-image">
+                            <img src="images/belgrade-fortress.jpg" alt="Белградская крепость Калемегдан - исторический комплекс на слиянии рек Савы и Дуная" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="place-card-content">
+                            <h3>Белградская крепость</h3>
+                            <p>Исторический комплекс с видом на слияние Савы и Дуная, символ многовековой истории Белграда. Включает Верхний и Нижний город, парк Калемегдан и множество музеев. Крепость пережила 115 сражений и была разрушена 44 раза.</p>
+                            <div class="place-meta">📍 Белград | 🎫 Вход бесплатный | ⭐ 4.8/5</div>
+                        </div>
+                    </article>
+                    
+                    <article class="place-card fade-in" role="listitem">
+                        <div class="place-image">
+                            <img src="images/manastir-zica.jpg" alt="Монастырь Жича - красный православный монастырь XIII века с уникальной архитектурой" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="place-card-content">
+                            <h3>Монастырь Жича</h3>
+                            <p>Духовный центр сербского православия с XIII века, место коронации семи сербских королей. Известен своей уникальной красной окраской и великолепными фресками. Монастырь был резиденцией первого сербского архиепископа.</p>
+                            <div class="place-meta">📍 Кралево | 🎫 Пожертвование | ⭐ 4.9/5</div>
+                        </div>
+                    </article>
+                    
+                    <article class="place-card fade-in" role="listitem">
+                        <div class="place-image">
+                            <img src="images/devils-town.jpg" alt="Дьявольский город - природный феномен из земляных пирамид причудливой формы" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="place-card-content">
+                            <h3>Дьявольский город</h3>
+                            <p>Природный феномен из 202 земляных пирамид необычной формы. Согласно легенде, эти каменные столбы были созданы дьяволом. Уникальное геологическое образование возрастом более миллиона лет, охраняемое как памятник природы.</p>
+                            <div class="place-meta">📍 Куршумлия | 🎫 ~300 динар | ⭐ 4.7/5</div>
+                        </div>
+                    </article>
+
+                    <article class="place-card fade-in" role="listitem">
+                        <div class="place-image">
+                            <img src="images/tara-national-park.jpg" alt="Национальный парк Тара - девственные леса и горные пейзажи западной Сербии" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="place-card-content">
+                            <h3>Национальный парк Тара</h3>
+                            <p>Жемчужина западной Сербии с девственными лесами, каньонами и альпийскими лугами. Парк известен уникальной флорой и фауной, включая серн, медведей и эндемичные виды растений. Идеальное место для треккинга и экотуризма.</p>
+                            <div class="place-meta">📍 Байина Башта | 🎫 300 динар | ⭐ 4.9/5</div>
+                        </div>
+                    </article>
+
+                    <article class="place-card fade-in" role="listitem">
+                        <div class="place-image">
+                            <img src="images/studenica-monastery.jpg" alt="Монастырь Студеница - объект ЮНЕСКО с белоснежными стенами и византийскими фресками" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="place-card-content">
+                            <h3>Монастырь Студеница</h3>
+                            <p>Крупнейший и самый богатый православный монастырь Сербии, основанный в XII веке Стефаном Неманей. Объект Всемирного наследия ЮНЕСКО с уникальными византийскими фресками. Духовный и культурный центр средневековой Сербии.</p>
+                            <div class="place-meta">📍 Кралево | 🎫 Пожертвование | ⭐ 4.8/5</div>
+                        </div>
+                    </article>
+
+                    <article class="place-card fade-in" role="listitem">
+                        <div class="place-image">
+                            <img src="images/djerdap-national-park.jpg" alt="Национальный парк Джердап - Дунайское ущелье и живописные речные пейзажи" class="responsive-image" loading="lazy">
+                        </div>
+                        <div class="place-card-content">
+                            <h3>Национальный парк Джердап</h3>
+                            <p>Крупнейший национальный парк Сербии на берегу Дуная, известный Джердапским ущельем - самым длинным речным каньоном в Европе. Здесь находятся археологические памятники от неолита до римских времен, включая Лепенски-Вир.</p>
+                            <div class="place-meta">📍 Восточная Сербия | 🎫 400 динар | ⭐ 4.6/5</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bajina Basta Section -->
+        <section id="bajina-basta" class="bajina-basta section-transition" aria-labelledby="bajina-title">
+            <div class="container">
+                <h2 id="bajina-title" class="section-title fade-in">Байина Башта</h2>
+                <p class="section-subtitle fade-in">Жемчужина западной Сербии у подножия горы Тара</p>
+                <div class="bajina-content">
+                    <div class="bajina-text">
+                        <p class="fade-in"><strong>Байина-Башта</strong> — очаровательный город на западе Сербии, расположенный у подножия горы Тара. Этот регион славится своей потрясающей природой и богатой историей.</p>
+                        <p class="fade-in">Главная достопримечательность — <strong>монастырь Рача</strong> XIV века, спрятанный в ущелье реки Рача. Монастырь известен своей школой переписчиков, которая сохраняла сербскую культуру во времена османского владычества.</p>
+                        <p class="fade-in">Природный заповедник <strong>Тара</strong> предлагает уникальные возможности для экотуризма, пеших походов и наблюдения за дикой природой. Обязательно посетите <strong>Дом на Дрине</strong> — крошечный домик на скале посреди реки, символ этого региона.</p>
+                        
+                        <div class="bajina-features" role="list" aria-label="Достопримечательности Байина Башты">
+                            <article class="feature fade-in" role="listitem">
+                                <div class="feature-image">
+                                    <img src="images/tara-mountain.jpg" alt="Гора Тара - горные хребты и хвойные леса национального парка" class="responsive-image" loading="lazy">
+                                </div>
+                                <h4>Гора Тара</h4>
+                                <p>Национальный парк с уникальной флорой и фауной, включая серн и медведей. Идеальное место для треккинга.</p>
+                            </article>
+                            <article class="feature fade-in" role="listitem">
+                                <div class="feature-image">
+                                    <img src="images/manastir-raca.jpg" alt="Монастырь Рача - средневековый православный монастырь в ущелье реки Рача" class="responsive-image" loading="lazy">
+                                </div>
+                                <h4>Монастырь Рача</h4>
+                                <p>Духовный и культурный центр XIV века, шедевр сербской средневековой архитектуры с богатой библиотекой.</p>
+                            </article>
+                            <article class="feature fade-in" role="listitem">
+                                <div class="feature-image">
+                                    <img src="images/house-on-drina.jpg" alt="Дом на Дрине - маленький домик на скале посреди бурной реки Дрина" class="responsive-image" loading="lazy">
+                                </div>
+                                <h4>Дом на Дрине</h4>
+                                <p>Легендарный домик на скале посреди реки Дрина - символ человеческого упорства и гармонии с природой.</p>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Prices Section -->
-    <section id="prices" class="prices section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in">Цены в Сербии</h2>
-            <p class="section-subtitle fade-in">Актуальные цены в супермаркетах, на рынках и ресторанах</p>
+        <!-- Prices Section -->
+        <section id="prices" class="prices section-transition" aria-labelledby="prices-title">
+            <div class="container">
+                <h2 id="prices-title" class="section-title fade-in">Цены в Сербии</h2>
+                <p class="section-subtitle fade-in">Актуальные цены в супермаркетах, на рынках и ресторанах</p>
 
-            <div class="currency-converter fade-in">
-                <div class="converter-card">
-                    <h4>💱 Актуальный курс</h4>
-                    <div class="rates">
-                        <div class="rate">1€ ≈ 117 RSD</div>
-                        <div class="rate">1$ ≈ 107 RSD</div>
-                        <div class="rate">1₽ ≈ 1.3 RSD</div>
+                <div class="currency-converter fade-in">
+                    <div class="converter-card">
+                        <h4>💱 Актуальный курс</h4>
+                        <div class="rates">
+                            <div class="rate">1€ ≈ 117 RSD</div>
+                            <div class="rate">1$ ≈ 107 RSD</div>
+                            <div class="rate">1₽ ≈ 1.3 RSD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Продукты питания -->
+                    <section class="price-category fade-in" aria-labelledby="food-prices">
+                        <h3 id="food-prices"><i class="fas fa-shopping-basket" aria-hidden="true"></i> Продукты питания</h3>
+                        <div class="price-items" role="list" aria-label="Цены на продукты питания">
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Хлеб (буханка)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">80-120 RSD</span>
+                                    <span class="price-conv">0.7-1€ / 60-90₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Молоко (1л)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">110-150 RSD</span>
+                                    <span class="price-conv">0.9-1.3€ / 85-115₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Яйца (10 шт)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">180-250 RSD</span>
+                                    <span class="price-conv">1.5-2.1€ / 140-190₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Сыр (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">700-1000 RSD</span>
+                                    <span class="price-conv">6-8.5€ / 540-770₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Курица (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">450-650 RSD</span>
+                                    <span class="price-conv">3.8-5.5€ / 350-500₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Говядина (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">800-1200 RSD</span>
+                                    <span class="price-conv">6.8-10.3€ / 620-920₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Картофель (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">60-100 RSD</span>
+                                    <span class="price-conv">0.5-0.85€ / 46-77₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Помидоры (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">150-300 RSD</span>
+                                    <span class="price-conv">1.3-2.6€ / 115-230₽</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Рынки и местное -->
+                    <section class="price-category fade-in" aria-labelledby="market-prices">
+                        <h3 id="market-prices"><i class="fas fa-store" aria-hidden="true"></i> Рынки и местные продукты</h3>
+                        <div class="price-items" role="list" aria-label="Цены на местные продукты">
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Айвар (банка 500г)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">300-500 RSD</span>
+                                    <span class="price-conv">2.5-4.3€ / 230-380₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Каймак (200г)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">250-400 RSD</span>
+                                    <span class="price-conv">2.1-3.4€ / 190-300₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Сливовица (0.5л)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">500-1500 RSD</span>
+                                    <span class="price-conv">4.3-12.8€ / 380-1150₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Мед местный (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">800-1200 RSD</span>
+                                    <span class="price-conv">6.8-10.3€ / 620-920₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Вяленая ветчина</span>
+                                <div class="prices">
+                                    <span class="price-rsd">1200-1800 RSD</span>
+                                    <span class="price-conv">10.3-15.4€ / 920-1380₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Сыр в рассоле</span>
+                                <div class="prices">
+                                    <span class="price-rsd">600-900 RSD</span>
+                                    <span class="price-conv">5.1-7.7€ / 460-690₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Фрукты сезонные (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">100-250 RSD</span>
+                                    <span class="price-conv">0.85-2.1€ / 77-190₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Овощи сезонные (1кг)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">80-200 RSD</span>
+                                    <span class="price-conv">0.7-1.7€ / 60-150₽</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Рестораны и кафе -->
+                    <section class="price-category fade-in" aria-labelledby="restaurant-prices">
+                        <h3 id="restaurant-prices"><i class="fas fa-utensils" aria-hidden="true"></i> Рестораны и кафе</h3>
+                        <div class="price-items" role="list" aria-label="Цены в ресторанах и кафе">
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Плескавица в ресторане</span>
+                                <div class="prices">
+                                    <span class="price-rsd">400-600 RSD</span>
+                                    <span class="price-conv">3.5-5€ / 350-500₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Чевапы с гарниром</span>
+                                <div class="prices">
+                                    <span class="price-rsd">350-500 RSD</span>
+                                    <span class="price-conv">3-4€ / 300-400₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Салат "Шопский"</span>
+                                <div class="prices">
+                                    <span class="price-rsd">250-400 RSD</span>
+                                    <span class="price-conv">2.1-3.4€ / 190-300₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Супы (чевапчичи, рыбный)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">200-350 RSD</span>
+                                    <span class="price-conv">1.7-3€ / 150-270₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Пиво (0.5л)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">150-250 RSD</span>
+                                    <span class="price-conv">1.3-2.1€ / 115-190₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Кофе в кафе</span>
+                                <div class="prices">
+                                    <span class="price-rsd">120-200 RSD</span>
+                                    <span class="price-conv">1-1.7€ / 90-150₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Вино (бокал)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">200-400 RSD</span>
+                                    <span class="price-conv">1.7-3.4€ / 150-300₽</span>
+                                </div>
+                            </div>
+                            <div class="price-item" role="listitem">
+                                <span class="item-name">Десерты (палачинке)</span>
+                                <div class="prices">
+                                    <span class="price-rsd">200-350 RSD</span>
+                                    <span class="price-conv">1.7-3€ / 150-270₽</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="price-tips fade-in">
+                    <div class="tip-card">
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                        <h4>Советы по экономии</h4>
+                        <ul role="list">
+                            <li role="listitem">Покупайте на местных рынках (пијаца) - цены ниже чем в супермаркетах</li>
+                            <li role="listitem">Обедайте в "кафана" - традиционных ресторанах с большими порциями</li>
+                            <li role="listitem">Используйте общественный транспорт - очень доступный по цене</li>
+                            <li role="listitem">Пейте местное пиво и вино - отличное качество за разумные деньги</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="pricing-grid">
-                <!-- Продукты питания -->
-                <div class="price-category fade-in">
-                    <h3><i class="fas fa-shopping-basket"></i> Продукты питания</h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span class="item-name">Хлеб (буханка)</span>
-                            <div class="prices">
-                                <span class="price-rsd">80-120 RSD</span>
-                                <span class="price-conv">0.7-1€ / 60-90₽</span>
-                            </div>
+        <!-- Food Section -->
+        <section id="food" class="food section-transition" aria-labelledby="food-title">
+            <div class="container">
+                <h2 id="food-title" class="section-title fade-in">Сербская кухня</h2>
+                <p class="section-subtitle fade-in">Вкусные блюда по доступным ценам - гастрономический рай</p>
+                
+                <div class="food-grid" role="list" aria-label="Блюда сербской кухни">
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/pljeskavica.jpg" alt="Плескавица - огромная мясная котлета с лепешкой и овощами" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="price-item">
-                            <span class="item-name">Молоко (1л)</span>
-                            <div class="prices">
-                                <span class="price-rsd">110-150 RSD</span>
-                                <span class="price-conv">0.9-1.3€ / 85-115₽</span>
-                            </div>
+                        <h3>Pljeskavica</h3>
+                        <p>Гигантская котлета-бургер с разнообразными начинками и соусами. "Лепенья" (лепешка) вместо булки обязательна!</p>
+                        <div class="price">400-600 RSD</div>
+                        <div class="price-conversion">3.5-5€ / 350-500₽</div>
+                    </article>
+                    
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/cevapi.jpg" alt="Чевапы - мясные колбаски с луком и лепешкой сомун" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="price-item">
-                            <span class="item-name">Яйца (10 шт)</span>
-                            <div class="prices">
-                                <span class="price-rsd">180-250 RSD</span>
-                                <span class="price-conv">1.5-2.1€ / 140-190₽</span>
-                            </div>
+                        <h3>Ćevapi</h3>
+                        <p>Мясные колбаски с луком и лепешкой "сомун" - национальное блюдо номер один. Подается с каймаком и уткой.</p>
+                        <div class="price">350-500 RSD</div>
+                        <div class="price-conversion">3-4€ / 300-400₽</div>
+                    </article>
+                    
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/ajvar.jpg" alt="Айвар - икра из запеченных перцев в стеклянной банке" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="price-item">
-                            <span class="item-name">Сыр (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">700-1000 RSD</span>
-                                <span class="price-conv">6-8.5€ / 540-770₽</span>
-                            </div>
+                        <h3>Ajvar</h3>
+                        <p>Икра из запеченных перцев — любимая национальная закуска к любому блюду. Бывает острая и сладкая.</p>
+                        <div class="price">200-300 RSD</div>
+                        <div class="price-conversion">1.7-2.5€ / 170-250₽</div>
+                    </article>
+                    
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/rakija.jpg" alt="Ракия - традиционный фруктовый бренди в графине и рюмках" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="price-item">
-                            <span class="item-name">Курица (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">450-650 RSD</span>
-                                <span class="price-conv">3.8-5.5€ / 350-500₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Говядина (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">800-1200 RSD</span>
-                                <span class="price-conv">6.8-10.3€ / 620-920₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Картофель (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">60-100 RSD</span>
-                                <span class="price-conv">0.5-0.85€ / 46-77₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Помидоры (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">150-300 RSD</span>
-                                <span class="price-conv">1.3-2.6€ / 115-230₽</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <h3>Rakija</h3>
+                        <p>Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая и сливовая — самые популярные.</p>
+                        <div class="price">150-300 RSD</div>
+                        <div class="price-conversion">1.3-2.5€ / 130-250₽</div>
+                    </article>
 
-                <!-- Рынки и местное -->
-                <div class="price-category fade-in">
-                    <h3><i class="fas fa-store"></i> Рынки и местные продукты</h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span class="item-name">Айвар (банка 500г)</span>
-                            <div class="prices">
-                                <span class="price-rsd">300-500 RSD</span>
-                                <span class="price-conv">2.5-4.3€ / 230-380₽</span>
-                            </div>
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/sopska-salad.jpg" alt="Шопский салат - свежие овощи с тертым сыром" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="price-item">
-                            <span class="item-name">Каймак (200г)</span>
-                            <div class="prices">
-                                <span class="price-rsd">250-400 RSD</span>
-                                <span class="price-conv">2.1-3.4€ / 190-300₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Сливовица (0.5л)</span>
-                            <div class="prices">
-                                <span class="price-rsd">500-1500 RSD</span>
-                                <span class="price-conv">4.3-12.8€ / 380-1150₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Мед местный (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">800-1200 RSD</span>
-                                <span class="price-conv">6.8-10.3€ / 620-920₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Вяленая ветчина</span>
-                            <div class="prices">
-                                <span class="price-rsd">1200-1800 RSD</span>
-                                <span class="price-conv">10.3-15.4€ / 920-1380₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Сыр в рассоле</span>
-                            <div class="prices">
-                                <span class="price-rsd">600-900 RSD</span>
-                                <span class="price-conv">5.1-7.7€ / 460-690₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Фрукты сезонные (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">100-250 RSD</span>
-                                <span class="price-conv">0.85-2.1€ / 77-190₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Овощи сезонные (1кг)</span>
-                            <div class="prices">
-                                <span class="price-rsd">80-200 RSD</span>
-                                <span class="price-conv">0.7-1.7€ / 60-150₽</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <h3>Шопский салат</h3>
+                        <p>Свежий салат из помидоров, огурцов, лука и сыра, заправленный оливковым маслом. Идеальная закуска к мясу.</p>
+                        <div class="price">250-400 RSD</div>
+                        <div class="price-conversion">2.1-3.4€ / 190-300₽</div>
+                    </article>
 
-                <!-- Рестораны и кафе -->
-                <div class="price-category fade-in">
-                    <h3><i class="fas fa-utensils"></i> Рестораны и кафе</h3>
-                    <div class="price-items">
-                        <div class="price-item">
-                            <span class="item-name">Плескавица в ресторане</span>
-                            <div class="prices">
-                                <span class="price-rsd">400-600 RSD</span>
-                                <span class="price-conv">3.5-5€ / 350-500₽</span>
-                            </div>
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/gibanica.jpg" alt="Гибаница - слоеный сырный пирог с яйцами" class="responsive-image" loading="lazy">
                         </div>
-                        <div class="price-item">
-                            <span class="item-name">Чевапы с гарниром</span>
-                            <div class="prices">
-                                <span class="price-rsd">350-500 RSD</span>
-                                <span class="price-conv">3-4€ / 300-400₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Салат "Шопский"</span>
-                            <div class="prices">
-                                <span class="price-rsd">250-400 RSD</span>
-                                <span class="price-conv">2.1-3.4€ / 190-300₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Супы (чевапчичи, рыбный)</span>
-                            <div class="prices">
-                                <span class="price-rsd">200-350 RSD</span>
-                                <span class="price-conv">1.7-3€ / 150-270₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Пиво (0.5л)</span>
-                            <div class="prices">
-                                <span class="price-rsd">150-250 RSD</span>
-                                <span class="price-conv">1.3-2.1€ / 115-190₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Кофе в кафе</span>
-                            <div class="prices">
-                                <span class="price-rsd">120-200 RSD</span>
-                                <span class="price-conv">1-1.7€ / 90-150₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Вино (бокал)</span>
-                            <div class="prices">
-                                <span class="price-rsd">200-400 RSD</span>
-                                <span class="price-conv">1.7-3.4€ / 150-300₽</span>
-                            </div>
-                        </div>
-                        <div class="price-item">
-                            <span class="item-name">Десерты (палачинке)</span>
-                            <div class="prices">
-                                <span class="price-rsd">200-350 RSD</span>
-                                <span class="price-conv">1.7-3€ / 150-270₽</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <h3>Гибаница</h3>
+                        <p>Традиционный сырный пирог из слоеного теста с сыром и яйцами. Популярный завтрак и перекус.</p>
+                        <div class="price">200-350 RSD</div>
+                        <div class="price-conversion">1.7-3€ / 150-270₽</div>
+                    </article>
 
-            <div class="price-tips fade-in">
-                <div class="tip-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h4>Советы по экономии</h4>
-                    <ul>
-                        <li>Покупайте на местных рынках (пијаца) - цены ниже чем в супермаркетах</li>
-                        <li>Обедайте в "кафана" - традиционных ресторанах с большими порциями</li>
-                        <li>Используйте общественный транспорт - очень доступный по цене</li>
-                        <li>Пейте местное пиво и вино - отличное качество за разумные деньги</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/sarma.jpg" alt="Сарма - голубцы из кислой капусты с мясной начинкой" class="responsive-image" loading="lazy">
+                        </div>
+                        <h3>Сарма</h3>
+                        <p>Голубцы из кислой капусты с мясной начинкой, томленные в казане. Традиционное зимнее блюдо.</p>
+                        <div class="price">300-500 RSD</div>
+                        <div class="price-conversion">2.5-4.3€ / 230-380₽</div>
+                    </article>
 
-    <!-- Food Section -->
-    <section id="food" class="food section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in">Сербская кухня</h2>
-            <p class="section-subtitle fade-in">Вкусные блюда по доступным ценам - гастрономический рай</p>
-            
-            <div class="food-grid">
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/pljeskavica.jpg" alt="Плескавица" class="responsive-image">
-                    </div>
-                    <h3>Pljeskavica</h3>
-                    <p>Гигантская котлета-бургер с разнообразными начинками и соусами. "Лепенья" (лепешка) вместо булки обязательна!</p>
-                    <div class="price">400-600 RSD</div>
-                    <div class="price-conversion">3.5-5€ / 350-500₽</div>
+                    <article class="food-card fade-in" role="listitem">
+                        <div class="food-image">
+                            <img src="images/palacinke.jpg" alt="Палачинке - тонкие блинчики с шоколадной начинкой" class="responsive-image" loading="lazy">
+                        </div>
+                        <h3>Палачинке</h3>
+                        <p>Тонкие блинчики с различными начинками: орехами, шоколадом, вареньем или сыром. Любимый десерт.</p>
+                        <div class="price">200-350 RSD</div>
+                        <div class="price-conversion">1.7-3€ / 150-270₽</div>
+                    </article>
                 </div>
                 
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/cevapi.jpg" alt="Чевапы" class="responsive-image">
-                    </div>
-                    <h3>Ćevapi</h3>
-                    <p>Мясные колбаски с луком и лепешкой "сомун" - национальное блюдо номер один. Подается с каймаком и уткой.</p>
-                    <div class="price">350-500 RSD</div>
-                    <div class="price-conversion">3-4€ / 300-400₽</div>
-                </div>
-                
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/ajvar.jpg" alt="Айвар" class="responsive-image">
-                    </div>
-                    <h3>Ajvar</h3>
-                    <p>Икра из запеченных перцев — любимая национальная закуска к любому блюду. Бывает острая и сладкая.</p>
-                    <div class="price">200-300 RSD</div>
-                    <div class="price-conversion">1.7-2.5€ / 170-250₽</div>
-                </div>
-                
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/rakija.jpg" alt="Ракия" class="responsive-image">
-                    </div>
-                    <h3>Rakija</h3>
-                    <p>Крепкий фруктовый бренди (45-50%) - традиционный алкогольный напиток. Вишневая и сливовая — самые популярные.</p>
-                    <div class="price">150-300 RSD</div>
-                    <div class="price-conversion">1.3-2.5€ / 130-250₽</div>
-                </div>
-
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/sopska-salad.jpg" alt="Шопский салат" class="responsive-image">
-                    </div>
-                    <h3>Шопский салат</h3>
-                    <p>Свежий салат из помидоров, огурцов, лука и сыра, заправленный оливковым маслом. Идеальная закуска к мясу.</p>
-                    <div class="price">250-400 RSD</div>
-                    <div class="price-conversion">2.1-3.4€ / 190-300₽</div>
-                </div>
-
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/gibanica.jpg" alt="Гибаница" class="responsive-image">
-                    </div>
-                    <h3>Гибаница</h3>
-                    <p>Традиционный сырный пирог из слоеного теста с сыром и яйцами. Популярный завтрак и перекус.</p>
-                    <div class="price">200-350 RSD</div>
-                    <div class="price-conversion">1.7-3€ / 150-270₽</div>
-                </div>
-
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/sarma.jpg" alt="Сарма" class="responsive-image">
-                    </div>
-                    <h3>Сарма</h3>
-                    <p>Голубцы из кислой капусты с мясной начинкой, томленные в казане. Традиционное зимнее блюдо.</p>
-                    <div class="price">300-500 RSD</div>
-                    <div class="price-conversion">2.5-4.3€ / 230-380₽</div>
-                </div>
-
-                <div class="food-card fade-in">
-                    <div class="food-image">
-                        <img src="images/palacinke.jpg" alt="Палачинке" class="responsive-image">
-                    </div>
-                    <h3>Палачинке</h3>
-                    <p>Тонкие блинчики с различными начинками: орехами, шоколадом, вареньем или сыром. Любимый десерт.</p>
-                    <div class="price">200-350 RSD</div>
-                    <div class="price-conversion">1.7-3€ / 150-270₽</div>
+                <div class="restaurant-tip fade-in">
+                    <p style="color: #d4af37; font-weight: 600; font-size: 1.1rem;">
+                        🍽️ <strong>Совет:</strong> Средний чек в ресторане — 1000-1500 RSD (8-12€ / 800-1200₽) на человека
+                    </p>
                 </div>
             </div>
-            
-            <div class="restaurant-tip fade-in">
-                <p style="color: #d4af37; font-weight: 600; font-size: 1.1rem;">
-                    🍽️ <strong>Совет:</strong> Средний чек в ресторане — 1000-1500 RSD (8-12€ / 800-1200₽) на человека
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Facts Section -->
-    <section id="facts" class="facts section-transition">
-        <div class="container">
-            <h2 class="section-title fade-in">Факты и экономика</h2>
-            <p class="section-subtitle fade-in">Ключевая информация о стране для путешественников</p>
-            <div class="facts-grid">
-                <div class="fact-card fade-in">
-                    <i class="fas fa-landmark"></i>
-                    <h3>Столица</h3>
-                    <p><strong>Белград</strong> — один из древнейших городов Европы, постоянно населен с 4800 г. до н.э. Город на слиянии двух рек с богатой историей.</p>
-                </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-users"></i>
-                    <h3>Население</h3>
-                    <p>Около <strong>6.7 млн</strong> человек (без Косово). Сербы составляют 83% населения. Высокий уровень гостеприимства и радушия.</p>
-                </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Валюта</h3>
-                    <p><strong>Сербский динар</strong> (RSD). ~1€ ≈ 117 RSD, ~1₽ ≈ 1.3 RSD. Российские рубли и евро можно легко обменять в любом банке.</p>
-                </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Экономика</h3>
-                    <p>Автомобилестроение (Fiat), IT, сельское хозяйство. Сербия — мировой лидер по экспорту малины и слив.</p>
-                </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-plane"></i>
-                    <h3>Виза</h3>
-                    <p>Для граждан России и многих других стран <strong>виза не требуется</strong> до 30 дней. Нужен только загранпаспорт.</p>
-                </div>
-                <div class="fact-card fade-in">
-                    <i class="fas fa-futbol"></i>
-                    <h3>Спорт</h3>
-                    <p>Сербия — родина многих знаменитых спортсменов: Новак Джокович (теннис), Никола Йокич (баскетбол), водное поло (чемпионы мира).</p>
+        <!-- Facts Section -->
+        <section id="facts" class="facts section-transition" aria-labelledby="facts-title">
+            <div class="container">
+                <h2 id="facts-title" class="section-title fade-in">Факты и экономика</h2>
+                <p class="section-subtitle fade-in">Ключевая информация о стране для путешественников</p>
+                <div class="facts-grid" role="list" aria-label="Факты о Сербии">
+                    <article class="fact-card fade-in" role="listitem">
+                        <i class="fas fa-landmark" aria-hidden="true"></i>
+                        <h3>Столица</h3>
+                        <p><strong>Белград</strong> — один из древнейших городов Европы, постоянно населен с 4800 г. до н.э. Город на слиянии двух рек с богатой историей.</p>
+                    </article>
+                    <article class="fact-card fade-in" role="listitem">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <h3>Население</h3>
+                        <p>Около <strong>6.7 млн</strong> человек (без Косово). Сербы составляют 83% населения. Высокий уровень гостеприимства и радушия.</p>
+                    </article>
+                    <article class="fact-card fade-in" role="listitem">
+                        <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+                        <h3>Валюта</h3>
+                        <p><strong>Сербский динар</strong> (RSD). ~1€ ≈ 117 RSD, ~1₽ ≈ 1.3 RSD. Российские рубли и евро можно легко обменять в любом банке.</p>
+                    </article>
+                    <article class="fact-card fade-in" role="listitem">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <h3>Экономика</h3>
+                        <p>Автомобилестроение (Fiat), IT, сельское хозяйство. Сербия — мировой лидер по экспорту малины и слив.</p>
+                    </article>
+                    <article class="fact-card fade-in" role="listitem">
+                        <i class="fas fa-plane" aria-hidden="true"></i>
+                        <h3>Виза</h3>
+                        <p>Для граждан России и многих других стран <strong>виза не требуется</strong> до 30 дней. Нужен только загранпаспорт.</p>
+                    </article>
+                    <article class="fact-card fade-in" role="listitem">
+                        <i class="fas fa-futbol" aria-hidden="true"></i>
+                        <h3>Спорт</h3>
+                        <p>Сербия — родина многих знаменитых спортсменов: Новак Джокович (теннис), Никола Йокич (баскетбол), водное поло (чемпионы мира).</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-title">Сербия</div>
-                <div class="footer-subtitle">Страна с богатой историей и большим сердцем <span class="pulse">🇷🇸</span></div>
+                <div class="footer-subtitle">Страна с богатой историей и большим сердцем <span class="pulse" aria-hidden="true">🇷🇸</span></div>
                 
                 <div style="margin: 2rem 0;">
                     <p style="color: #666; font-size: 1rem;">
-                        "Слава Сербии! Živela Srbija! <span class="emoji-animation">🇷🇸</span>"
+                        "Слава Сербии! Živela Srbija! <span class="emoji-animation" aria-hidden="true">🇷🇸</span>"
                     </p>
                 </div>
                 
