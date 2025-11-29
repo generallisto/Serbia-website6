@@ -1,4 +1,4 @@
-/* style.css - Golden gradients and animations */
+/* style.css - Updated with brighter golden gradient */
 
 * {
     margin: 0;
@@ -12,7 +12,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f0c08 0%, #1a140c 25%, #2a1e0f 50%, #1a140c 75%, #0f0c08 100%);
+    background: linear-gradient(135deg, #2a2a2a 0%, #3d3d3d 25%, #4a3c2a 50%, #3d3d3d 75%, #2a2a2a 100%);
     background-attachment: fixed;
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
@@ -62,7 +62,7 @@ body {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    background: #2a2a2a;
+    background: #3d3d3d;
     color: white;
     padding: 8px 12px;
     border-radius: 6px;
@@ -95,7 +95,7 @@ body {
 
 /* Header */
 header {
-    background: rgba(26, 20, 12, 0.95);
+    background: rgba(42, 42, 42, 0.95);
     backdrop-filter: blur(20px);
     position: fixed;
     width: 100%;
@@ -173,14 +173,8 @@ nav {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 50%);
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(180deg); }
 }
 
 .hero-content h1 {
@@ -193,12 +187,12 @@ nav {
     letter-spacing: -1px;
     line-height: 1.1;
     font-family: 'Playfair Display', serif;
-    animation: titleGlow 3s ease-in-out infinite;
+    animation: titleFloat 6s ease-in-out infinite;
 }
 
-@keyframes titleGlow {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-    50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); }
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .hero-content p {
@@ -217,7 +211,7 @@ nav {
     gap: 12px;
     padding: 16px 32px;
     background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    color: #0a0a0a;
+    color: #2a2a2a;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
@@ -309,7 +303,7 @@ section.active {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
@@ -335,7 +329,7 @@ section.active {
 }
 
 .about-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -384,74 +378,71 @@ section.active {
 /* Culture Section */
 .culture-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
 .culture-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
-    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     border-radius: 16px;
-    text-align: center;
+    overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.culture-image {
+    height: 200px;
     overflow: hidden;
 }
 
-.culture-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+.culture-image img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-    transition: left 0.5s ease;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
 }
 
-.culture-card:hover::before {
-    left: 100%;
+.culture-content {
+    padding: 1.5rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.culture-card:hover {
-    transform: translateY(-5px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
-}
-
-.culture-card i {
+.culture-content i {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: iconBounce 3s ease-in-out infinite;
 }
 
-@keyframes iconBounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
-.culture-card h3 {
+.culture-content h3 {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: #f5f5f5;
 }
 
-.culture-card p {
+.culture-content p {
     color: #b0b0b0;
     font-size: 0.95rem;
     line-height: 1.6;
+    flex-grow: 1;
+}
+
+.culture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.culture-card:hover .culture-image img {
+    transform: scale(1.1);
 }
 
 /* Places Section */
@@ -462,7 +453,7 @@ section.active {
 }
 
 .place-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -472,7 +463,6 @@ section.active {
 
 .place-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
@@ -531,11 +521,10 @@ section.active {
 
 .feature:hover {
     transform: translateY(-5px);
-    background: transparent;
 }
 
 .feature-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -586,7 +575,7 @@ section.active {
 }
 
 .price-category {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -612,14 +601,14 @@ section.active {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 .price-item:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
     border-color: rgba(212, 175, 55, 0.3);
 }
 
@@ -655,7 +644,7 @@ section.active {
 }
 
 .converter-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 1.5rem 2rem;
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -685,7 +674,7 @@ section.active {
 }
 
 .tip-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -731,7 +720,7 @@ section.active {
 }
 
 .food-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
@@ -743,12 +732,11 @@ section.active {
 
 .food-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .food-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -808,7 +796,7 @@ section.active {
     text-align: center;
     margin-top: 3rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
 }
@@ -821,7 +809,7 @@ section.active {
 }
 
 .fact-card {
-    background: linear-gradient(135deg, rgba(42, 30, 15, 0.8) 0%, rgba(58, 42, 18, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     text-align: center;
@@ -831,24 +819,8 @@ section.active {
     overflow: hidden;
 }
 
-.fact-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.fact-card:hover::before {
-    left: 100%;
-}
-
 .fact-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
@@ -858,13 +830,6 @@ section.active {
     background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: iconSpin 4s linear infinite;
-}
-
-@keyframes iconSpin {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(180deg) scale(1.1); }
-    100% { transform: rotate(360deg) scale(1); }
 }
 
 .fact-card h3 {
@@ -882,7 +847,7 @@ section.active {
 
 /* Footer */
 footer {
-    background: #0a0a0a;
+    background: #2a2a2a;
     padding: 4rem 0 2rem;
     margin-top: 4rem;
     border-top: 1px solid rgba(212, 175, 55, 0.3);
@@ -932,7 +897,18 @@ footer {
     transform: translateY(0);
 }
 
-/* Анимации для эмодзи */
+.section-transition {
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Анимации эмодзи */
 .emoji-animation {
     animation: emojiJump 2s ease-in-out infinite;
 }
@@ -957,18 +933,6 @@ footer {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
-}
-
-/* Анимация перехода между секциями */
-.section-transition {
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.responsive-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
 }
 
 /* Responsive */
@@ -1015,6 +979,10 @@ footer {
     }
     
     .food-image {
+        height: 180px;
+    }
+    
+    .culture-image {
         height: 180px;
     }
     
