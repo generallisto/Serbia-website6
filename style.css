@@ -1,4 +1,4 @@
-/* style.css - с анимациями и эффектами */
+/* style.css - с оптимизацией изображений */
 
 * {
     margin: 0;
@@ -48,24 +48,98 @@ body {
     }
 }
 
-@keyframes shimmer {
-    0% { 
-        background-position: -200% center; 
-    }
-    100% { 
-        background-position: 200% center; 
+/* ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ */
+.about-image,
+.place-image,
+.feature-image,
+.food-image,
+.culture-image {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    
+    /* ФИКСИРОВАННЫЕ ВЫСОТЫ */
+    height: 400px;
+}
+
+.place-image { 
+    height: 280px; 
+}
+
+.feature-image { 
+    height: 220px; 
+}
+
+.food-image { 
+    height: 220px; 
+}
+
+.culture-image { 
+    height: 200px; 
+}
+
+/* УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ ИЗОБРАЖЕНИЙ */
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ОБРЕЗАЕТ И МАСШТАБИРУЕТ */
+    object-position: center; /* ЦЕНТРИРУЕТ ИЗОБРАЖЕНИЕ */
+    
+    /* ОПТИМИЗАЦИЯ КАЧЕСТВА */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: bicubic;
+    
+    /* ПЛАВНАЯ ЗАГРУЗКА */
+    transition: opacity 0.5s ease;
+}
+
+/* Для Retina дисплеев */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .responsive-image {
+        image-rendering: -webkit-optimize-contrast;
     }
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Эффекты при наведении */
+.about-image:hover,
+.place-image:hover,
+.feature-image:hover,
+.food-image:hover,
+.culture-image:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.about-image:hover img,
+.place-image:hover img,
+.feature-image:hover img,
+.food-image:hover img,
+.culture-image:hover img {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-image:hover .image-caption {
+    opacity: 1;
 }
 
 /* ФИКС ДЛЯ ХЕДЕРА */
@@ -251,7 +325,6 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    animation: slideIn 1s ease-out;
 }
 
 .cta-button {
@@ -397,78 +470,6 @@ section {
     color: #b0b0b0;
 }
 
-/* РАМКИ ДЛЯ ВСЕХ ФОТОГРАФИЙ */
-.about-image,
-.place-image,
-.feature-image,
-.food-image,
-.culture-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-/* Единые стили для всех изображений */
-.about-image img,
-.place-image img,
-.feature-image img,
-.food-image img,
-.culture-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.3s ease;
-}
-
-/* Фиксированные высоты для консистентности */
-.about-image { height: 400px; }
-.place-image { height: 280px; }
-.feature-image { height: 220px; }
-.food-image { height: 220px; }
-.culture-image { height: 200px; }
-
-/* Эффекты при наведении */
-.about-image:hover,
-.place-image:hover,
-.feature-image:hover,
-.food-image:hover,
-.culture-image:hover {
-    transform: translateY(-5px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.3);
-}
-
-.about-image:hover img,
-.place-image:hover img,
-.feature-image:hover img,
-.food-image:hover img,
-.culture-image:hover img {
-    transform: scale(1.05);
-}
-
-.image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.about-image:hover .image-caption {
-    opacity: 1;
-}
-
 /* Culture Section */
 .culture-grid {
     display: grid;
@@ -522,10 +523,6 @@ section {
     font-size: 0.95rem;
     line-height: 1.6;
     flex-grow: 1;
-}
-
-.culture-card:hover .culture-image img {
-    transform: scale(1.1);
 }
 
 /* Places Section */
