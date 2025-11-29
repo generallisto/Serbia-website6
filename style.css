@@ -1,4 +1,4 @@
-/* style.css - Golden gradient design restored */
+/* style.css - Updated with brighter golden gradient */
 
 * {
     margin: 0;
@@ -12,7 +12,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f0c08 0%, #1a140c 25%, #2a1e0f 50%, #1a140c 75%, #0f0c08 100%);
+    background: linear-gradient(135deg, #2a2a2a 0%, #3d3d3d 25%, #4a3c2a 50%, #3d3d3d 75%, #2a2a2a 100%);
     background-attachment: fixed;
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
@@ -26,79 +26,6 @@ body {
     0% { background-position: 0% 50% }
     50% { background-position: 100% 50% }
     100% { background-position: 0% 50% }
-}
-
-/* Анимированный фон */
-.animated-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(218, 165, 32, 0.08) 0%, transparent 50%);
-    animation: floatBackground 20s ease-in-out infinite;
-    z-index: -1;
-}
-
-@keyframes floatBackground {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(-10px, -10px) scale(1.02); }
-    50% { transform: translate(10px, 5px) scale(1.01); }
-    75% { transform: translate(5px, 10px) scale(1.02); }
-}
-
-/* Свечения */
-.hero-glow, .section-glow, .footer-glow, .card-glow, .image-glow {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
-    animation: glowPulse 4s ease-in-out infinite;
-    z-index: -1;
-}
-
-.hero-glow {
-    width: 500px;
-    height: 500px;
-    top: 20%;
-    left: 10%;
-}
-
-.section-glow {
-    width: 300px;
-    height: 300px;
-    top: 10%;
-    right: 5%;
-}
-
-.footer-glow {
-    width: 400px;
-    height: 400px;
-    bottom: 10%;
-    left: 5%;
-}
-
-.card-glow {
-    width: 200px;
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.image-glow {
-    width: 150px;
-    height: 150px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-@keyframes glowPulse {
-    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* Боковое меню */
@@ -135,7 +62,7 @@ body {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    background: #2a2a2a;
+    background: #3d3d3d;
     color: white;
     padding: 8px 12px;
     border-radius: 6px;
@@ -168,7 +95,7 @@ body {
 
 /* Header */
 header {
-    background: rgba(26, 20, 12, 0.95);
+    background: rgba(42, 42, 42, 0.95);
     backdrop-filter: blur(20px);
     position: fixed;
     width: 100%;
@@ -246,9 +173,8 @@ nav {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 50%);
-    animation: float 6s ease-in-out infinite;
 }
 
 .hero-content h1 {
@@ -261,17 +187,12 @@ nav {
     letter-spacing: -1px;
     line-height: 1.1;
     font-family: 'Playfair Display', serif;
-    animation: titleGlow 3s ease-in-out infinite;
+    animation: titleFloat 6s ease-in-out infinite;
 }
 
-@keyframes titleGlow {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-    50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(180deg); }
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .hero-content p {
@@ -290,7 +211,7 @@ nav {
     gap: 12px;
     padding: 16px 32px;
     background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
-    color: #0a0a0a;
+    color: #2a2a2a;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
@@ -298,6 +219,18 @@ nav {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        transform: translateY(0);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
+        transform: translateY(-2px);
+    }
 }
 
 .cta-button:hover {
@@ -370,11 +303,17 @@ section.active {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
 .stat-number {
@@ -390,7 +329,7 @@ section.active {
 }
 
 .about-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -444,10 +383,10 @@ section.active {
 }
 
 .culture-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
     display: flex;
@@ -499,8 +438,7 @@ section.active {
 
 .culture-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .culture-card:hover .culture-image img {
@@ -515,18 +453,17 @@ section.active {
 }
 
 .place-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
 }
 
 .place-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .place-image {
@@ -587,7 +524,7 @@ section.active {
 }
 
 .feature-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -638,10 +575,10 @@ section.active {
 }
 
 .price-category {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .price-category h3 {
@@ -664,14 +601,14 @@ section.active {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 .price-item:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
     border-color: rgba(212, 175, 55, 0.3);
 }
 
@@ -707,7 +644,7 @@ section.active {
 }
 
 .converter-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 1.5rem 2rem;
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -737,7 +674,7 @@ section.active {
 }
 
 .tip-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -783,11 +720,11 @@ section.active {
 }
 
 .food-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -795,12 +732,11 @@ section.active {
 
 .food-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .food-image {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -860,7 +796,7 @@ section.active {
     text-align: center;
     margin-top: 3rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     border-radius: 16px;
     border: 1px solid rgba(212, 175, 55, 0.3);
 }
@@ -873,11 +809,11 @@ section.active {
 }
 
 .fact-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    background: linear-gradient(135deg, rgba(74, 74, 74, 0.8) 0%, rgba(90, 90, 90, 0.9) 100%);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -885,8 +821,7 @@ section.active {
 
 .fact-card:hover {
     transform: translateY(-5px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
 }
 
 .fact-card i {
@@ -912,10 +847,10 @@ section.active {
 
 /* Footer */
 footer {
-    background: #0a0a0a;
+    background: #2a2a2a;
     padding: 4rem 0 2rem;
     margin-top: 4rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
     position: relative;
 }
 
